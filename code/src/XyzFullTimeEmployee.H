@@ -10,10 +10,9 @@ class XyzFullTimeEmployee : public XyzEmployeeImpl
 {
 public:
     uint8_t mLeavesAvailed;
-    uint8_t mLeavesLeft;
 
 public:
-    void setLeaveDetails(void);
+    void setLeaveDetails(uint8_t LeavesAvailedParm);
     void getLeaveDetails(void);
 };
 

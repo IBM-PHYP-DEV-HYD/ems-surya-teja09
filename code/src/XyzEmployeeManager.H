@@ -19,7 +19,7 @@ public:
 
 public:
     void addEmployee(void);
-    void removeEmployee(void);
+    void removeEmployee(string EmpIdParm);
     void printFullTimeEmpoloyees(void);
     void printContractEmpoloyees(void);
     void printInternEmpoloyees(void);

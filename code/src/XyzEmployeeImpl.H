@@ -24,7 +24,7 @@ public:
 
 public:
     
-    void setLeaveDetails(void); 
+    void setLeaveDetails(uint8_t LeavesAvailedParm); 
     void setInternSpecificDetails(InternDetails InternDetailsParm);
     void setExtAgency(ExternalAgency ExtAgencyParm);
     void getLeaveDetails(void);

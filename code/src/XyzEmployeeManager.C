@@ -19,13 +19,16 @@ void XyzEmployeeManager::addEmployee(void)
         {
             XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee();
 
-            EmpDetails EmpDetailsParm;
+            EmpDetails sEmpDetails;
 
-            EmpDetailsParm.mEmpType = (uint8_t)FULL_TIME;
-            getEmpBasicDetails(&EmpDetailsParm, mEmpIdSeriesNum);
+            sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
+            getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
             
-            sXyzEmp->setEmployeeBasicDetails(&EmpDetailsParm);
-            uint8_t sNumLeaves = getRandomNumber(1, 22);
+            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
+
+            uint8_t sNumLeaves = 0;
+            sNumLeaves = getRandomNumber(1, 22);
+            sXyzEmp->setLeaveDetails(sNumLeaves);
 
             ActiveAndInactiveEmpl.pushFront(sXyzEmp);
 
@@ -36,16 +39,16 @@ void XyzEmployeeManager::addEmployee(void)
         {
             XyzEmployeeIF* sXyzEmp = new XyzContractEmployee();
 
-            EmpDetails EmpDetailsParm;
+            EmpDetails sEmpDetails;
+            sEmpDetails.mEmpType = (uint8_t)CONTRACT;
+            getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
+            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            EmpDetailsParm.mEmpType = (uint8_t)CONTRACT;
-            getEmpBasicDetails(&EmpDetailsParm, mEmpIdSeriesNum);
-
-            sXyzEmp->setEmployeeBasicDetails(&EmpDetailsParm);
-
-            //Add a way to randomly assign hiring agency to contract employee
+            ExternalAgency sExtAgency = getRandomizedEmployeeAgency();
+            sXyzEmp->setExtAgency(sExtAgency);
 
             ActiveAndInactiveEmpl.pushFront(sXyzEmp);
+            
             ++mEmpIdSeriesNum;           
             break;
         }
@@ -53,16 +56,18 @@ void XyzEmployeeManager::addEmployee(void)
         {
             XyzEmployeeIF* sXyzEmp = new XyzInternEmployee();
 
-            EmpDetails EmpDetailsParm;
+            EmpDetails sEmpDetails;
+            sEmpDetails.mEmpType = (uint8_t)INTERN;
+            getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
 
-            EmpDetailsParm.mEmpType = (uint8_t)INTERN;
-            getEmpBasicDetails(&EmpDetailsParm, mEmpIdSeriesNum);
+            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            sXyzEmp->setEmployeeBasicDetails(&EmpDetailsParm);
-
-            //Add a way to randomly assign hiring college and hiring branch to intern employee
+            InternDetails sInternDetails;
+            getRandomizedInternDetails(&sInternDetails);
+            sXyzEmp->setInternSpecificDetails(sInternDetails);
 
             ActiveAndInactiveEmpl.pushFront(sXyzEmp);
+
             ++mEmpIdSeriesNum;           
             break;
         }
@@ -74,34 +79,55 @@ void XyzEmployeeManager::addEmployee(void)
     }
 }
 
-void XyzEmployeeManager::removeEmployee(void)
+void XyzEmployeeManager::removeEmployee(string EmpIdParm)
 {
 
 }
 
 void XyzEmployeeManager::printFullTimeEmpoloyees(void)
 {
-    
+    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
+
+    while(sCurrNode != NULL)
+    {
+        sCurrNode = sCurrNode->mNext;
+    }
+
 }
 
 void XyzEmployeeManager::printContractEmpoloyees(void)
 {
+    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
 
+    while(sCurrNode != NULL)
+    {
+        sCurrNode = sCurrNode->mNext;
+    }
 }
 
 void XyzEmployeeManager::printInternEmpoloyees(void)
 {
+    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
 
+    while(sCurrNode != NULL)
+    {
+        sCurrNode = sCurrNode->mNext;
+    }
 }
 
 void XyzEmployeeManager::printResignedEmployees(void)
 {
- 
+
 }
 
 void XyzEmployeeManager::printEmployeeSummary(void)
 {
+    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
 
+    while(sCurrNode != NULL)
+    {
+        sCurrNode = sCurrNode->mNext;
+    }    
 }
 
 void XyzEmployeeManager::makeInternOrContractAsFullTimeEmployees(void)

@@ -1,6 +1,6 @@
 #include "XyzFullTimeEmployee.H"
 
-void XyzFullTimeEmployee::setLeaveDetails(void)
+void XyzFullTimeEmployee::setLeaveDetails(uint8_t LeavesAvailedParm)
 {
     uint8_t sLeavesAvailed = 0;
 

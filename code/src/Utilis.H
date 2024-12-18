@@ -7,41 +7,46 @@ using namespace std;
 
 enum EmployeeStatus
 {
-    ACTIVE      = 1,
-    INACTIVE    = 2,
-    RESIGNED    = 3
+    STATUS_UNDEFINED   = 0,
+    ACTIVE             = 1,
+    INACTIVE           = 2,
+    RESIGNED           = 3
 };
 
 enum EmployeeType
 {
-    FULL_TIME   = 1,
-    CONTRACT    = 2,
-    INTERN      = 3
+    TYPE_UNDEFINED     = 0,
+    FULL_TIME          = 1,
+    CONTRACT           = 2,
+    INTERN             = 3
 };
 
 enum ExternalAgency
 {
-    AVENGERS          = 1,
-    JUSTICE_LEAUGE    = 2,
-    X_MEN             = 3
+    AGENCY_UNDEFINED           = 0,
+    AVENGERS                   = 1,
+    JUSTICE_LEAUGE             = 2,
+    X_MEN                      = 3
 };
 
 enum HiringFromColleges
 {
-    IIT_DELHI        = 1,
-    IIT_MUMBAI       = 2,
-    IIT_HYDERABAD    = 3,
-    IIT_KANPUR       = 4,
-    NIT_WARANGAL     = 5,
-    NIT_TIRUCHI      = 6,
-    IIIT_HYDERABAD   = 7
+    COLLEGE_UNDEFINED          = 0,
+    IIT_DELHI                  = 1,
+    IIT_MUMBAI                 = 2,
+    IIT_HYDERABAD              = 3,
+    IIT_KANPUR                 = 4,
+    NIT_WARANGAL               = 5,
+    NIT_TIRUCHI                = 6,
+    IIIT_HYDERABAD             = 7
 };
 
 enum HiringFromBranches
 {
-    CSE      = 1,
-    CSIT     = 2,
-    ECE      = 3
+    UNDEFINED_BRANCH  = 0,
+    CSE               = 1,
+    CSIT              = 2,
+    ECE               = 3
 };
 
 #pragma once
@@ -64,6 +69,8 @@ struct EmpDetails
 };
 
 int getRandomNumber(int startNumParm, int endNumParm);
-void getEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
+void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
+ExternalAgency getRandomizedEmployeeAgency(void);
+void getRandomizedInternDetails(InternDetails *InternDetailsParm);
 
 #endif

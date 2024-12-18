@@ -7,7 +7,7 @@ class XyzEmployeeIF
 {
 public:
     
-    virtual void setLeaveDetails(void) = 0;
+    virtual void setLeaveDetails(uint8_t LeavesAvailedParm) = 0;
     virtual void setInternSpecificDetails(InternDetails InternDetailsParm) = 0;
     virtual void setExtAgency(ExternalAgency ExtAgencyParm) = 0;
     virtual void getLeaveDetails(void) = 0;
