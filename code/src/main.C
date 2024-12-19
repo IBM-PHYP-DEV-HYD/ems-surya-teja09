@@ -1,6 +1,8 @@
 #include "Edll.H"
 #include "XyzEmployeeManager.H"
 
+int Loopcount = 0;
+
 int main()
 {
 #if 0
@@ -16,6 +18,18 @@ int main()
 #endif
     XyzEmployeeManager XyzEmpMgr;
     while(1)
+    {
         XyzEmpMgr.addEmployee();
+        Loopcount++;
+        if((Loopcount % 5) == 0)
+        {
+            string empid;
+            cout << "Enter EmpID : " << endl;
+            cin >> empid;
+            XyzEmpMgr.removeEmployee(empid);
+        }
+    }
+        
+
     return 0;
 }

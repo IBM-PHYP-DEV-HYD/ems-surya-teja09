@@ -29,6 +29,7 @@ public:
     void addLeaves(void);
     void searchEmployeeByName(void);
     void searchEmployeeById(void);
+    XyzEmployeeManager();
 };
 
 #endif

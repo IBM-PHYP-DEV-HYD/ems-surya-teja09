@@ -20,8 +20,6 @@ public:
     string mDateOfJoining;
     string mDateOfLeaving; 
 
-    //static uint64_t mEmployeeIdSeriesNum;
-
 public:
     
     void setLeaveDetails(uint8_t LeavesAvailedParm); 
@@ -30,8 +28,11 @@ public:
     void getLeaveDetails(void);
     InternDetails getInternSpecificDetails(void);
     ExternalAgency getExtAgency(void);
-    void getEmployeeBasicDetails(void);
-    void setEmployeeBasicDetails(EmpDetails* EmpDetailsPar);
+    string getEmployeeId(void);
+    void setEmployeeBasicDetails(EmpDetails* EmpDetailsParm);
+    char getEmployeeGender(void);
+    uint8_t getEmployeeStatus(void);
+    uint8_t getEmployeeType(void);
 };
 
 #endif

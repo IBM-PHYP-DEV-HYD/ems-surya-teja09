@@ -40,7 +40,22 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
 
     EmpDetailsParm->mEmpStatus = getRandomNumber(1, 2);
 
-    EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "F";
+    if(EmpDetailsParm->mEmpType == FULL_TIME)
+    {
+        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "F";
+    }
+    else if(EmpDetailsParm->mEmpType == CONTRACT)
+    {
+        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "C";
+    } 
+    else if(EmpDetailsParm->mEmpType == INTERN)
+    {
+        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "I";
+    }
+    else
+    {
+        //No operation required
+    }
     
     EmpDetailsParm->mGender = getRandomNumber(0,1);
 }
