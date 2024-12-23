@@ -44,7 +44,7 @@ void Edll<T>::addNodeAtParticularPosition(T dataParm, int posParm)
     }
     else
     {
-        cout << "Invalid Position passed, pass a valid position between 0 :" << Deque<T>::mNodeCount << endl;
+        cout << "Invalid Position passed, pass a valid position between 0 : " << Deque<T>::mNodeCount << endl;
     }
 }
 

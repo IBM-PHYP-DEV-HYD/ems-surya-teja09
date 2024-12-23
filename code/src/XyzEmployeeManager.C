@@ -2,6 +2,7 @@
    
 XyzEmployeeManager::XyzEmployeeManager()
 {
+    
     mEmpIdSeriesNum = 0;
 }
 
@@ -28,8 +29,6 @@ void XyzEmployeeManager::addEmployee(void)
 
             sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-            
-            cout << sEmpDetails.mEmpId << endl;
 
             sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
@@ -88,46 +87,14 @@ void XyzEmployeeManager::addEmployee(void)
 
 void XyzEmployeeManager::removeEmployee(string EmpIdParm)
 {
-#if 0
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
-    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee();
-    while(sCurrNode != NULL)
+    Node<XyzEmployeeIF*>* sCurrNode = nullptr;
+    sCurrNode = ActiveAndInactiveEmpl.mHead;
+
+    if(sCurrNode != nullptr)
     {
-        cout << "Emp Id : " << sCurrNode->mdata->getEmployeeId();
-        if(sCurrNode->mdata->getEmployeeId() == "EmpIdParm")
-            cout << "Emp Id Found" << endl;
-        else
-            cout << "Emp Id not found " << endl;
-        sCurrNode = sCurrNode->mNext;
-    }
-    
-
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
-
-    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee();
-
-    sXyzEmp = sCurrNode->mdata;
-    while(sCurrNode != NULL)
-    {
-        cout << "Emp Id : " << sXyzEmp->getEmployeeId();
-        #if 0
-        if(sXyzEmp->getEmployeeId() == "EmpIdParm")
-            cout << "Emp Id Found" << endl;
-        else
-            cout << "Emp Id not found " << endl;
-            #endif
-        sCurrNode = sCurrNode->mNext;
-        sXyzEmp = sCurrNode->mdata;
-    }
-#endif
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
-    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee();
-
-    while(sCurrNode != NULL)
-    {
-        
-        sCurrNode = sCurrNode->mNext;
-    }
+        cout << "NodeCount: " << ActiveAndInactiveEmpl.getSize() << endl;
+        cout << "EmpId:" << sCurrNode->mdata->getEmployeeId() << endl;
+    }    
 }
 
 void XyzEmployeeManager::printFullTimeEmpoloyees(void)

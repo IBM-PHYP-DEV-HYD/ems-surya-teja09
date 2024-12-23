@@ -21,7 +21,7 @@ public:
     string mDateOfLeaving; 
 
 public:
-    
+    //XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, uint8_t EmpStatusParm, uint8_t EmpTypeParm, char EmpGenderParm, string DobParm, string DojParm);
     void setLeaveDetails(uint8_t LeavesAvailedParm); 
     void setInternSpecificDetails(InternDetails InternDetailsParm);
     void setExtAgency(ExternalAgency ExtAgencyParm);

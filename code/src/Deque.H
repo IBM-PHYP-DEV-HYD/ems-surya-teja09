@@ -26,11 +26,11 @@ struct Node
     Node* mPrev;
     Node* mNext;
 
-    Node();
+    Node(T valueParm);
 };
 
 template <class T>
-Node<T>::Node() : mPrev(NULL), mNext(NULL){}
+Node<T>::Node(T valueParm) : mdata(valueParm), mPrev(NULL), mNext(NULL){}
 
 /*Deque and methods to perform operation on the Deque*/
 template <class T>
@@ -101,9 +101,9 @@ struct Student
 template <class T>
 void Deque<T>::pushFront(T dataParm)
 {
-    Node<T>* sNewNode = new Node<T>;  
+    Node<T>* sNewNode = new Node<T>(dataParm);  
 
-    sNewNode->mdata = dataParm;
+    //sNewNode->mdata = dataParm;
     sNewNode->mPrev = NULL;
 
     if(mHead == NULL)
@@ -127,9 +127,10 @@ void Deque<T>::pushFront(T dataParm)
 template <class T>
 void Deque<T>::pushBack(T dataParm)
 {
-    Node<T>* sNewNode = new Node<T>;
+    Node<T>* sNewNode = new Node<T>(dataParm); 
 
-    sNewNode->mdata = dataParm;
+    //sNewNode->mdata = dataParm;
+
     sNewNode->mNext = NULL;    
 
     if(mHead == NULL)

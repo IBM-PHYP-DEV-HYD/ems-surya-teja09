@@ -1,5 +1,12 @@
 #include "XyzEmployeeImpl.H"
 
+/*
+
+XyzEmployeeImpl::XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, uint8_t EmpStatusParm, uint8_t EmpTypeParm, char EmpGenderParm, string DobParm, string DojParm):
+          mEmployeeName(EmpNameParm),       
+{
+
+}*/
 
 void XyzEmployeeImpl::setEmployeeBasicDetails(EmpDetails* EmpDetailsParm)
 {
@@ -9,6 +16,7 @@ void XyzEmployeeImpl::setEmployeeBasicDetails(EmpDetails* EmpDetailsParm)
     mGender             = EmpDetailsParm->mGender;
     mEmployeeStatus     = EmpDetailsParm->mEmpStatus;
     mEmployeeType       = EmpDetailsParm->mEmpType; 
+    mEmployeeId         = EmpDetailsParm->mEmpId;
 }
 
 void XyzEmployeeImpl::setLeaveDetails(uint8_t LeavesAvailedParm)
