@@ -50,7 +50,7 @@ void XyzEmployeeManager::addEmployee(void)
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
             sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            ExternalAgency sExtAgency = getRandomizedEmployeeAgency();
+            int sExtAgency = getRandomizedEmployeeAgency();
             sXyzEmp->setExtAgency(sExtAgency);
 
             ActiveAndInactiveEmpl.pushFront(sXyzEmp);
@@ -107,9 +107,12 @@ void XyzEmployeeManager::printFullTimeEmpoloyees(void)
 
     sCurrNode->mdata->printEmpSpecificHeader();
 
-    while((sCurrNode != NULL) && (sCurrNode->mdata->getEmployeeType() == FULL_TIME))
+    while((sCurrNode != NULL) )
     {
-        sCurrNode->mdata->printEmpSpecifiDetails();
+        if((sCurrNode->mdata->getEmployeeType() == FULL_TIME))
+        {
+            sCurrNode->mdata->printEmpSpecifiDetails();
+        }
         sCurrNode = sCurrNode->mNext;
     }
     cout << ActiveAndInactiveEmpl.getSize() << endl;
@@ -117,22 +120,38 @@ void XyzEmployeeManager::printFullTimeEmpoloyees(void)
 
 void XyzEmployeeManager::printContractEmpoloyees(void)
 {
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
+    Node<XyzEmployeeIF*>* sCurrNode = nullptr;
+    sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    while(sCurrNode != NULL)
+    sCurrNode->mdata->printEmpSpecificHeader();
+
+    while((sCurrNode != NULL) )
     {
+        if((sCurrNode->mdata->getEmployeeType() == CONTRACT))
+        {
+            sCurrNode->mdata->printEmpSpecifiDetails();
+        }
         sCurrNode = sCurrNode->mNext;
     }
+    cout << ActiveAndInactiveEmpl.getSize() << endl;
 }
 
 void XyzEmployeeManager::printInternEmpoloyees(void)
 {
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
+    Node<XyzEmployeeIF*>* sCurrNode = nullptr;
+    sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    while(sCurrNode != NULL)
+    sCurrNode->mdata->printEmpSpecificHeader();
+
+    while((sCurrNode != NULL) )
     {
+        if((sCurrNode->mdata->getEmployeeType() == INTERN))
+        {
+            sCurrNode->mdata->printEmpSpecifiDetails();
+        }
         sCurrNode = sCurrNode->mNext;
     }
+    cout << ActiveAndInactiveEmpl.getSize() << endl;
 }
 
 void XyzEmployeeManager::printResignedEmployees(void)

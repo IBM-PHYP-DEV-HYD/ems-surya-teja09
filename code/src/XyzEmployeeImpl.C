@@ -29,7 +29,7 @@ void XyzEmployeeImpl::setInternSpecificDetails(InternDetails InternDetailsParm)
 
 }
 
-void XyzEmployeeImpl::setExtAgency(ExternalAgency ExtAgencyParm)
+void XyzEmployeeImpl::setExtAgency(int ExtAgencyParm)
 {
 
 }

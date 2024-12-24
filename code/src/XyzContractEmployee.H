@@ -8,10 +8,9 @@
 class XyzContractEmployee : public XyzEmployeeImpl
 {
 protected:
-    ExternalAgency mExtAgency;
+    int mExtAgency;
 public:
-    void setExtAgency(ExternalAgency ExtAgencyParm);
-    ExternalAgency getExtAgency(void);
+    void setExtAgency(int ExtAgencyParm);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
 };

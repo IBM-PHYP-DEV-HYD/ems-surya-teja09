@@ -9,7 +9,7 @@ public:
     
     virtual void setLeaveDetails(int LeavesAvailedParm) = 0;
     virtual void setInternSpecificDetails(InternDetails InternDetailsParm) = 0;
-    virtual void setExtAgency(ExternalAgency ExtAgencyParm) = 0;
+    virtual void setExtAgency(int ExtAgencyParm) = 0;
     virtual InternDetails getInternSpecificDetails(void) = 0;
     virtual ExternalAgency getExtAgency(void) = 0;
     virtual string getEmployeeId(void) = 0;

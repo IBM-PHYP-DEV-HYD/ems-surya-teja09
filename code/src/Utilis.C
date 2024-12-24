@@ -57,9 +57,9 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
     EmpDetailsParm->mGender = getRandomNumber(0,1);
 }
 
-ExternalAgency getRandomizedEmployeeAgency(void)
+int getRandomizedEmployeeAgency(void)
 {
-    return (ExternalAgency)getRandomNumber(0,2);
+    return getRandomNumber(0,2);
 }
 
 

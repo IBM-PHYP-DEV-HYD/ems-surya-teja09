@@ -23,30 +23,30 @@ enum EmployeeType
 
 enum ExternalAgency
 {
-    AGENCY_UNDEFINED           = 0,
-    AVENGERS                   = 1,
-    JUSTICE_LEAUGE             = 2,
-    X_MEN                      = 3
+    AVENGERS                   = 0,
+    JUSTICE_LEAUGE             = 1,
+    X_MEN                      = 2,
+    AGENCY_UNDEFINED           = 3,
 };
 
 enum HiringFromColleges
 {
-    COLLEGE_UNDEFINED          = 0,
-    IIT_DELHI                  = 1,
-    IIT_MUMBAI                 = 2,
-    IIT_HYDERABAD              = 3,
-    IIT_KANPUR                 = 4,
-    NIT_WARANGAL               = 5,
-    NIT_TIRUCHI                = 6,
-    IIIT_HYDERABAD             = 7
+    IIT_DELHI                  = 0,
+    IIT_MUMBAI                 = 1,
+    IIT_HYDERABAD              = 2,
+    IIT_KANPUR                 = 3,
+    NIT_WARANGAL               = 4,
+    NIT_TIRUCHI                = 5,
+    IIIT_HYDERABAD             = 6,
+    COLLEGE_UNDEFINED          = 7
 };
 
 enum HiringFromBranches
 {
-    UNDEFINED_BRANCH  = 0,
-    CSE               = 1,
-    CSIT              = 2,
-    ECE               = 3
+    CSE               = 0,
+    CSIT              = 1,
+    ECE               = 2,
+    UNDEFINED_BRANCH  = 3
 };
 
 #pragma once
@@ -70,7 +70,7 @@ struct EmpDetails
 
 int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
-ExternalAgency getRandomizedEmployeeAgency(void);
+int getRandomizedEmployeeAgency(void);
 void getRandomizedInternDetails(InternDetails *InternDetailsParm);
 
 #endif

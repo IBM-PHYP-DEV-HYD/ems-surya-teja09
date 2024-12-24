@@ -23,7 +23,7 @@ int main()
         Loopcount++;
         if((Loopcount % 5) == 0)
         {
-            XyzEmpMgr.printFullTimeEmpoloyees();
+            XyzEmpMgr.printInternEmpoloyees();
         }
     }
         
