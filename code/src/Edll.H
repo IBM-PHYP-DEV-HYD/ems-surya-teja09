@@ -77,25 +77,4 @@ void Edll<T>::removeNodeAtParticularPosition(int posParm)
     }    
 }
 
-#if 0
-template <class T>
-void Edll<T>::print(void)
-{
-    if(Deque<T>::mHead == NULL)
-    {
-        cout << "List is Empty" << endl;
-    }
-    else
-    {
-        Node<T>* current = Deque<T>::mHead;
-        while(current != NULL)
-        {
-            cout << current->mdata << " ";
-            current = current->mNext;
-        }
-        cout << "\n";
-    }
-}
-#endif
-
 #endif

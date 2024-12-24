@@ -87,17 +87,16 @@ void XyzEmployeeManager::addEmployee(void)
 
 void XyzEmployeeManager::removeEmployee(string EmpIdParm)
 {
+    int sNodePos = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    sCurrNode->mdata->printEmpSpecificHeader();
-    sCurrNode->mdata->printEmpSpecifiDetails();
-
-    if(sCurrNode != nullptr)
+    if(sCurrNode->mdata->getEmployeeId() != EmpIdParm)
     {
-        cout << "NodeCount: " << ActiveAndInactiveEmpl.getSize() << endl;
-        
+        ++sNodePos;
+        sCurrNode = sCurrNode->mNext;
     }    
+    ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
 }
 
 void XyzEmployeeManager::printFullTimeEmpoloyees(void)
