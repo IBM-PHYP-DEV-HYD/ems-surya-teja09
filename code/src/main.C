@@ -23,10 +23,7 @@ int main()
         Loopcount++;
         if((Loopcount % 5) == 0)
         {
-            string empid;
-            cout << "Enter EmpID : " << endl;
-            cin >> empid;
-            XyzEmpMgr.removeEmployee(empid);
+            XyzEmpMgr.printFullTimeEmpoloyees();
         }
     }
         

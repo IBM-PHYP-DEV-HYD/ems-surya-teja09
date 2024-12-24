@@ -29,13 +29,13 @@ void XyzEmployeeManager::addEmployee(void)
 
             sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-
             sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            uint8_t sNumLeaves = 0;
+            int sNumLeaves = 0;
             sNumLeaves = getRandomNumber(1, 22);
+            //cout << sNumLeaves << endl;
             sXyzEmp->setLeaveDetails(sNumLeaves);
-
+ 
             ActiveAndInactiveEmpl.pushFront(sXyzEmp);
 
             ++mEmpIdSeriesNum;
@@ -63,9 +63,9 @@ void XyzEmployeeManager::addEmployee(void)
             XyzEmployeeIF* sXyzEmp = new XyzInternEmployee();
 
             EmpDetails sEmpDetails;
+
             sEmpDetails.mEmpType = (uint8_t)INTERN;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-
             sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
             InternDetails sInternDetails;
@@ -90,22 +90,29 @@ void XyzEmployeeManager::removeEmployee(string EmpIdParm)
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
+    sCurrNode->mdata->printEmpSpecificHeader();
+    sCurrNode->mdata->printEmpSpecifiDetails();
+
     if(sCurrNode != nullptr)
     {
         cout << "NodeCount: " << ActiveAndInactiveEmpl.getSize() << endl;
-        cout << "EmpId:" << sCurrNode->mdata->getEmployeeId() << endl;
+        
     }    
 }
 
 void XyzEmployeeManager::printFullTimeEmpoloyees(void)
 {
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
+    Node<XyzEmployeeIF*>* sCurrNode = nullptr;
+    sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    while(sCurrNode != NULL)
+    sCurrNode->mdata->printEmpSpecificHeader();
+
+    while((sCurrNode != NULL) && (sCurrNode->mdata->getEmployeeType() == FULL_TIME))
     {
+        sCurrNode->mdata->printEmpSpecifiDetails();
         sCurrNode = sCurrNode->mNext;
     }
-
+    cout << ActiveAndInactiveEmpl.getSize() << endl;
 }
 
 void XyzEmployeeManager::printContractEmpoloyees(void)

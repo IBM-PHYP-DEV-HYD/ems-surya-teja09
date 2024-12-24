@@ -3,6 +3,7 @@
 
 #include "Utilis.H"
 #include "XyzEmployeeImpl.H"
+#include "iomanip"
 
 class XyzContractEmployee : public XyzEmployeeImpl
 {
@@ -11,6 +12,8 @@ protected:
 public:
     void setExtAgency(ExternalAgency ExtAgencyParm);
     ExternalAgency getExtAgency(void);
+    void printEmpSpecificHeader(void);
+    void printEmpSpecifiDetails(void);
 };
 
 #endif

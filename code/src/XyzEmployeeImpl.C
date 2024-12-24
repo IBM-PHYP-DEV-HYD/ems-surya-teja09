@@ -19,7 +19,7 @@ void XyzEmployeeImpl::setEmployeeBasicDetails(EmpDetails* EmpDetailsParm)
     mEmployeeId         = EmpDetailsParm->mEmpId;
 }
 
-void XyzEmployeeImpl::setLeaveDetails(uint8_t LeavesAvailedParm)
+void XyzEmployeeImpl::setLeaveDetails(int LeavesAvailedParm)
 {
     
 }
@@ -32,11 +32,6 @@ void XyzEmployeeImpl::setInternSpecificDetails(InternDetails InternDetailsParm)
 void XyzEmployeeImpl::setExtAgency(ExternalAgency ExtAgencyParm)
 {
 
-}
-
-void XyzEmployeeImpl::getLeaveDetails(void)
-{
-    
 }
 
 InternDetails XyzEmployeeImpl::getInternSpecificDetails(void)
@@ -71,3 +66,12 @@ uint8_t XyzEmployeeImpl::getEmployeeType(void)
     return mEmployeeType;
 }
 
+void XyzEmployeeImpl::printEmpSpecificHeader(void)
+{
+
+}
+
+void XyzEmployeeImpl::printEmpSpecifiDetails(void)
+{
+
+}

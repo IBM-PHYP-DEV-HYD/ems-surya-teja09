@@ -7,10 +7,9 @@ class XyzEmployeeIF
 {
 public:
     
-    virtual void setLeaveDetails(uint8_t LeavesAvailedParm) = 0;
+    virtual void setLeaveDetails(int LeavesAvailedParm) = 0;
     virtual void setInternSpecificDetails(InternDetails InternDetailsParm) = 0;
     virtual void setExtAgency(ExternalAgency ExtAgencyParm) = 0;
-    virtual void getLeaveDetails(void) = 0;
     virtual InternDetails getInternSpecificDetails(void) = 0;
     virtual ExternalAgency getExtAgency(void) = 0;
     virtual string getEmployeeId(void) = 0;
@@ -18,7 +17,8 @@ public:
     virtual char getEmployeeGender(void) = 0;
     virtual uint8_t getEmployeeStatus(void) = 0;
     virtual uint8_t getEmployeeType(void) = 0;
-
+    virtual void printEmpSpecificHeader(void) = 0;
+    virtual void printEmpSpecifiDetails(void) = 0;
     ~XyzEmployeeIF();
 };
 

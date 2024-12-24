@@ -2,6 +2,7 @@
 #define XYZFULLTIMEEMPLOYEE_H
 
 #include "iostream"
+#include <iomanip>
 #include "XyzEmployeeImpl.H"
 
 using namespace std;
@@ -9,13 +10,14 @@ using namespace std;
 class XyzFullTimeEmployee : public XyzEmployeeImpl
 {
 public:
-    uint8_t mLeavesAvailed;
+    int mLeavesAvailed;
+    int mLevesLeft;
 
 public:
-    
-    void setLeaveDetails(uint8_t LeavesAvailedParm);
-    void getLeaveDetails(void);
-    //void printDetails(void);
+
+    void setLeaveDetails(int LeavesAvailedParm);
+    void printEmpSpecificHeader(void);
+    void printEmpSpecifiDetails(void);
 };
 
 #endif

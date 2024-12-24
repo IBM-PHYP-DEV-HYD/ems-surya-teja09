@@ -3,6 +3,7 @@
 
 #include "Utilis.H"
 #include "XyzEmployeeImpl.H"
+#include "iomanip"
 
 class XyzInternEmployee : public XyzEmployeeImpl
 {
@@ -13,7 +14,8 @@ private:
 public:
     void setInternSpecificDetails(InternDetails InternDetailsParm);
     InternDetails getInternSpecificDetails(void);
-    
+    void printEmpSpecificHeader(void);
+    void printEmpSpecifiDetails(void);
 };
 
 #endif

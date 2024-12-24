@@ -13,19 +13,18 @@ class XyzEmployeeImpl : public XyzEmployeeIF
 public:
     string mEmployeeName;
     string mEmployeeId;
-    uint8_t mEmployeeStatus;
-    uint8_t mEmployeeType;
-    char mGender;
+    int mEmployeeStatus;
+    int mEmployeeType;
+    int mGender;
     string mDateOfBirth;
     string mDateOfJoining;
     string mDateOfLeaving; 
 
 public:
     //XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, uint8_t EmpStatusParm, uint8_t EmpTypeParm, char EmpGenderParm, string DobParm, string DojParm);
-    void setLeaveDetails(uint8_t LeavesAvailedParm); 
+    void setLeaveDetails(int LeavesAvailedParm); 
     void setInternSpecificDetails(InternDetails InternDetailsParm);
     void setExtAgency(ExternalAgency ExtAgencyParm);
-    void getLeaveDetails(void);
     InternDetails getInternSpecificDetails(void);
     ExternalAgency getExtAgency(void);
     string getEmployeeId(void);
@@ -33,6 +32,8 @@ public:
     char getEmployeeGender(void);
     uint8_t getEmployeeStatus(void);
     uint8_t getEmployeeType(void);
+    void printEmpSpecificHeader(void);
+    void printEmpSpecifiDetails(void);
 };
 
 #endif

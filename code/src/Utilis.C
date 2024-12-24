@@ -33,9 +33,6 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
 
     EmpDetailsParm->mDob = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(1960, 2000));
 
-    //uint16_t sYear;
-    //sYear = getRandomNumber(2001, 2024);
-
     EmpDetailsParm->mDoj = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(2001, 2024));
 
     EmpDetailsParm->mEmpStatus = getRandomNumber(1, 2);
