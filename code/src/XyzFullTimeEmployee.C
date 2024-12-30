@@ -6,6 +6,30 @@ void XyzFullTimeEmployee::setLeaveDetails(int LeavesAvailedParm)
     mLevesLeft = 22 - mLeavesAvailed;
 }
 
+string XyzFullTimeEmployee::getEmployeeLeavesAvaialed(void)
+{
+    return to_string(mLeavesAvailed);
+}
+
+string XyzFullTimeEmployee::getEmployeeLeavesLeft(void)
+{
+    return to_string(mLevesLeft);
+}
+
+ExternalAgency XyzFullTimeEmployee::getExtAgency(void)
+{
+    return (ExternalAgency)AGENCY_UNDEFINED;
+}
+
+InternDetails XyzFullTimeEmployee::getInternSpecificDetails(void)
+{
+    InternDetails sInternDetailsParm;
+    sInternDetailsParm.mHiringCollege = COLLEGE_UNDEFINED;
+    sInternDetailsParm.mHiringBranch = UNDEFINED_BRANCH;   
+
+    return sInternDetailsParm;
+}
+
 void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(187) << "-" << endl;
@@ -52,7 +76,7 @@ void XyzFullTimeEmployee::printEmpSpecifiDetails(void)
     }
 
     string sGender;
-    if(mGender == 0)
+    if(mGender == 1)
     {
         sGender = "MALE";
     }

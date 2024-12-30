@@ -6,6 +6,30 @@ void XyzContractEmployee::setExtAgency(int ExtAgencyParm)
     mExtAgency = ExtAgencyParm;
 }
 
+ExternalAgency XyzContractEmployee::getExtAgency(void)
+{
+    return (ExternalAgency)mExtAgency;
+}
+
+InternDetails XyzContractEmployee::getInternSpecificDetails(void)
+{
+    InternDetails sInternDetailsParm;
+    sInternDetailsParm.mHiringCollege = COLLEGE_UNDEFINED;
+    sInternDetailsParm.mHiringBranch = UNDEFINED_BRANCH;   
+
+    return sInternDetailsParm;
+}
+
+string XyzContractEmployee::getEmployeeLeavesAvaialed(void)
+{
+    return "NA";
+}
+
+string XyzContractEmployee::getEmployeeLeavesLeft(void)
+{
+    return "NA";
+}
+
 void XyzContractEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(165) << "-" << endl;
@@ -51,7 +75,7 @@ void XyzContractEmployee::printEmpSpecifiDetails(void)
     }
 
     string sGender;
-    if(mGender == 0)
+    if(mGender == 1)
     {
         sGender = "MALE";
     }

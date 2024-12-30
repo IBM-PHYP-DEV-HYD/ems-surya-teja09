@@ -4,6 +4,7 @@
 #include "iostream"
 #include "string.h"
 #include "Utilis.H"
+#include "iomanip"
 #include "XyzEmployeeIF.H"
 
 using namespace std;
@@ -34,6 +35,10 @@ public:
     uint8_t getEmployeeType(void);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
+    void printEmployeeSummary(void);
+    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesLeft(void);
+    void printEmployeeSummaryHeader(void);
 };
 
 #endif

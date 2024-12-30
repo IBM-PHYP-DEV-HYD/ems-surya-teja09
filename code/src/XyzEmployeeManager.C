@@ -99,59 +99,80 @@ void XyzEmployeeManager::removeEmployee(string EmpIdParm)
     ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
 }
 
-void XyzEmployeeManager::printFullTimeEmpoloyees(void)
+void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
 {
+    bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    sCurrNode->mdata->printEmpSpecificHeader();
-
     while((sCurrNode != NULL) )
     {
-        if((sCurrNode->mdata->getEmployeeType() == FULL_TIME))
+        if((sCurrNode->mdata->getEmployeeType() == EmpTypeParm))
         {
-            sCurrNode->mdata->printEmpSpecifiDetails();
+            if(sFlag == 0)
+            {
+                sCurrNode->mdata->printEmpSpecificHeader();
+                sCurrNode->mdata->printEmpSpecifiDetails();
+                sFlag = 1;
+            }
+            else
+            {
+                sCurrNode->mdata->printEmpSpecifiDetails();
+            }
         }
         sCurrNode = sCurrNode->mNext;
-    }
-    cout << ActiveAndInactiveEmpl.getSize() << endl;
+    }    
 }
 
-void XyzEmployeeManager::printContractEmpoloyees(void)
+void XyzEmployeeManager::printEmployeesByStatus(int EmpStatusParm)
 {
+    bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    sCurrNode->mdata->printEmpSpecificHeader();
-
     while((sCurrNode != NULL) )
     {
-        if((sCurrNode->mdata->getEmployeeType() == CONTRACT))
+        if((sCurrNode->mdata->getEmployeeStatus() == EmpStatusParm))
         {
-            sCurrNode->mdata->printEmpSpecifiDetails();
+            if(sFlag == 0)
+            {
+                sCurrNode->mdata->printEmployeeSummaryHeader();
+                sCurrNode->mdata->printEmployeeSummary();
+                sFlag = 1;
+            }
+            else
+            {
+                sCurrNode->mdata->printEmployeeSummary();
+            }
         }
         sCurrNode = sCurrNode->mNext;
-    }
-    cout << ActiveAndInactiveEmpl.getSize() << endl;
+    }    
 }
 
-void XyzEmployeeManager::printInternEmpoloyees(void)
+void XyzEmployeeManager::printEmployeesByGender(int EmpGenderParm)
 {
+    bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    sCurrNode->mdata->printEmpSpecificHeader();
-
     while((sCurrNode != NULL) )
     {
-        if((sCurrNode->mdata->getEmployeeType() == INTERN))
+        if((sCurrNode->mdata->getEmployeeGender() == EmpGenderParm))
         {
-            sCurrNode->mdata->printEmpSpecifiDetails();
+            if(sFlag == 0)
+            {
+                sCurrNode->mdata->printEmployeeSummaryHeader();
+                sCurrNode->mdata->printEmployeeSummary();
+                sFlag = 1;
+            }
+            else
+            {
+                sCurrNode->mdata->printEmployeeSummary();
+            }
         }
         sCurrNode = sCurrNode->mNext;
-    }
-    cout << ActiveAndInactiveEmpl.getSize() << endl;
-}
+    }    
+} 
 
 void XyzEmployeeManager::printResignedEmployees(void)
 {
@@ -162,8 +183,11 @@ void XyzEmployeeManager::printEmployeeSummary(void)
 {
     Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
 
+    sCurrNode->mdata->printEmployeeSummaryHeader();
+
     while(sCurrNode != NULL)
     {
+        sCurrNode->mdata->printEmployeeSummary();
         sCurrNode = sCurrNode->mNext;
     }    
 }

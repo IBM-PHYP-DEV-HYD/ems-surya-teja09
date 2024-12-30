@@ -16,6 +16,10 @@ public:
 public:
 
     void setLeaveDetails(int LeavesAvailedParm);
+    ExternalAgency getExtAgency(void);
+    InternDetails getInternSpecificDetails(void);
+    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
 };

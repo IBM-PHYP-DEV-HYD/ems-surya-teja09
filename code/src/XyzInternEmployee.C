@@ -15,6 +15,20 @@ InternDetails XyzInternEmployee::getInternSpecificDetails(void)
     return sInternDetailsParm;
 }
 
+ExternalAgency XyzInternEmployee::getExtAgency(void)
+{
+    return (ExternalAgency)AGENCY_UNDEFINED;
+}
+
+string XyzInternEmployee::getEmployeeLeavesAvaialed(void)
+{
+    return "NA";
+}
+
+string XyzInternEmployee::getEmployeeLeavesLeft(void)
+{
+    return "NA";
+}
 
 void XyzInternEmployee::printEmpSpecificHeader(void)
 {
@@ -62,7 +76,7 @@ void XyzInternEmployee::printEmpSpecifiDetails(void)
     }
 
     string sGender;
-    if(mGender == 0)
+    if(mGender == 1)
     {
         sGender = "MALE";
     }

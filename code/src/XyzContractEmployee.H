@@ -11,6 +11,10 @@ protected:
     int mExtAgency;
 public:
     void setExtAgency(int ExtAgencyParm);
+    ExternalAgency getExtAgency(void);
+    InternDetails getInternSpecificDetails(void);
+    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
 };

@@ -20,10 +20,10 @@ public:
 public:
     void addEmployee(void);
     void removeEmployee(string EmpIdParm);
-    void printFullTimeEmpoloyees(void);
-    void printContractEmpoloyees(void);
-    void printInternEmpoloyees(void);
     void printResignedEmployees(void);
+    void printEmployeesByType(int EmpTypeParm);
+    void printEmployeesByStatus(int EmpStatusParm);
+    void printEmployeesByGender(int EmpGenderParm);
     void printEmployeeSummary(void);
     void makeInternOrContractAsFullTimeEmployees(void);
     void addLeaves(void);

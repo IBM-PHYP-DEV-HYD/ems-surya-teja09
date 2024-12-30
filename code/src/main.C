@@ -5,29 +5,25 @@ int Loopcount = 0;
 
 int main()
 {
-#if 0
-    Edll<int> Actedll;
-    Actedll.pushFront(4);
-    Actedll.pushFront(3);
-    Actedll.pushFront(1);
-    Actedll.print();
-    Actedll.addNodeAtParticularPosition(2, 1);
-    Actedll.print();
-    Actedll.removeNodeAtParticularPosition(4);
-    Actedll.print();
-#endif
     XyzEmployeeManager XyzEmpMgr;
+    
     while(1)
     {
         XyzEmpMgr.addEmployee();
-        Loopcount++;
-        if((Loopcount % 5) == 0)
-        {
-            XyzEmpMgr.printFullTimeEmpoloyees();
-            XyzEmpMgr.removeEmployee("XYZ0003F");
-        }
-    }
+        ++Loopcount;
         
+        if(Loopcount % 5 == 0)
+            XyzEmpMgr.printEmployeeSummary();
+        
+
+        
+        if(Loopcount % 10 == 0)
+        {
+            cout << "Printing male employees " << endl;
+            XyzEmpMgr.printEmployeesByGender(1);
+        }
+           
+    }
 
     return 0;
 }

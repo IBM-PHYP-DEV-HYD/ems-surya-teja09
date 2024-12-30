@@ -49,6 +49,13 @@ enum HiringFromBranches
     UNDEFINED_BRANCH  = 3
 };
 
+enum EmployeeGender
+{
+    MALE              = 1,
+    FEMALE            = 2,
+    NA                = 3
+};
+
 #pragma once
 struct InternDetails
 {
@@ -62,7 +69,7 @@ struct EmpDetails
     string mEmpName;
     string mDob;
     string mDoj;
-    char mGender;
+    int mGender;
     uint8_t mEmpStatus;
     string mEmpId;
     uint8_t mEmpType;
@@ -72,5 +79,11 @@ int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
 int getRandomizedEmployeeAgency(void);
 void getRandomizedInternDetails(InternDetails *InternDetailsParm);
+void printmainmenu(void);
+void printEmployeeOption(void);
+void printemployeetypemenu(void);
+void printEmployeedetailsMenu(void);
+void printEmployeeOtherdetailsMenu(void);
+void printDeletemenu(void);
 
 #endif

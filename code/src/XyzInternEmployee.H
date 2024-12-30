@@ -14,6 +14,9 @@ private:
 public:
     void setInternSpecificDetails(InternDetails InternDetailsParm);
     InternDetails getInternSpecificDetails(void);
+    ExternalAgency getExtAgency(void);
+    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
 };
