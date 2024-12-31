@@ -23,6 +23,7 @@ public:
     virtual void printEmpSpecifiDetails(void) = 0;
     virtual void printEmployeeSummary(void) = 0;
     virtual void printEmployeeSummaryHeader(void) = 0;
+    virtual void printParticularEmployeeSummary(void) = 0;
     ~XyzEmployeeIF();
 };
 

@@ -30,6 +30,73 @@ string XyzContractEmployee::getEmployeeLeavesLeft(void)
     return "NA";
 }
 
+void XyzContractEmployee::printParticularEmployeeSummary(void)
+{
+    cout << "Employee Details :" << endl;
+    string sEmpStatus;
+    switch(mEmployeeStatus)
+    {
+        case ACTIVE:
+        {
+            sEmpStatus = "ACTIVE";
+            break;
+        }
+        case INACTIVE:
+        {
+            sEmpStatus = "INACTIVE";
+            break;
+        }
+        case RESIGNED:
+        {
+            sEmpStatus = "RESIGNED";
+            break;
+        }
+    }
+
+    string sGender;
+    if(mGender == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }
+
+    string sAgency;
+    switch(mExtAgency)
+    {
+        case AVENGERS:
+        {
+            sAgency = "AVENGERS";
+            break;
+        }
+        case JUSTICE_LEAUGE:
+        {
+            sAgency = "JUSTICE_LEAUGE";
+            break;
+        }
+        case X_MEN:
+        {
+            sAgency = "X_MEN";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+
+    cout <<  " Employee Name   : " << mEmployeeName << endl;
+    cout <<  " Employee Id     : " << mEmployeeId << endl;
+    cout <<  " Employee Type   : " << "CONTRACT" << endl;
+    cout <<  " Employee Status : " << sEmpStatus << endl;
+    cout <<  " Employee Gender : " << sGender << endl;
+    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
+    cout <<  " Date of Joining : " << mDateOfBirth << endl;
+    cout <<  " External Agency : " << sAgency << endl;
+}
+
 void XyzContractEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(165) << "-" << endl;

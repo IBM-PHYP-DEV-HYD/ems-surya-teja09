@@ -17,6 +17,7 @@ public:
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
+    void printParticularEmployeeSummary(void);
 };
 
 #endif

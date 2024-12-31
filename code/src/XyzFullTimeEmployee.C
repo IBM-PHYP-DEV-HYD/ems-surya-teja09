@@ -30,6 +30,50 @@ InternDetails XyzFullTimeEmployee::getInternSpecificDetails(void)
     return sInternDetailsParm;
 }
 
+void XyzFullTimeEmployee::printParticularEmployeeSummary(void)
+{
+    cout << "Employee Details :" << endl;
+    string sEmpStatus;
+    switch(mEmployeeStatus)
+    {
+        case ACTIVE:
+        {
+            sEmpStatus = "ACTIVE";
+            break;
+        }
+        case INACTIVE:
+        {
+            sEmpStatus = "INACTIVE";
+            break;
+        }
+        case RESIGNED:
+        {
+            sEmpStatus = "RESIGNED";
+            break;
+        }
+    }
+
+    string sGender;
+    if(mGender == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }
+
+    cout <<  " Employee Name   : " << mEmployeeName << endl;
+    cout <<  " Employee Id     : " << mEmployeeId << endl;
+    cout <<  " Employee Type   : " << "FULL-TIME" << endl;
+    cout <<  " Employee Status : " << sEmpStatus << endl;
+    cout <<  " Employee Gender : " << sGender << endl;
+    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
+    cout <<  " Date of Joining : " << mDateOfBirth << endl;
+    cout <<  " Leaves Availed  : " << mLeavesAvailed << endl;  
+    cout <<  " Leaves Left     : " << mLevesLeft << endl;  
+}
+
 void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(187) << "-" << endl;

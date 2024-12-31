@@ -36,12 +36,14 @@ void XyzEmployeeImpl::setExtAgency(int ExtAgencyParm)
 
 InternDetails XyzEmployeeImpl::getInternSpecificDetails(void)
 {
-
+    InternDetails sDetails;
+    return sDetails;
 }
 
 ExternalAgency XyzEmployeeImpl::getExtAgency(void)
 {
-
+    ExternalAgency sAgency = AGENCY_UNDEFINED;
+    return sAgency;
 }
 
 string XyzEmployeeImpl::getEmployeeId(void)
@@ -76,12 +78,17 @@ void XyzEmployeeImpl::printEmpSpecifiDetails(void)
 
 string XyzEmployeeImpl::getEmployeeLeavesAvaialed(void)
 {
-    
+    return "NA";
 }
 
 string XyzEmployeeImpl::getEmployeeLeavesLeft(void)
 {
     return "NA";
+}
+
+void XyzEmployeeImpl::printParticularEmployeeSummary(void)
+{
+    
 }
 
 void XyzEmployeeImpl::printEmployeeSummaryHeader(void)

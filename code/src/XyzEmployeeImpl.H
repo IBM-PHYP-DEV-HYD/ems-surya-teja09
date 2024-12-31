@@ -39,6 +39,7 @@ public:
     string getEmployeeLeavesAvaialed(void);
     string getEmployeeLeavesLeft(void);
     void printEmployeeSummaryHeader(void);
+    void printParticularEmployeeSummary(void);
 };
 
 #endif
