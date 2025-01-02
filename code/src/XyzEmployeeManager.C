@@ -98,19 +98,13 @@ void XyzEmployeeManager::removeEmployee(void)
     {
         if(sCurrNode->mdata->getEmployeeId() == sEmpId)
         {
-            cout << ActiveAndInactiveEmpl.getSize() << ":" << sNodePos;
-            cout << "step 3" << endl;
-            cout << "Id Found : " << sCurrNode->mdata->getEmployeeId();
-            //cout << ActiveAndInactiveEmpl.getSize() << ":" << sNodePos;
             ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
         }  
         else
         {
             ++sNodePos;
-            cout << "step 2" << endl;
         } 
         sCurrNode = sCurrNode->mNext;
-        cout << "step 1" << endl;
     } 
 }
 

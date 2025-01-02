@@ -61,8 +61,7 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
     else
     {
         EmpDetailsParm->mGender = 2;            // Female employee
-    }
-        
+    }    
 }
 
 int getRandomizedEmployeeAgency(void)
