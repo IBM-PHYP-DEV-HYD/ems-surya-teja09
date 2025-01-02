@@ -12,14 +12,14 @@
 using namespace std;
 
 class XyzEmployeeManager
-{
+{  
 public:
     Edll<XyzEmployeeIF*> ActiveAndInactiveEmpl;
     uint32_t mEmpIdSeriesNum;
 
 public:
     void addEmployee(void);
-    void removeEmployee(string EmpIdParm);
+    void removeEmployee(void);
     void printResignedEmployees(void);
     void printEmployeesByType(int EmpTypeParm);
     void printEmployeesByStatus(int EmpStatusParm);
@@ -29,6 +29,7 @@ public:
     void addLeaves(void);
     void searchEmployeeByName(void);
     void searchEmployeeById(void);
+    void printEmployeeDetails(void);
     XyzEmployeeManager();
 };
 

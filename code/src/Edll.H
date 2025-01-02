@@ -51,16 +51,19 @@ void Edll<T>::addNodeAtParticularPosition(T dataParm, int posParm)
 template <class T>
 void Edll<T>::removeNodeAtParticularPosition(int posParm)
 {
-    if(posParm == 0)
+    cout << "Inside Remove Node " << endl;
+    if(posParm == 1)
     {
         Deque<T>::popFront();
     }
     else if(posParm == Deque<T>::mNodeCount)
     {
+        cout << "Inside PopBack " << endl;
         Deque<T>::popBack();
     } 
     else if(posParm < Deque<T>::mNodeCount)
     {
+        cout << "Inside remove else if " << endl;
         Node<T>* sTempNode = Deque<T>::mHead;
         for(unsigned int sIterator = 0; sIterator < posParm; sIterator++)
         {

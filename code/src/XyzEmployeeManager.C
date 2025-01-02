@@ -85,18 +85,33 @@ void XyzEmployeeManager::addEmployee(void)
     }
 }
 
-void XyzEmployeeManager::removeEmployee(string EmpIdParm)
+void XyzEmployeeManager::removeEmployee(void)
 {
-    int sNodePos = 0;
+    std::string sEmpId;
+    cout << "Enter empid : " << endl;
+    std::cin >> sEmpId;
+    int sNodePos = 1;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    if(sCurrNode->mdata->getEmployeeId() != EmpIdParm)
+    while(sCurrNode != NULL)
     {
-        ++sNodePos;
+        if(sCurrNode->mdata->getEmployeeId() == sEmpId)
+        {
+            cout << ActiveAndInactiveEmpl.getSize() << ":" << sNodePos;
+            cout << "step 3" << endl;
+            cout << "Id Found : " << sCurrNode->mdata->getEmployeeId();
+            //cout << ActiveAndInactiveEmpl.getSize() << ":" << sNodePos;
+            ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
+        }  
+        else
+        {
+            ++sNodePos;
+            cout << "step 2" << endl;
+        } 
         sCurrNode = sCurrNode->mNext;
-    }    
-    ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
+        cout << "step 1" << endl;
+    } 
 }
 
 void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
@@ -105,7 +120,7 @@ void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = ActiveAndInactiveEmpl.mHead;
 
-    while((sCurrNode != NULL) )
+    while((sCurrNode != NULL))
     {
         if((sCurrNode->mdata->getEmployeeType() == EmpTypeParm))
         {
@@ -210,4 +225,47 @@ void XyzEmployeeManager::searchEmployeeByName(void)
 void XyzEmployeeManager::searchEmployeeById(void)
 {
 
+}
+
+void XyzEmployeeManager::printEmployeeDetails(void)
+{
+    int sInput = 0;
+    printEmployeedetailsMenu();
+    cin >> sInput;
+    switch(sInput)
+    {
+        case 1: 
+        {
+            int sInput = 0;
+            cout << "Enter Employee type : " << endl << "1. FullTime \n" << "2. Contract \n" "3. Intern \n" << endl;
+            cin >> sInput;
+            printEmployeesByType(sInput);
+            break;
+        }
+        case 2: 
+        {
+            int sInput = 0;
+            cout << "Enter Employee type : " << endl << "1. Male \n" << "2. Female \n"<< endl;
+            cin >> sInput;
+            printEmployeesByGender(sInput);
+            break;
+        }
+        case 3: 
+        {
+            int sInput = 0;
+            cout << "Enter Employee type : " << endl << "1. Active \n" << "2. Inactive \n"<< endl;
+            cin >> sInput;
+            printEmployeesByStatus(sInput);
+            break;
+        }
+        case 4: 
+        {
+            printEmployeeSummary();           
+            break;
+        }        
+        default:
+        {
+            break;
+        }
+    }
 }

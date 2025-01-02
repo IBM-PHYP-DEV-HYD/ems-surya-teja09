@@ -129,12 +129,11 @@ void printEmployeedetailsMenu(void)
     cout<<"|--------------------------------------|"<<endl;
     cout<<"| Choose Employee Details.             |"<<endl;
     cout<<"|--------------------------------------|"<<endl;
-    cout<<"| 1. Active Employee Summary           |"<<endl;
-    cout<<"| 2. Employee Summary based on type.   |"<<endl;
-    cout<<"| 3. Employee Summary based on Gender  |"<<endl;
-    cout<<"| 4. Employee Summary based on Status  |"<<endl;
-    cout<<"| 5. Employee Summary based on ID.     |"<<endl;
-    cout<<"| 6. Resigned Employee Summary.        |"<<endl;
+    cout<<"| 1. Employee Summary based on type.   |"<<endl;
+    cout<<"| 2. Employee Summary based on Gender  |"<<endl;
+    cout<<"| 3. Employee Summary based on Status  |"<<endl;
+    cout<<"| 4. Employee Summary Summary.         |"<<endl;
+    cout<<"| 5. Resigned Employee Summary.        |"<<endl;
     cout<<"|--------------------------------------|"<<endl;
     cout<<"|      Press -1 to exit                |"<<endl;
     cout<<"|--------------------------------------|"<<endl;
