@@ -96,6 +96,27 @@ void XyzEmployeeImpl::addLeavestoFullTimeEmp(int LeavesLeftParm)
 
 }
 
+void XyzEmployeeImpl::printResignedEmployeeSummaryHeader(void)
+{
+    cout << setfill('-') << setw(242) << "-" << endl;
+    cout << left
+         << "| Employee Name     "
+         << "| ID        "
+         << "| Type             "
+         << "| Status         "
+         << "| Gender      "
+         << "| Date of Birth       "
+         << "| Date of Joining    "
+         << "| Date of Leaving    |" << endl;
+    cout << setfill('-') << setw(242) << "-" << endl;
+    cout << setfill(' ') << setw(242) << " " << endl;          
+}
+
+void XyzEmployeeImpl::prinResignedEmployeeSummary(void)
+{
+
+}
+
 void XyzEmployeeImpl::printEmployeeSummaryHeader(void)
 {
     cout << setfill('-') << setw(242) << "-" << endl;

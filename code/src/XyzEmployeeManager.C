@@ -36,7 +36,7 @@ void XyzEmployeeManager::addEmployee(void)
             //cout << sNumLeaves << endl;
             sXyzEmp->setLeaveDetails(sNumLeaves);
  
-            ActiveAndInactiveEmpl.pushFront(sXyzEmp);
+            ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
             ++mEmpIdSeriesNum;
             break;
@@ -53,7 +53,7 @@ void XyzEmployeeManager::addEmployee(void)
             int sExtAgency = getRandomizedEmployeeAgency();
             sXyzEmp->setExtAgency(sExtAgency);
 
-            ActiveAndInactiveEmpl.pushFront(sXyzEmp);
+            ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
             ++mEmpIdSeriesNum;           
             break;
@@ -72,14 +72,14 @@ void XyzEmployeeManager::addEmployee(void)
             getRandomizedInternDetails(&sInternDetails);
             sXyzEmp->setInternSpecificDetails(sInternDetails);
 
-            ActiveAndInactiveEmpl.pushFront(sXyzEmp);
+            ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
             ++mEmpIdSeriesNum;           
             break;
         }
         default:
         {
-            cout << "Current size of queue is :" << ActiveAndInactiveEmpl.getSize() << endl;
+            cout << "Current size of queue is :" << ActiveAndInactiveEmplObj.getSize() << endl;
             break;
         }
     }
@@ -92,13 +92,13 @@ void XyzEmployeeManager::removeEmployee(void)
     std::cin >> sEmpId;
     int sNodePos = 1;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while(sCurrNode != NULL)
     {
         if(sCurrNode->mdata->getEmployeeId() == sEmpId)
         {
-            ActiveAndInactiveEmpl.removeNodeAtParticularPosition(sNodePos);
+            ActiveAndInactiveEmplObj.removeNodeAtParticularPosition(sNodePos);
         }  
         else
         {
@@ -112,7 +112,7 @@ void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while((sCurrNode != NULL))
     {
@@ -137,7 +137,7 @@ void XyzEmployeeManager::printEmployeesByStatus(int EmpStatusParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while((sCurrNode != NULL) )
     {
@@ -162,7 +162,7 @@ void XyzEmployeeManager::printEmployeesByGender(int EmpGenderParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while((sCurrNode != NULL) )
     {
@@ -185,12 +185,20 @@ void XyzEmployeeManager::printEmployeesByGender(int EmpGenderParm)
 
 void XyzEmployeeManager::printResignedEmployees(void)
 {
+    Node<XyzEmployeeIF*>* sCurrNode = ResignedEmplObj.mHead;
 
+    sCurrNode->mdata->printResignedEmployeeSummaryHeader();
+
+    while(sCurrNode != NULL)
+    {
+        sCurrNode->mdata->prinResignedEmployeeSummary();
+        sCurrNode = sCurrNode->mNext;
+    }    
 }
 
 void XyzEmployeeManager::printEmployeeSummary(void)
 {
-    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmpl.mHead;
+    Node<XyzEmployeeIF*>* sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     sCurrNode->mdata->printEmployeeSummaryHeader();
 
@@ -210,7 +218,7 @@ void XyzEmployeeManager::addLeaves(void)
 {
     int sNoLeaves = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
     cout << "Enter Number of leaves to be added :" << endl;
     cin >> sNoLeaves;
 
@@ -230,7 +238,7 @@ void XyzEmployeeManager::searchEmployeeByName(void)
     cout << "Enter empid : " << endl;
     std::cin >> sEmpName;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while(sCurrNode != NULL)
     {
@@ -253,7 +261,7 @@ void XyzEmployeeManager::searchEmployeeById(void)
     cout << "Enter empid : " << endl;
     std::cin >> sEmpId;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
-    sCurrNode = ActiveAndInactiveEmpl.mHead;
+    sCurrNode = ActiveAndInactiveEmplObj.mHead;
 
     while(sCurrNode != NULL)
     {

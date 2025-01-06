@@ -14,7 +14,8 @@ using namespace std;
 class XyzEmployeeManager
 {  
 public:
-    Edll<XyzEmployeeIF*> ActiveAndInactiveEmpl;
+    Edll<XyzEmployeeIF*> ActiveAndInactiveEmplObj;
+    Edll<XyzEmployeeIF*> ResignedEmplObj;
     uint32_t mEmpIdSeriesNum;
 
 public:

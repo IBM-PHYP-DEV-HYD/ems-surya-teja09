@@ -41,6 +41,8 @@ public:
     void printEmployeeSummaryHeader(void);
     void printParticularEmployeeSummary(void);
     void addLeavestoFullTimeEmp(int LeavesLeftParm);
+    void printResignedEmployeeSummaryHeader(void);
+    void prinResignedEmployeeSummary(void);
 };
 
 #endif
