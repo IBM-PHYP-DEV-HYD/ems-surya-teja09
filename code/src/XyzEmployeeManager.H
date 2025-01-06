@@ -30,6 +30,7 @@ public:
     void searchEmployeeByName(void);
     void searchEmployeeById(void);
     void printEmployeeDetails(void);
+    void printParticularEmployeeSummary(void);
     XyzEmployeeManager();
 };
 

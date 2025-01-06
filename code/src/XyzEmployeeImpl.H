@@ -40,6 +40,7 @@ public:
     string getEmployeeLeavesLeft(void);
     void printEmployeeSummaryHeader(void);
     void printParticularEmployeeSummary(void);
+    void addLeavestoFullTimeEmp(int LeavesLeftParm);
 };
 
 #endif

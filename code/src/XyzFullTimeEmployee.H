@@ -23,6 +23,7 @@ public:
     void printEmpSpecificHeader(void);
     void printEmpSpecifiDetails(void);
     void printParticularEmployeeSummary(void);
+    void addLeavestoFullTimeEmp(int LeavesLeftParm);
 };
 
 #endif

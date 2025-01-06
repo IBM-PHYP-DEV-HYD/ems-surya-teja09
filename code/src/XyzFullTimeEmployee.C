@@ -145,3 +145,8 @@ void XyzFullTimeEmployee::printEmpSpecifiDetails(void)
     
     cout << setfill(' ') << setw(187) << " " << endl;
 }
+
+void XyzFullTimeEmployee::addLeavestoFullTimeEmp(int LeavesLeftParm)
+{
+    mLevesLeft = LeavesLeftParm;
+}

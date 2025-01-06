@@ -19,6 +19,7 @@ public:
     virtual uint8_t getEmployeeType(void) = 0;
     virtual string getEmployeeLeavesAvaialed(void) = 0;
     virtual string getEmployeeLeavesLeft(void) = 0;
+    virtual void addLeavestoFullTimeEmp(int LeavesLeftParm) = 0;
     virtual void printEmpSpecificHeader(void) = 0;
     virtual void printEmpSpecifiDetails(void) = 0;
     virtual void printEmployeeSummary(void) = 0;

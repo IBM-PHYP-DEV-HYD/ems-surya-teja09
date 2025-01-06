@@ -91,6 +91,11 @@ void XyzEmployeeImpl::printParticularEmployeeSummary(void)
     
 }
 
+void XyzEmployeeImpl::addLeavestoFullTimeEmp(int LeavesLeftParm)
+{
+
+}
+
 void XyzEmployeeImpl::printEmployeeSummaryHeader(void)
 {
     cout << setfill('-') << setw(242) << "-" << endl;
