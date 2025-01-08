@@ -1,12 +1,11 @@
 #include "XyzEmployeeImpl.H"
 
-/*
 
-XyzEmployeeImpl::XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, uint8_t EmpStatusParm, uint8_t EmpTypeParm, char EmpGenderParm, string DobParm, string DojParm):
-          mEmployeeName(EmpNameParm),       
+XyzEmployeeImpl::XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm): 
+    mEmployeeName(EmpNameParm), mEmployeeId(EmpIdParm), mEmployeeStatus(EmpStatusParm), mEmployeeType(EmpTypeParm), mGender(EmpGenderParm), mDateOfBirth(DobParm), mDateOfJoining(DojParm)         
 {
 
-}*/
+}
 
 void XyzEmployeeImpl::setEmployeeBasicDetails(EmpDetails* EmpDetailsParm)
 {
@@ -22,16 +21,6 @@ void XyzEmployeeImpl::setEmployeeBasicDetails(EmpDetails* EmpDetailsParm)
 void XyzEmployeeImpl::setLeaveDetails(int LeavesAvailedParm)
 {
     
-}
-
-void XyzEmployeeImpl::setInternSpecificDetails(InternDetails InternDetailsParm)
-{
-
-}
-
-void XyzEmployeeImpl::setExtAgency(int ExtAgencyParm)
-{
-
 }
 
 InternDetails XyzEmployeeImpl::getInternSpecificDetails(void)
@@ -114,7 +103,27 @@ void XyzEmployeeImpl::printResignedEmployeeSummaryHeader(void)
 
 void XyzEmployeeImpl::prinResignedEmployeeSummary(void)
 {
+    string sGender;
+    if(mGender == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }
 
+    cout << left
+         << "| " << setw(18) << mEmployeeName
+         << "| " << setw(10) << mEmployeeId
+         << "| " << setw(15) << "RESIGNED"
+         << "| " << setw(12) << sGender
+         << "| " << setw(20) << mDateOfBirth 
+         << "| " << setw(19) << mDateOfBirth
+         << "| " << setw(19) << mDateOfBirth
+         << "|" << endl;
+
+    cout << setfill(' ') << setw(187) << " " << endl;
 }
 
 void XyzEmployeeImpl::printEmployeeSummaryHeader(void)

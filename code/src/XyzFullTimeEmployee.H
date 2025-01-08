@@ -14,7 +14,7 @@ public:
     int mLevesLeft;
 
 public:
-
+    XyzFullTimeEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     void setLeaveDetails(int LeavesAvailedParm);
     ExternalAgency getExtAgency(void);
     InternDetails getInternSpecificDetails(void);

@@ -2,39 +2,21 @@
    
 XyzEmployeeManager::XyzEmployeeManager()
 {
-    
     mEmpIdSeriesNum = 0;
 }
 
-void XyzEmployeeManager::addEmployee(void)
+void XyzEmployeeManager::AddEmployeeByType(int EmpTypeParm)
 {
-    unsigned int sEmpType = 0;
-
-    cout << "choose the type of employee needed to be added 1: FullTime 2: Contract 3: Intern " << endl;
-
-    while(!(cin >> sEmpType))
-    {
-        cout << "Enter valid choice: " << endl;
-        cin.clear();
-        cin.ignore(1000, '\n');        
-    }
-
-    switch(sEmpType)
+    switch(EmpTypeParm)
     {
         case FULL_TIME:
         {
-            XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee();
-
             EmpDetails sEmpDetails;
 
             sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            int sNumLeaves = 0;
-            sNumLeaves = getRandomNumber(1, 22);
-            //cout << sNumLeaves << endl;
-            sXyzEmp->setLeaveDetails(sNumLeaves);
+            XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
  
             ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
@@ -43,15 +25,12 @@ void XyzEmployeeManager::addEmployee(void)
         }
         case CONTRACT:
         {
-            XyzEmployeeIF* sXyzEmp = new XyzContractEmployee();
-
+            
             EmpDetails sEmpDetails;
             sEmpDetails.mEmpType = (uint8_t)CONTRACT;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            int sExtAgency = getRandomizedEmployeeAgency();
-            sXyzEmp->setExtAgency(sExtAgency);
+            XyzEmployeeIF* sXyzEmp = new XyzContractEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
 
             ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
@@ -60,17 +39,13 @@ void XyzEmployeeManager::addEmployee(void)
         }
         case INTERN:
         {
-            XyzEmployeeIF* sXyzEmp = new XyzInternEmployee();
 
             EmpDetails sEmpDetails;
 
             sEmpDetails.mEmpType = (uint8_t)INTERN;
             getRandomizedEmpBasicDetails(&sEmpDetails, mEmpIdSeriesNum);
-            sXyzEmp->setEmployeeBasicDetails(&sEmpDetails);
 
-            InternDetails sInternDetails;
-            getRandomizedInternDetails(&sInternDetails);
-            sXyzEmp->setInternSpecificDetails(sInternDetails);
+            XyzEmployeeIF* sXyzEmp = new XyzInternEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
 
             ActiveAndInactiveEmplObj.pushFront(sXyzEmp);
 
@@ -80,6 +55,48 @@ void XyzEmployeeManager::addEmployee(void)
         default:
         {
             cout << "Current size of queue is :" << ActiveAndInactiveEmplObj.getSize() << endl;
+            break;
+        }
+    }
+}
+
+void XyzEmployeeManager::addEmployee(void)
+{
+    int sEmpType = 0;
+    int sInput = 0;
+
+    while(!(cin >> sInput))
+    {
+        cout << "Enter valid choice: " << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');        
+    }    
+
+    switch(sInput)
+    {
+        case 1:
+        {
+            sEmpType = getRandomNumber(1,3);
+            AddEmployeeByType(sEmpType);
+            break;
+        }
+        case 2:
+        {
+            cout << "choose the type of employee needed to be added 1: FullTime 2: Contract 3: Intern " << endl;
+
+            while(!(cin >> sEmpType))
+            {
+                cout << "Enter valid choice: " << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');        
+            }
+
+            AddEmployeeByType(sEmpType);
+            break;
+        }
+        default:
+        {
+            cout << "choose correct option" << endl;
             break;
         }
     }

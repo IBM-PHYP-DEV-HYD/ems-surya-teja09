@@ -22,10 +22,8 @@ public:
     string mDateOfLeaving; 
 
 public:
-    //XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, uint8_t EmpStatusParm, uint8_t EmpTypeParm, char EmpGenderParm, string DobParm, string DojParm);
+    XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     void setLeaveDetails(int LeavesAvailedParm); 
-    void setInternSpecificDetails(InternDetails InternDetailsParm);
-    void setExtAgency(int ExtAgencyParm);
     InternDetails getInternSpecificDetails(void);
     ExternalAgency getExtAgency(void);
     string getEmployeeId(void);

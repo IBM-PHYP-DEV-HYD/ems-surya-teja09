@@ -1,9 +1,12 @@
 #include "XyzInternEmployee.H"
 
-void XyzInternEmployee::setInternSpecificDetails(InternDetails InternDetailsParm)
+XyzInternEmployee::XyzInternEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
+                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm) 
 {
-    mHiringCollege = InternDetailsParm.mHiringCollege;
-    mHiringBranch = InternDetailsParm.mHiringBranch;
+    InternDetails sInternDetails;
+    getRandomizedInternDetails(&sInternDetails);
+    mHiringCollege = sInternDetails.mHiringCollege;
+    mHiringBranch = sInternDetails.mHiringBranch;   
 }
 
 InternDetails XyzInternEmployee::getInternSpecificDetails(void)

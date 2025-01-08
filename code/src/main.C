@@ -4,7 +4,7 @@
 int main()
 {
     XyzEmployeeManager XyzEmpMgr;
-    int sMainchoice = 0, sInput = 0;
+    int sMainchoice = 0;
     
     while(1)
     {
@@ -16,7 +16,6 @@ int main()
             case 1: 
             {
                 printEmployeeOption();
-                cin >> sInput;
                 XyzEmpMgr.addEmployee();
                 break;
             }

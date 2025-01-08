@@ -19,6 +19,7 @@ public:
     uint32_t mEmpIdSeriesNum;
 
 public:
+    void AddEmployeeByType(int EmpTypeParm);
     void addEmployee(void);
     void removeEmployee(void);
     void printResignedEmployees(void);

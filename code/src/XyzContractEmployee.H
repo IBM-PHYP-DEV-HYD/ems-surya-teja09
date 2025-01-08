@@ -10,7 +10,7 @@ class XyzContractEmployee : public XyzEmployeeImpl
 protected:
     int mExtAgency;
 public:
-    void setExtAgency(int ExtAgencyParm);
+    XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     ExternalAgency getExtAgency(void);
     InternDetails getInternSpecificDetails(void);
     string getEmployeeLeavesAvaialed(void);

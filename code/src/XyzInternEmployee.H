@@ -12,7 +12,7 @@ private:
     HiringFromBranches mHiringBranch; 
 
 public:
-    void setInternSpecificDetails(InternDetails InternDetailsParm);
+    XyzInternEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     InternDetails getInternSpecificDetails(void);
     ExternalAgency getExtAgency(void);
     string getEmployeeLeavesAvaialed(void);

@@ -1,9 +1,9 @@
 #include "XyzContractEmployee.H"
 
-
-void XyzContractEmployee::setExtAgency(int ExtAgencyParm)
+XyzContractEmployee::XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
+                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm) 
 {
-    mExtAgency = ExtAgencyParm;
+    mExtAgency = getRandomizedEmployeeAgency();   
 }
 
 ExternalAgency XyzContractEmployee::getExtAgency(void)

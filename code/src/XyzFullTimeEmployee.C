@@ -1,5 +1,12 @@
 #include "XyzFullTimeEmployee.H"
 
+XyzFullTimeEmployee::XyzFullTimeEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
+                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm)   
+{
+    mLeavesAvailed = getRandomNumber(1, 22);   
+    mLevesLeft = 22 - mLeavesAvailed;
+}
+
 void XyzFullTimeEmployee::setLeaveDetails(int LeavesAvailedParm)
 {
     mLeavesAvailed = LeavesAvailedParm;
