@@ -5,7 +5,7 @@ XyzEmployeeManager::XyzEmployeeManager()
     mEmpIdSeriesNum = 0;
 }
 
-void XyzEmployeeManager::AddEmployeeByType(int EmpTypeParm)
+void XyzEmployeeManager::pAddEmployeeByType(int EmpTypeParm)
 {
     switch(EmpTypeParm)
     {
@@ -77,7 +77,7 @@ void XyzEmployeeManager::addEmployee(void)
         case 1:
         {
             sEmpType = getRandomNumber(1,3);
-            AddEmployeeByType(sEmpType);
+            pAddEmployeeByType(sEmpType);
             break;
         }
         case 2:
@@ -91,7 +91,7 @@ void XyzEmployeeManager::addEmployee(void)
                 cin.ignore(1000, '\n');        
             }
 
-            AddEmployeeByType(sEmpType);
+            pAddEmployeeByType(sEmpType);
             break;
         }
         default:
@@ -293,7 +293,6 @@ void XyzEmployeeManager::searchEmployeeById(void)
 void XyzEmployeeManager::printEmployeeDetails(void)
 {
     int sInput = 0;
-    printEmployeedetailsMenu();
     cin >> sInput;
     switch(sInput)
     {

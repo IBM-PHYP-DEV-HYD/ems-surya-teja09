@@ -7,7 +7,7 @@
 
 class XyzInternEmployee : public XyzEmployeeImpl
 {
-private:
+protected:
     HiringFromColleges mHiringCollege;
     HiringFromBranches mHiringBranch; 
 

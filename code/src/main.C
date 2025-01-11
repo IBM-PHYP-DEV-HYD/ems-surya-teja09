@@ -13,25 +13,27 @@ int main()
 
         switch(sMainchoice)
         {
-            case 1: 
+            case ADD_EMPLOYEE: 
             {
                 printEmployeeOption();
                 XyzEmpMgr.addEmployee();
                 break;
             }
-            case 2:
+            case REMOVE_EMPLOYEE:
             {
                 XyzEmpMgr.removeEmployee();
                 break;
             }
-            case 3:
+            case PRINT_EMPLOYEE:
             {
+                printEmployeedetailsMenu();
                 XyzEmpMgr.printEmployeeDetails();
                 break;
             }
-            case 4:
+            case OTHERS:
             {
-                printEmployeeOtherdetailsMenu();       
+                printEmployeeOtherdetailsMenu(); 
+                //Needs to be implmented      
                 break; 
             }
             default: 

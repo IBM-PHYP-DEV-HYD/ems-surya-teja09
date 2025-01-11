@@ -62,7 +62,69 @@ void XyzEmployeeImpl::printEmpSpecificHeader(void)
 
 void XyzEmployeeImpl::printEmpSpecifiDetails(void)
 {
+    string sEmpStatus;
+    switch(mEmployeeStatus)
+    {
+        case ACTIVE:
+        {
+            sEmpStatus = "ACTIVE";
+            break;
+        }
+        case INACTIVE:
+        {
+            sEmpStatus = "INACTIVE";
+            break;
+        }
+        case RESIGNED:
+        {
+            sEmpStatus = "RESIGNED";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
 
+    string sGender;
+    if(mGender == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }    
+
+    string sEmpType;
+    switch(mEmployeeType)
+    {
+        case FULL_TIME:
+        {
+            sEmpType = "FULL_TIME";
+            break;
+        }
+        case CONTRACT:
+        {
+            sEmpType = "CONTRACT";
+            break;
+        }
+        case INTERN:
+        {
+            sEmpType = "INTERN";
+            break;
+        }
+    }
+
+    cout << left
+         << "| " << setw(18) << mEmployeeName
+         << "| " << setw(10) << mEmployeeId
+         << "| " << setw(17) << "FULL-TIME"
+         << "| " << setw(15) << sEmpStatus
+         << "| " << setw(12) << sGender
+         << "| " << setw(20) << mDateOfBirth
+         << "| " << setw(19) << mDateOfBirth
+         << "| " << setw(19) << mDateOfBirth;
 }
 
 string XyzEmployeeImpl::getEmployeeLeavesAvaialed(void)
@@ -77,7 +139,69 @@ string XyzEmployeeImpl::getEmployeeLeavesLeft(void)
 
 void XyzEmployeeImpl::printParticularEmployeeSummary(void)
 {
-    
+    cout << "Employee Details :" << endl;
+    string sEmpStatus;
+    switch(mEmployeeStatus)
+    {
+        case ACTIVE:
+        {
+            sEmpStatus = "ACTIVE";
+            break;
+        }
+        case INACTIVE:
+        {
+            sEmpStatus = "INACTIVE";
+            break;
+        }
+        case RESIGNED:
+        {
+            sEmpStatus = "RESIGNED";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+
+    string sGender;
+    if(mGender == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }    
+
+    string sEmpType;
+    switch(mEmployeeType)
+    {
+        case FULL_TIME:
+        {
+            sEmpType = "FULL_TIME";
+            break;
+        }
+        case CONTRACT:
+        {
+            sEmpType = "CONTRACT";
+            break;
+        }
+        case INTERN:
+        {
+            sEmpType = "INTERN";
+            break;
+        }
+    }
+
+    cout <<  " Employee Name   : " << mEmployeeName << endl;
+    cout <<  " Employee Id     : " << mEmployeeId << endl;
+    cout <<  " Employee Type   : " << sEmpType << endl;
+    cout <<  " Employee Status : " << sEmpStatus << endl;
+    cout <<  " Employee Gender : " << sGender << endl;
+    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
+    cout <<  " Date of Joining : " << mDateOfBirth << endl;   
+
 }
 
 void XyzEmployeeImpl::addLeavestoFullTimeEmp(int LeavesLeftParm)

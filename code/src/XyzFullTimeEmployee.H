@@ -9,7 +9,7 @@ using namespace std;
 
 class XyzFullTimeEmployee : public XyzEmployeeImpl
 {
-public:
+protected:
     int mLeavesAvailed;
     int mLevesLeft;
 

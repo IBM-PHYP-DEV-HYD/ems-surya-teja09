@@ -39,44 +39,7 @@ InternDetails XyzFullTimeEmployee::getInternSpecificDetails(void)
 
 void XyzFullTimeEmployee::printParticularEmployeeSummary(void)
 {
-    cout << "Employee Details :" << endl;
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
-    cout <<  " Employee Name   : " << mEmployeeName << endl;
-    cout <<  " Employee Id     : " << mEmployeeId << endl;
-    cout <<  " Employee Type   : " << "FULL-TIME" << endl;
-    cout <<  " Employee Status : " << sEmpStatus << endl;
-    cout <<  " Employee Gender : " << sGender << endl;
-    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
-    cout <<  " Date of Joining : " << mDateOfBirth << endl;
+    XyzEmployeeImpl::printParticularEmployeeSummary();
     cout <<  " Leaves Availed  : " << mLeavesAvailed << endl;  
     cout <<  " Leaves Left     : " << mLevesLeft << endl;  
 }
@@ -102,51 +65,8 @@ void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 
 void XyzFullTimeEmployee::printEmpSpecifiDetails(void)
 {
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
-
-    cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(17) << "FULL-TIME"
-         << "| " << setw(15) << sEmpStatus
-         << "| " << setw(12) << sGender
-         << "| " << setw(20) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(20) << mLeavesAvailed
+    XyzEmployeeImpl::printEmpSpecifiDetails();     
+    cout << "| " << setw(20) << mLeavesAvailed
          << "| " << setw(16) << mLevesLeft
          << "|" << endl;
     

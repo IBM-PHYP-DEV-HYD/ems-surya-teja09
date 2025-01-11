@@ -32,37 +32,6 @@ string XyzContractEmployee::getEmployeeLeavesLeft(void)
 
 void XyzContractEmployee::printParticularEmployeeSummary(void)
 {
-    cout << "Employee Details :" << endl;
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
     string sAgency;
     switch(mExtAgency)
     {
@@ -87,13 +56,7 @@ void XyzContractEmployee::printParticularEmployeeSummary(void)
         }
     }
 
-    cout <<  " Employee Name   : " << mEmployeeName << endl;
-    cout <<  " Employee Id     : " << mEmployeeId << endl;
-    cout <<  " Employee Type   : " << "CONTRACT" << endl;
-    cout <<  " Employee Status : " << sEmpStatus << endl;
-    cout <<  " Employee Gender : " << sGender << endl;
-    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
-    cout <<  " Date of Joining : " << mDateOfBirth << endl;
+    XyzEmployeeImpl::printParticularEmployeeSummary();
     cout <<  " External Agency : " << sAgency << endl;
 }
 
@@ -117,40 +80,6 @@ void XyzContractEmployee::printEmpSpecificHeader(void)
 
 void XyzContractEmployee::printEmpSpecifiDetails(void)
 {
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
     string sAgency;
     switch(mExtAgency)
     {
@@ -175,16 +104,8 @@ void XyzContractEmployee::printEmpSpecifiDetails(void)
         }
     }    
 
-    cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(17) << "CONTRACT"
-         << "| " << setw(16) << sEmpStatus
-         << "| " << setw(13) << sGender
-         << "| " << setw(20) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(15) << sAgency
+    XyzEmployeeImpl::printEmpSpecifiDetails();
+    cout << "| " << setw(15) << sAgency
          << "|" << endl;
 
     cout << setfill(' ') << setw(160) << " " << endl;

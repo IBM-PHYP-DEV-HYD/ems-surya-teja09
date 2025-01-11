@@ -13,13 +13,14 @@ using namespace std;
 
 class XyzEmployeeManager
 {  
-public:
+protected:
     Edll<XyzEmployeeIF*> ActiveAndInactiveEmplObj;
     Edll<XyzEmployeeIF*> ResignedEmplObj;
     uint32_t mEmpIdSeriesNum;
+    void pAddEmployeeByType(int EmpTypeParm);
 
 public:
-    void AddEmployeeByType(int EmpTypeParm);
+    
     void addEmployee(void);
     void removeEmployee(void);
     void printResignedEmployees(void);

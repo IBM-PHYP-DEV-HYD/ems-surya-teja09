@@ -11,7 +11,7 @@ using namespace std;
 
 class XyzEmployeeImpl : public XyzEmployeeIF
 {
-public:
+protected:
     string mEmployeeName;
     string mEmployeeId;
     int mEmployeeStatus;

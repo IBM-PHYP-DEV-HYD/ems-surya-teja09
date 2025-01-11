@@ -35,37 +35,6 @@ string XyzInternEmployee::getEmployeeLeavesLeft(void)
 
 void XyzInternEmployee::printParticularEmployeeSummary(void)
 {
-    cout << "Employee Details :" << endl;
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
     string sHiringCollege;
     switch(mHiringCollege)
     {
@@ -134,13 +103,7 @@ void XyzInternEmployee::printParticularEmployeeSummary(void)
         }
     }
 
-    cout <<  " Employee Name   : " << mEmployeeName << endl;
-    cout <<  " Employee Id     : " << mEmployeeId << endl;
-    cout <<  " Employee Type   : " << "INTERN" << endl;
-    cout <<  " Employee Status : " << sEmpStatus << endl;
-    cout <<  " Employee Gender : " << sGender << endl;
-    cout <<  " Date of Birth   : " << mDateOfBirth << endl;
-    cout <<  " Date of Joining : " << mDateOfBirth << endl;
+    XyzEmployeeImpl::printParticularEmployeeSummary();
     cout <<  " Hiring College  : " << sHiringCollege << endl;  
     cout <<  " Hiring Branch   : " << sHiringBranch << endl;     
 }
@@ -166,40 +129,6 @@ void XyzInternEmployee::printEmpSpecificHeader(void)
 
 void XyzInternEmployee::printEmpSpecifiDetails(void)
 {
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
     string sHiringCollege;
     switch(mHiringCollege)
     {
@@ -268,18 +197,10 @@ void XyzInternEmployee::printEmpSpecifiDetails(void)
         }
     }
 
-    cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(17) << "INTERN"
-         << "| " << setw(16) << sEmpStatus
-         << "| " << setw(12) << sGender
-         << "| " << setw(20) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << sHiringBranch
-         << "| " << setw(19) << sHiringCollege
-         << "|" << endl;
+    XyzEmployeeImpl::printEmpSpecifiDetails();
+    cout << "| " << setw(19) << sHiringBranch
+        << "| " << setw(19) << sHiringCollege
+        << "|" << endl;
 
     cout << setfill(' ') << setw(189) << " " << endl;
 }

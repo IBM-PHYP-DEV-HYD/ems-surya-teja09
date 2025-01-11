@@ -75,6 +75,16 @@ struct EmpDetails
     uint8_t mEmpType;
 };
 
+enum MAIN_MENU
+{
+    ADD_EMPLOYEE       = 1,
+    REMOVE_EMPLOYEE    = 2,
+    PRINT_EMPLOYEE     = 3,
+    OTHERS             = 4,
+    EXIT               = -1
+
+};
+
 int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
 int getRandomizedEmployeeAgency(void);
