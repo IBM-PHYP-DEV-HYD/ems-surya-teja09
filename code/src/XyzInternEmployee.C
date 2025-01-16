@@ -23,7 +23,7 @@ ExternalAgency XyzInternEmployee::getExtAgency(void)
     return (ExternalAgency)AGENCY_UNDEFINED;
 }
 
-string XyzInternEmployee::getEmployeeLeavesAvaialed(void)
+string XyzInternEmployee::getEmployeeLeavesAvailed(void)
 {
     return "NA";
 }
@@ -127,7 +127,7 @@ void XyzInternEmployee::printEmpSpecificHeader(void)
 }
 
 
-void XyzInternEmployee::printEmpSpecifiDetails(void)
+void XyzInternEmployee::printEmpSpecificDetails(void)
 {
     string sHiringCollege;
     switch(mHiringCollege)
@@ -197,7 +197,7 @@ void XyzInternEmployee::printEmpSpecifiDetails(void)
         }
     }
 
-    XyzEmployeeImpl::printEmpSpecifiDetails();
+    XyzEmployeeImpl::printEmpSpecificDetails();
     cout << "| " << setw(19) << sHiringBranch
         << "| " << setw(19) << sHiringCollege
         << "|" << endl;

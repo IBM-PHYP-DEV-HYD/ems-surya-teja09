@@ -85,6 +85,20 @@ enum MAIN_MENU
 
 };
 
+enum ADD_EMPLOYEE
+{
+    RANDOM            = 1,
+    USER_DEFINED      = 2
+};
+
+enum PRINT_OPTIONS
+{
+    TYPE             = 1,
+    GENDER           = 2,
+    STATUS           = 3,
+    SUMMARY          = 4
+};
+
 int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
 int getRandomizedEmployeeAgency(void);

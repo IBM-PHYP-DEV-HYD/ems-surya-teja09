@@ -60,7 +60,7 @@ void XyzEmployeeImpl::printEmpSpecificHeader(void)
 
 }
 
-void XyzEmployeeImpl::printEmpSpecifiDetails(void)
+void XyzEmployeeImpl::printEmpSpecificDetails(void)
 {
     string sEmpStatus;
     switch(mEmployeeStatus)
@@ -127,7 +127,7 @@ void XyzEmployeeImpl::printEmpSpecifiDetails(void)
          << "| " << setw(19) << mDateOfBirth;
 }
 
-string XyzEmployeeImpl::getEmployeeLeavesAvaialed(void)
+string XyzEmployeeImpl::getEmployeeLeavesAvailed(void)
 {
     return "NA";
 }
@@ -427,7 +427,7 @@ void XyzEmployeeImpl::printEmployeeSummary(void)
         }
     }
 
-    string sLeavesAvailed = getEmployeeLeavesAvaialed();
+    string sLeavesAvailed = getEmployeeLeavesAvailed();
     string sLeavesLeft = getEmployeeLeavesLeft();
     cout << left
          << "| " << setw(18) << mEmployeeName

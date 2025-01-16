@@ -15,11 +15,11 @@ public:
     virtual char getEmployeeGender(void) = 0;
     virtual uint8_t getEmployeeStatus(void) = 0;
     virtual uint8_t getEmployeeType(void) = 0;
-    virtual string getEmployeeLeavesAvaialed(void) = 0;
+    virtual string getEmployeeLeavesAvailed(void) = 0;
     virtual string getEmployeeLeavesLeft(void) = 0;
     virtual void addLeavestoFullTimeEmp(int LeavesLeftParm) = 0;
     virtual void printEmpSpecificHeader(void) = 0;
-    virtual void printEmpSpecifiDetails(void) = 0;
+    virtual void printEmpSpecificDetails(void) = 0;
     virtual void printEmployeeSummary(void) = 0;
     virtual void printEmployeeSummaryHeader(void) = 0;
     virtual void printResignedEmployeeSummaryHeader(void) = 0;

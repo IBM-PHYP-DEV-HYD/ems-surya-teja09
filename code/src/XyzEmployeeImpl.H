@@ -32,9 +32,9 @@ public:
     uint8_t getEmployeeStatus(void);
     uint8_t getEmployeeType(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecifiDetails(void);
+    void printEmpSpecificDetails(void);
     void printEmployeeSummary(void);
-    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmployeeSummaryHeader(void);
     void printParticularEmployeeSummary(void);

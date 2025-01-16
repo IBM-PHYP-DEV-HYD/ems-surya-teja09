@@ -13,10 +13,10 @@ public:
     XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     ExternalAgency getExtAgency(void);
     InternDetails getInternSpecificDetails(void);
-    string getEmployeeLeavesAvaialed(void);
+    string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecifiDetails(void);
+    void printEmpSpecificDetails(void);
     void printParticularEmployeeSummary(void);
 };
 

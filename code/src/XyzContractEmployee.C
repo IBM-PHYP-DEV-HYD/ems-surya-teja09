@@ -20,7 +20,7 @@ InternDetails XyzContractEmployee::getInternSpecificDetails(void)
     return sInternDetailsParm;
 }
 
-string XyzContractEmployee::getEmployeeLeavesAvaialed(void)
+string XyzContractEmployee::getEmployeeLeavesAvailed(void)
 {
     return "NA";
 }
@@ -78,7 +78,7 @@ void XyzContractEmployee::printEmpSpecificHeader(void)
 }
 
 
-void XyzContractEmployee::printEmpSpecifiDetails(void)
+void XyzContractEmployee::printEmpSpecificDetails(void)
 {
     string sAgency;
     switch(mExtAgency)
@@ -104,7 +104,7 @@ void XyzContractEmployee::printEmpSpecifiDetails(void)
         }
     }    
 
-    XyzEmployeeImpl::printEmpSpecifiDetails();
+    XyzEmployeeImpl::printEmpSpecificDetails();
     cout << "| " << setw(15) << sAgency
          << "|" << endl;
 

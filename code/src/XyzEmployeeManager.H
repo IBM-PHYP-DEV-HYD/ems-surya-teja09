@@ -14,9 +14,9 @@ using namespace std;
 class XyzEmployeeManager
 {  
 protected:
-    Edll<XyzEmployeeIF*> ActiveAndInactiveEmplObj;
+    Edll<XyzEmployeeIF*> mActiveEmpQueue;
     Edll<XyzEmployeeIF*> ResignedEmplObj;
-    uint32_t mEmpIdSeriesNum;
+    uint32_t mEmpCount;
     void pAddEmployeeByType(int EmpTypeParm);
 
 public:

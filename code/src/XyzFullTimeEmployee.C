@@ -13,7 +13,7 @@ void XyzFullTimeEmployee::setLeaveDetails(int LeavesAvailedParm)
     mLevesLeft = 22 - mLeavesAvailed;
 }
 
-string XyzFullTimeEmployee::getEmployeeLeavesAvaialed(void)
+string XyzFullTimeEmployee::getEmployeeLeavesAvailed(void)
 {
     return to_string(mLeavesAvailed);
 }
@@ -63,9 +63,9 @@ void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 }
 
 
-void XyzFullTimeEmployee::printEmpSpecifiDetails(void)
+void XyzFullTimeEmployee::printEmpSpecificDetails(void)
 {
-    XyzEmployeeImpl::printEmpSpecifiDetails();     
+    XyzEmployeeImpl::printEmpSpecificDetails();     
     cout << "| " << setw(20) << mLeavesAvailed
          << "| " << setw(16) << mLevesLeft
          << "|" << endl;
