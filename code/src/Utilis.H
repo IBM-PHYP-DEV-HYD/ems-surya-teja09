@@ -72,7 +72,7 @@ struct EmpDetails
     int mGender;
     uint8_t mEmpStatus;
     string mEmpId;
-    uint8_t mEmpType;
+    int mEmpType;
 };
 
 enum MAIN_MENU
@@ -98,6 +98,22 @@ enum PRINT_OPTIONS
     STATUS           = 3,
     SUMMARY          = 4
 };
+
+namespace SpaceEnum {
+    constexpr int EmployeeName = 18;
+    constexpr int EmployeeID = 10;
+    constexpr int Gender = 12;
+    constexpr int Date = 20;
+    constexpr int Type = 17;
+    constexpr int Status = 15;
+    constexpr int LeavesAvailed = 20;
+    constexpr int LeavesLeft = 16;
+    constexpr int College = 16;
+    constexpr int Branch = 17;
+    constexpr int Agency = 16;
+    constexpr int Total = 222;
+
+}
 
 int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);

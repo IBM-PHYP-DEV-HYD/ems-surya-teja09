@@ -117,14 +117,14 @@ void XyzEmployeeImpl::printEmpSpecificDetails(void)
     }
 
     cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(17) << "FULL-TIME"
-         << "| " << setw(15) << sEmpStatus
-         << "| " << setw(12) << sGender
-         << "| " << setw(20) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth;
+         << "| " << setw(SpaceEnum::EmployeeName) << mEmployeeName
+         << "| " << setw(SpaceEnum::EmployeeID) << mEmployeeId
+         << "| " << setw(SpaceEnum::Type) << sEmpType
+         << "| " << setw(SpaceEnum::Status) << sEmpStatus
+         << "| " << setw(SpaceEnum::Gender) << sGender
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth;
 }
 
 string XyzEmployeeImpl::getEmployeeLeavesAvailed(void)
@@ -430,19 +430,19 @@ void XyzEmployeeImpl::printEmployeeSummary(void)
     string sLeavesAvailed = getEmployeeLeavesAvailed();
     string sLeavesLeft = getEmployeeLeavesLeft();
     cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(17) << sEmpType
-         << "| " << setw(15) << sEmpStatus
-         << "| " << setw(12) << sGender
-         << "| " << setw(20) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(20) << sLeavesAvailed
-         << "| " << setw(16) << sLeavesLeft
-         << "| " << setw(16) << sAgency
-         << "| " << setw(16) << sHiringCollege
-         << "| " << setw(17) << sHiringBranch
+         << "| " << setw(SpaceEnum::EmployeeName) << mEmployeeName
+         << "| " << setw(SpaceEnum::EmployeeID) << mEmployeeId
+         << "| " << setw(SpaceEnum::Type) << sEmpType
+         << "| " << setw(SpaceEnum::Status) << sEmpStatus
+         << "| " << setw(SpaceEnum::Gender) << sGender
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
+         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
+         << "| " << setw(SpaceEnum::LeavesAvailed) << sLeavesAvailed
+         << "| " << setw(SpaceEnum::LeavesAvailed) << sLeavesLeft
+         << "| " << setw(SpaceEnum::Agency) << sAgency
+         << "| " << setw(SpaceEnum::College) << sHiringCollege
+         << "| " << setw(SpaceEnum::Branch) << sHiringBranch
          << "|" << endl;
     
     cout << setfill(' ') << setw(187) << " " << endl;    

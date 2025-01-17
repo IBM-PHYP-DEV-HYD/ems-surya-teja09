@@ -3,7 +3,7 @@
 
 int main()
 {
-    XyzEmployeeManager XyzEmpMgr;
+    XyzEmployeeManager sXyzEmpMgr;
     int sMainchoice = 0;
     
     while(1)
@@ -16,18 +16,37 @@ int main()
             case ADD_EMPLOYEE: 
             {
                 printEmployeeOption();
-                XyzEmpMgr.addEmployee();
+                int sInput = 0;
+
+                while(!(cin >> sInput))
+                {
+                    cout << "Enter valid choice: " << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');        
+                }  
+                sXyzEmpMgr.addEmployee(sInput);
                 break;
             }
             case REMOVE_EMPLOYEE:
             {
-                XyzEmpMgr.removeEmployee();
+                std::string sEmpId;
+                cout << "Enter empid : " << endl;
+                std::cin >> sEmpId;
+                sXyzEmpMgr.removeEmployee(sEmpId);
                 break;
             }
             case PRINT_EMPLOYEE:
             {
                 printEmployeedetailsMenu();
-                XyzEmpMgr.printEmployeeDetails();
+                int sInput = 0;
+
+                while(!(cin >> sInput))
+                {
+                    cout << "Enter valid choice: " << endl;
+                    cin.clear();
+                    cin.ignore(1000, '\n');        
+                }  
+                sXyzEmpMgr.printEmployeeDetails(sInput);
                 break;
             }
             case OTHERS:

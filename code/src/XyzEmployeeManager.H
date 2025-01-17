@@ -15,14 +15,13 @@ class XyzEmployeeManager
 {  
 protected:
     Edll<XyzEmployeeIF*> mActiveEmpQueue;
-    Edll<XyzEmployeeIF*> ResignedEmplObj;
+    Edll<XyzEmployeeIF*> mResignedEmpQueue;
     uint32_t mEmpCount;
-    void pAddEmployeeByType(int EmpTypeParm);
 
 public:
     
-    void addEmployee(void);
-    void removeEmployee(void);
+    void addEmployee(int UserInputParm);
+    void removeEmployee(string EmpIdParm);
     void printResignedEmployees(void);
     void printEmployeesByType(int EmpTypeParm);
     void printEmployeesByStatus(int EmpStatusParm);
@@ -32,7 +31,7 @@ public:
     void addLeaves(void);
     void searchEmployeeByName(void);
     void searchEmployeeById(void);
-    void printEmployeeDetails(void);
+    void printEmployeeDetails(int UserInputParm);
     void printParticularEmployeeSummary(void);
     XyzEmployeeManager();
 };

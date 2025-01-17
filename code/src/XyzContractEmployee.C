@@ -105,7 +105,7 @@ void XyzContractEmployee::printEmpSpecificDetails(void)
     }    
 
     XyzEmployeeImpl::printEmpSpecificDetails();
-    cout << "| " << setw(15) << sAgency
+    cout << "| " << setw(SpaceEnum::Agency) << sAgency
          << "|" << endl;
 
     cout << setfill(' ') << setw(160) << " " << endl;

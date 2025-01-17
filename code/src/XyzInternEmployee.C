@@ -198,8 +198,8 @@ void XyzInternEmployee::printEmpSpecificDetails(void)
     }
 
     XyzEmployeeImpl::printEmpSpecificDetails();
-    cout << "| " << setw(19) << sHiringBranch
-        << "| " << setw(19) << sHiringCollege
+    cout << "| " << setw(SpaceEnum::Branch) << sHiringBranch
+        << "| " << setw(SpaceEnum::College) << sHiringCollege
         << "|" << endl;
 
     cout << setfill(' ') << setw(189) << " " << endl;

@@ -66,8 +66,8 @@ void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 void XyzFullTimeEmployee::printEmpSpecificDetails(void)
 {
     XyzEmployeeImpl::printEmpSpecificDetails();     
-    cout << "| " << setw(20) << mLeavesAvailed
-         << "| " << setw(16) << mLevesLeft
+    cout << "| " << setw(SpaceEnum::LeavesAvailed) << mLeavesAvailed
+         << "| " << setw(SpaceEnum::LeavesLeft) << mLevesLeft
          << "|" << endl;
     
     cout << setfill(' ') << setw(187) << " " << endl;
