@@ -241,60 +241,46 @@ void XyzEmployeeManager::makeInternOrContractAsFullTimeEmployees(void)
 
 }
 
-void XyzEmployeeManager::addLeaves(void)
+void XyzEmployeeManager::addLeaves(int leavesParm)
 {
-    int sNoLeaves = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = mActiveEmpQueue.mHead;
-    cout << "Enter Number of leaves to be added :" << endl;
-    cin >> sNoLeaves;
 
     while(sCurrNode != NULL)
     {
         if((sCurrNode->mdata->getEmployeeType() == FULL_TIME))
         {
-            sCurrNode->mdata->addLeavestoFullTimeEmp(sNoLeaves);
+            sCurrNode->mdata->addLeavestoFullTimeEmp(leavesParm);
         }  
         sCurrNode = sCurrNode->mNext;
     } 
 }
 
-void XyzEmployeeManager::searchEmployeeByName(void)
+void XyzEmployeeManager::searchEmployeeByName(string EmpNameParm)
 {
-    std::string sEmpName;
-    cout << "Enter empid : " << endl;
-    std::cin >> sEmpName;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = mActiveEmpQueue.mHead;
 
     while(sCurrNode != NULL)
     {
-        if(sCurrNode->mdata->getEmployeeId() == sEmpName)
+        if(sCurrNode->mdata->getEmployeeName() == EmpNameParm)
         {
-            printParticularEmployeeSummary();
+            sCurrNode->mdata->printParticularEmployeeSummary();
         }   
         sCurrNode = sCurrNode->mNext;
     } 
 }
 
-void XyzEmployeeManager::printParticularEmployeeSummary(void)
+void XyzEmployeeManager::searchEmployeeById(string EmpIdParm)
 {
-    //Do Nothing
-}
-
-void XyzEmployeeManager::searchEmployeeById(void)
-{
-    std::string sEmpId;
-    cout << "Enter empid : " << endl;
-    std::cin >> sEmpId;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = mActiveEmpQueue.mHead;
 
     while(sCurrNode != NULL)
     {
-        if(sCurrNode->mdata->getEmployeeId() == sEmpId)
+        if(sCurrNode->mdata->getEmployeeId() == EmpIdParm)
         {
-            printParticularEmployeeSummary();
+            sCurrNode->mdata->printParticularEmployeeSummary();
         }   
         sCurrNode = sCurrNode->mNext;
     } 
@@ -335,6 +321,54 @@ void XyzEmployeeManager::printEmployeeDetails(int UserInputParm)
         }        
         default:
         {
+            break;
+        }
+    }
+}
+
+void XyzEmployeeManager::otherDetails(int inputParm)
+{
+    switch(inputParm)
+    {
+        case ADD_LEAVES:
+        {
+            int sNoLeaves = 0;
+            cout << "Enter Number of leaves to be added :" << endl;
+            cin >> sNoLeaves;
+            if(sNoLeaves <= 22)
+            {
+                addLeaves(sNoLeaves);
+            }
+            else
+            {
+                cout << "Add leaves less than or equal to 22" << endl;
+            }
+            break;
+        }
+        case CONVERT_EMP:
+        {
+
+            break;
+        }
+        case EMP_ID_SEARCH:
+        {
+            std::string sEmpId;
+            cout << "Enter empid : " << endl;
+            std::cin >> sEmpId;
+            searchEmployeeById(sEmpId);
+            break;
+        }
+        case EMP_NAME_SEARCH:
+        {
+            std::string sEmpName;
+            cout << "Enter Name : " << endl;
+            std::cin >> sEmpName;
+            searchEmployeeByName(sEmpName);
+            break;
+        }
+        default:
+        {
+            //Do Nothing
             break;
         }
     }

@@ -25,6 +25,7 @@ public:
     virtual void printResignedEmployeeSummaryHeader(void) = 0;
     virtual void printParticularEmployeeSummary(void) = 0;
     virtual void prinResignedEmployeeSummary(void) = 0;
+    virtual string getEmployeeName(void) = 0; 
     ~XyzEmployeeIF();
 };
 

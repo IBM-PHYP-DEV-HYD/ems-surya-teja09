@@ -113,7 +113,15 @@ namespace SpaceEnum {
     constexpr int Agency = 16;
     constexpr int Total = 222;
 
-}
+};
+
+enum OtherDetails
+{
+    ADD_LEAVES         = 1,
+    CONVERT_EMP        = 2,
+    EMP_ID_SEARCH      = 3,
+    EMP_NAME_SEARCH    = 4
+};
 
 int getRandomNumber(int startNumParm, int endNumParm);
 void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);

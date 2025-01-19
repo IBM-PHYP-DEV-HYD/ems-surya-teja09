@@ -41,6 +41,7 @@ public:
     void addLeavestoFullTimeEmp(int LeavesLeftParm);
     void printResignedEmployeeSummaryHeader(void);
     void prinResignedEmployeeSummary(void);
+    string getEmployeeName(void);
 };
 
 #endif

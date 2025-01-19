@@ -28,11 +28,12 @@ public:
     void printEmployeesByGender(int EmpGenderParm);
     void printEmployeeSummary(void);
     void makeInternOrContractAsFullTimeEmployees(void);
-    void addLeaves(void);
-    void searchEmployeeByName(void);
-    void searchEmployeeById(void);
+    void addLeaves(int leavesParm);
+    void searchEmployeeByName(string EmpNameParm);
+    void searchEmployeeById(string EmpIdParm);
     void printEmployeeDetails(int UserInputParm);
-    void printParticularEmployeeSummary(void);
+    //void printParticularEmployeeSummary(void);
+    void otherDetails(int inputParm);
     XyzEmployeeManager();
 };
 

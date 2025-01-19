@@ -52,7 +52,10 @@ int main()
             case OTHERS:
             {
                 printEmployeeOtherdetailsMenu(); 
-                //Needs to be implmented      
+                int sInput = 0;
+                cout << "Enter Input :" << endl;
+                cin >> sInput;                
+                sXyzEmpMgr.otherDetails(sInput);     
                 break; 
             }
             default: 

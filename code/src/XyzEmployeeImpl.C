@@ -50,6 +50,11 @@ uint8_t XyzEmployeeImpl::getEmployeeStatus(void)
     return mEmployeeStatus;
 }
 
+string XyzEmployeeImpl::getEmployeeName(void)
+{
+    return mEmployeeName;
+}
+
 uint8_t XyzEmployeeImpl::getEmployeeType(void)
 {
     return mEmployeeType;
