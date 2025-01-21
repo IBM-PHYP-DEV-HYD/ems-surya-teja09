@@ -5,11 +5,59 @@ XyzEmployeeManager::XyzEmployeeManager()
     mEmpCount = 0;
 }
 
-void XyzEmployeeManager::addEmployee(int UserInputParm)
+void XyzEmployeeManager::pAddFullTimeEmp(void)
+{
+    EmpDetails sEmpDetails;
+    sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
+    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
+    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, 
+                                                     sEmpDetails.mEmpId, 
+                                                     sEmpDetails.mEmpStatus, 
+                                                     sEmpDetails.mEmpType, 
+                                                     sEmpDetails.mGender, 
+                                                     sEmpDetails.mDob, 
+                                                     sEmpDetails.mDoj);
+    mActiveEmpQueue.pushFront(sXyzEmp);
+    ++mEmpCount;
+}
+
+void XyzEmployeeManager::pAddContractEmp(void)
+{
+    EmpDetails sEmpDetails;
+    sEmpDetails.mEmpType = (uint8_t)CONTRACT;
+    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
+    XyzEmployeeIF* sXyzEmp = new XyzContractEmployee(sEmpDetails.mEmpName, 
+                                                     sEmpDetails.mEmpId, 
+                                                     sEmpDetails.mEmpStatus, 
+                                                     sEmpDetails.mEmpType, 
+                                                     sEmpDetails.mGender, 
+                                                     sEmpDetails.mDob, 
+                                                     sEmpDetails.mDoj);
+    mActiveEmpQueue.pushFront(sXyzEmp);
+    ++mEmpCount;
+}
+
+void XyzEmployeeManager::pAddInternEmp(void)
+{
+    EmpDetails sEmpDetails;
+    sEmpDetails.mEmpType = (uint8_t)INTERN;
+    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
+    XyzEmployeeIF* sXyzEmp = new XyzInternEmployee(sEmpDetails.mEmpName, 
+                                                   sEmpDetails.mEmpId, 
+                                                   sEmpDetails.mEmpStatus, 
+                                                   sEmpDetails.mEmpType, 
+                                                   sEmpDetails.mGender, 
+                                                   sEmpDetails.mDob, 
+                                                   sEmpDetails.mDoj);
+    mActiveEmpQueue.pushFront(sXyzEmp);
+    ++mEmpCount; 
+}
+
+void XyzEmployeeManager::addEmployee(int userInputParm)
 {
     int sEmpType = 0;
-  
-    switch(UserInputParm)
+    EmpDetails sEmpDetails;
+    switch(userInputParm)
     {
         case RANDOM:
         {
@@ -18,44 +66,17 @@ void XyzEmployeeManager::addEmployee(int UserInputParm)
             {
                 case FULL_TIME:
                 {
-                    EmpDetails sEmpDetails;
-
-                    sEmpDetails.mEmpType = (uint8_t)FULL_TIME;
-                    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
-
-                    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
-        
-                    mActiveEmpQueue.pushFront(sXyzEmp);
-
-                    ++mEmpCount;
+                    pAddFullTimeEmp();
                     break;
                 }
                 case CONTRACT:
-                {
-                    
-                    EmpDetails sEmpDetails;
-                    sEmpDetails.mEmpType = (uint8_t)CONTRACT;
-                    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
-
-                    XyzEmployeeIF* sXyzEmp = new XyzContractEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
-
-                    mActiveEmpQueue.pushFront(sXyzEmp);
-
-                    ++mEmpCount;           
+                {     
+                    pAddContractEmp();      
                     break;
                 }
                 case INTERN:
-                {
-                    EmpDetails sEmpDetails;
-
-                    sEmpDetails.mEmpType = (uint8_t)INTERN;
-                    getRandomizedEmpBasicDetails(&sEmpDetails, mEmpCount);
-
-                    XyzEmployeeIF* sXyzEmp = new XyzInternEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
-
-                    mActiveEmpQueue.pushFront(sXyzEmp);
-
-                    ++mEmpCount;           
+                {        
+                    pAddInternEmp();  
                     break;
                 }
             }
@@ -64,7 +85,6 @@ void XyzEmployeeManager::addEmployee(int UserInputParm)
         case USER_DEFINED:
         {
             EmpDetails sEmpDetails;
-
             cout << "Enter Employee Type : 1. Full Time  2. Contract  3. Intern" << endl;
             cin >> sEmpDetails.mEmpType;
             cout << "choosed Emp Type " << sEmpDetails.mEmpType << endl;
@@ -80,21 +100,39 @@ void XyzEmployeeManager::addEmployee(int UserInputParm)
             {
                 case FULL_TIME:
                 {
-                    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
+                    XyzEmployeeIF* sXyzEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, 
+                                                                     sEmpDetails.mEmpId, 
+                                                                     sEmpDetails.mEmpStatus, 
+                                                                     sEmpDetails.mEmpType, 
+                                                                     sEmpDetails.mGender, 
+                                                                     sEmpDetails.mDob, 
+                                                                     sEmpDetails.mDoj);
                     mActiveEmpQueue.pushFront(sXyzEmp);
                     ++mEmpCount;  
                     break;              
                 }
                 case CONTRACT:
                 {
-                    XyzEmployeeIF* sXyzEmp = new XyzContractEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
+                    XyzEmployeeIF* sXyzEmp = new XyzContractEmployee(sEmpDetails.mEmpName, 
+                                                                     sEmpDetails.mEmpId, 
+                                                                     sEmpDetails.mEmpStatus, 
+                                                                     sEmpDetails.mEmpType, 
+                                                                     sEmpDetails.mGender, 
+                                                                     sEmpDetails.mDob, 
+                                                                     sEmpDetails.mDoj);
                     mActiveEmpQueue.pushFront(sXyzEmp);
                     ++mEmpCount;
                     break;
                 }
                 case INTERN:
                 {
-                    XyzEmployeeIF* sXyzEmp = new XyzInternEmployee(sEmpDetails.mEmpName, sEmpDetails.mEmpId, sEmpDetails.mEmpStatus, sEmpDetails.mEmpType, sEmpDetails.mGender, sEmpDetails.mDob, sEmpDetails.mDoj);
+                    XyzEmployeeIF* sXyzEmp = new XyzInternEmployee(sEmpDetails.mEmpName, 
+                                                                   sEmpDetails.mEmpId, 
+                                                                   sEmpDetails.mEmpStatus, 
+                                                                   sEmpDetails.mEmpType, 
+                                                                   sEmpDetails.mGender, 
+                                                                   sEmpDetails.mDob, 
+                                                                   sEmpDetails.mDoj);
                     mActiveEmpQueue.pushFront(sXyzEmp);
                     ++mEmpCount;
                     break;
@@ -115,7 +153,13 @@ void XyzEmployeeManager::addEmployee(int UserInputParm)
     }
 }
 
-void XyzEmployeeManager::removeEmployee(string EmpIdParm)
+void XyzEmployeeManager::addEmptoResignedQueue(Node<XyzEmployeeIF*>* resignedEmpParm)
+{
+    resignedEmpParm->mdata->setEmployeeStatus(RESIGNED);
+    mResignedEmpQueue.pushFront(resignedEmpParm->mdata);
+}
+
+void XyzEmployeeManager::removeEmployee(string empIdParm)
 {
     int sNodePos = 1;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
@@ -123,8 +167,9 @@ void XyzEmployeeManager::removeEmployee(string EmpIdParm)
 
     while(sCurrNode != NULL)
     {
-        if(sCurrNode->mdata->getEmployeeId() == EmpIdParm)
+        if(sCurrNode->mdata->getEmployeeId() == empIdParm)
         {
+            addEmptoResignedQueue(sCurrNode);
             mActiveEmpQueue.removeNodeAtParticularPosition(sNodePos);
         }  
         else
@@ -135,7 +180,7 @@ void XyzEmployeeManager::removeEmployee(string EmpIdParm)
     } 
 }
 
-void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
+void XyzEmployeeManager::printEmployeesByType(int empTypeParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
@@ -143,7 +188,7 @@ void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
 
     while((sCurrNode != NULL))
     {
-        if((sCurrNode->mdata->getEmployeeType() == EmpTypeParm))
+        if((sCurrNode->mdata->getEmployeeType() == empTypeParm))
         {
             if(sFlag == 0)
             {
@@ -160,7 +205,7 @@ void XyzEmployeeManager::printEmployeesByType(int EmpTypeParm)
     }    
 }
 
-void XyzEmployeeManager::printEmployeesByStatus(int EmpStatusParm)
+void XyzEmployeeManager::printEmployeesByStatus(int empStatusParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
@@ -168,7 +213,7 @@ void XyzEmployeeManager::printEmployeesByStatus(int EmpStatusParm)
 
     while((sCurrNode != NULL) )
     {
-        if((sCurrNode->mdata->getEmployeeStatus() == EmpStatusParm))
+        if((sCurrNode->mdata->getEmployeeStatus() == empStatusParm))
         {
             if(sFlag == 0)
             {
@@ -185,7 +230,7 @@ void XyzEmployeeManager::printEmployeesByStatus(int EmpStatusParm)
     }    
 }
 
-void XyzEmployeeManager::printEmployeesByGender(int EmpGenderParm)
+void XyzEmployeeManager::printEmployeesByGender(int empGenderParm)
 {
     bool sFlag = 0;
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
@@ -193,7 +238,7 @@ void XyzEmployeeManager::printEmployeesByGender(int EmpGenderParm)
 
     while((sCurrNode != NULL) )
     {
-        if((sCurrNode->mdata->getEmployeeGender() == EmpGenderParm))
+        if((sCurrNode->mdata->getEmployeeGender() == empGenderParm))
         {
             if(sFlag == 0)
             {
@@ -238,7 +283,7 @@ void XyzEmployeeManager::printEmployeeSummary(void)
 
 void XyzEmployeeManager::makeInternOrContractAsFullTimeEmployees(void)
 {
-
+    //Needs to be implemented
 }
 
 void XyzEmployeeManager::addLeaves(int leavesParm)
@@ -256,14 +301,14 @@ void XyzEmployeeManager::addLeaves(int leavesParm)
     } 
 }
 
-void XyzEmployeeManager::searchEmployeeByName(string EmpNameParm)
+void XyzEmployeeManager::searchEmployeeByName(string empNameParm)
 {
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = mActiveEmpQueue.mHead;
 
     while(sCurrNode != NULL)
     {
-        if(sCurrNode->mdata->getEmployeeName() == EmpNameParm)
+        if(sCurrNode->mdata->getEmployeeName() == empNameParm)
         {
             sCurrNode->mdata->printParticularEmployeeSummary();
         }   
@@ -271,14 +316,14 @@ void XyzEmployeeManager::searchEmployeeByName(string EmpNameParm)
     } 
 }
 
-void XyzEmployeeManager::searchEmployeeById(string EmpIdParm)
+void XyzEmployeeManager::searchEmployeeById(string empIdParm)
 {
     Node<XyzEmployeeIF*>* sCurrNode = nullptr;
     sCurrNode = mActiveEmpQueue.mHead;
 
     while(sCurrNode != NULL)
     {
-        if(sCurrNode->mdata->getEmployeeId() == EmpIdParm)
+        if(sCurrNode->mdata->getEmployeeId() == empIdParm)
         {
             sCurrNode->mdata->printParticularEmployeeSummary();
         }   
@@ -286,9 +331,9 @@ void XyzEmployeeManager::searchEmployeeById(string EmpIdParm)
     } 
 }
 
-void XyzEmployeeManager::printEmployeeDetails(int UserInputParm)
+void XyzEmployeeManager::printEmployeeDetails(int userInputParm)
 {
-    switch(UserInputParm)
+    switch(userInputParm)
     {
         case TYPE: 
         {
@@ -318,7 +363,12 @@ void XyzEmployeeManager::printEmployeeDetails(int UserInputParm)
         {
             printEmployeeSummary();           
             break;
-        }        
+        }  
+        case RESIGNED_EMP:
+        {
+            printResignedEmployees();
+            break;
+        }      
         default:
         {
             break;
@@ -347,7 +397,7 @@ void XyzEmployeeManager::otherDetails(int inputParm)
         }
         case CONVERT_EMP:
         {
-
+            makeInternOrContractAsFullTimeEmployees();
             break;
         }
         case EMP_ID_SEARCH:

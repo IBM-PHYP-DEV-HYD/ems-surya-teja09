@@ -25,6 +25,7 @@ public:
     XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     void setLeaveDetails(int LeavesAvailedParm); 
     InternDetails getInternSpecificDetails(void);
+    void setEmployeeStatus(int EmployeeStatusParm);
     ExternalAgency getExtAgency(void);
     string getEmployeeId(void);
     void setEmployeeBasicDetails(EmpDetails* EmpDetailsParm);

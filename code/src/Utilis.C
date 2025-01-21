@@ -76,6 +76,176 @@ void getRandomizedInternDetails(InternDetails *InternDetailsParm)
     InternDetailsParm->mHiringCollege = HiringCollege[getRandomNumber(0,6)];
 }
 
+string getAgencyFromEnum(int extAgencyParm)
+{
+    string sAgency = "NA";
+    switch(extAgencyParm)
+    {
+        case AVENGERS:
+        {
+            sAgency = "AVENGERS";
+            break;
+        }
+        case JUSTICE_LEAUGE:
+        {
+            sAgency = "JUSTICE_LEAUGE";
+            break;
+        }
+        case X_MEN:
+        {
+            sAgency = "X_MEN";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    return sAgency;
+}
+
+string getHiringCollegeFromEnum(int hiringCollegeParm)
+{
+    string sHiringCollege = "NA";
+    switch(hiringCollegeParm)
+    {
+        case IIT_DELHI:
+        {
+            sHiringCollege = "IIT_DELHI";
+            break;
+        }
+        case IIT_MUMBAI:
+        {
+            sHiringCollege = "IIT_MUMBAI";
+            break;
+        }
+        case IIT_HYDERABAD:
+        {
+            sHiringCollege = "IIT_HYDERABAD";
+            break;
+        }
+        case IIT_KANPUR:
+        {
+            sHiringCollege = "IIT_KANPUR";
+            break;
+        }
+        case NIT_WARANGAL:
+        {
+            sHiringCollege = "NIT_WARANGAL";
+            break;
+        }
+        case NIT_TIRUCHI:
+        {
+            sHiringCollege = "NIT_TIRUCHI";
+            break;
+        }
+       case IIIT_HYDERABAD:
+        {
+            sHiringCollege = "IIIT_HYDERABAD";
+            break;
+        }     
+        default:
+        {
+            break;
+        }
+    }
+    return sHiringCollege;
+}
+
+string getHiringBranchFromEnum(int hiringBranchParm)
+{
+    string sHiringBranch = "NA";
+    switch(hiringBranchParm)
+    {
+        case CSE:
+        {
+            sHiringBranch = "CSE";
+            break;
+        }
+        case CSIT:
+        {
+            sHiringBranch = "CSIT";
+            break;
+        }
+        case ECE:
+        {
+            sHiringBranch = "ECE";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    return sHiringBranch;
+}
+
+string getEmpStatusFromEnum(int empStatusParm)
+{
+    string sEmpStatus = "NA";
+    switch(empStatusParm)
+    {
+        case ACTIVE:
+        {
+            sEmpStatus = "ACTIVE";
+            break;
+        }
+        case INACTIVE:
+        {
+            sEmpStatus = "INACTIVE";
+            break;
+        }
+        case RESIGNED:
+        {
+            sEmpStatus = "RESIGNED";
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    return sEmpStatus;
+}
+
+string getGenderFromEnum(int genderParm)
+{
+    string sGender = "NA";
+    if(genderParm == 1)
+    {
+        sGender = "MALE";
+    }
+    else
+    {
+        sGender = "FEMALE";
+    }  
+    return sGender;
+}
+  
+string getTypeFromEnum(int employeeTypeParm)
+{
+    string sEmpType = "NA";
+    switch(employeeTypeParm)
+    {
+        case FULL_TIME:
+        {
+            sEmpType = "FULL_TIME";
+            break;
+        }
+        case CONTRACT:
+        {
+            sEmpType = "CONTRACT";
+            break;
+        }
+        case INTERN:
+        {
+            sEmpType = "INTERN";
+            break;
+        }
+    }
+    return sEmpType;
+}
+
 void printmainmenu(void)
 {
     cout<<endl<<endl;
@@ -149,7 +319,6 @@ void printEmployeeOtherdetailsMenu(void)
     cout<<"| 2. Convert an Employee to Full-Time employee              |"<<endl;
     cout<<"| 3. Search an Employee by ID                               |"<<endl;
     cout<<"| 4. Search an Employee by Name                             |"<<endl;
-    cout<<"| 5. Get Active and Resigned Employee Count                 |"<<endl;
     cout<<"|-----------------------------------------------------------|"<<endl;
     cout<<"|      Press -1 to exit                                     |"<<endl;
     cout<<"|-----------------------------------------------------------|"<<endl;

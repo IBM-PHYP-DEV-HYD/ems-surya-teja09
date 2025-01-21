@@ -18,6 +18,11 @@ protected:
     Edll<XyzEmployeeIF*> mResignedEmpQueue;
     uint32_t mEmpCount;
 
+protected:
+    void pAddFullTimeEmp(void);
+    void pAddContractEmp(void);
+    void pAddInternEmp(void);
+
 public:
     
     void addEmployee(int UserInputParm);
@@ -33,6 +38,7 @@ public:
     void searchEmployeeById(string EmpIdParm);
     void printEmployeeDetails(int UserInputParm);
     //void printParticularEmployeeSummary(void);
+    void addEmptoResignedQueue(Node<XyzEmployeeIF*>* ResignedEmpParm);
     void otherDetails(int inputParm);
     XyzEmployeeManager();
 };

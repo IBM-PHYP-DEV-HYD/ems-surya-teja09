@@ -69,6 +69,7 @@ struct EmpDetails
     string mEmpName;
     string mDob;
     string mDoj;
+    string mDol;
     int mGender;
     uint8_t mEmpStatus;
     string mEmpId;
@@ -96,7 +97,8 @@ enum PRINT_OPTIONS
     TYPE             = 1,
     GENDER           = 2,
     STATUS           = 3,
-    SUMMARY          = 4
+    SUMMARY          = 4,
+    RESIGNED_EMP     = 5
 };
 
 namespace SpaceEnum {
@@ -133,5 +135,11 @@ void printemployeetypemenu(void);
 void printEmployeedetailsMenu(void);
 void printEmployeeOtherdetailsMenu(void);
 void printDeletemenu(void);
+string getAgencyFromEnum(int extAgencyParm);
+string getHiringCollegeFromEnum(int hiringCollegeParm);
+string getHiringBranchFromEnum(int hiringBranchParm);
+string getEmpStatusFromEnum(int empStatusParm);
+string getGenderFromEnum(int genderParm);
+string getTypeFromEnum(int employeeTypeParm);
 
 #endif

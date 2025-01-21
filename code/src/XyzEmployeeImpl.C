@@ -45,6 +45,11 @@ char XyzEmployeeImpl::getEmployeeGender(void)
     return mGender;
 }
 
+void XyzEmployeeImpl::setEmployeeStatus(int EmployeeStatusParm)
+{
+    mEmployeeStatus = EmployeeStatusParm;
+}
+
 uint8_t XyzEmployeeImpl::getEmployeeStatus(void)
 {
     return mEmployeeStatus;
