@@ -32,32 +32,8 @@ string XyzContractEmployee::getEmployeeLeavesLeft(void)
 
 void XyzContractEmployee::printParticularEmployeeSummary(void)
 {
-    string sAgency;
-    switch(mExtAgency)
-    {
-        case AVENGERS:
-        {
-            sAgency = "AVENGERS";
-            break;
-        }
-        case JUSTICE_LEAUGE:
-        {
-            sAgency = "JUSTICE_LEAUGE";
-            break;
-        }
-        case X_MEN:
-        {
-            sAgency = "X_MEN";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
     XyzEmployeeImpl::printParticularEmployeeSummary();
-    cout <<  " External Agency : " << sAgency << endl;
+    cout <<  " External Agency : " << getAgencyFromEnum(mExtAgency) << endl;
 }
 
 void XyzContractEmployee::printEmpSpecificHeader(void)
@@ -79,34 +55,9 @@ void XyzContractEmployee::printEmpSpecificHeader(void)
 
 
 void XyzContractEmployee::printEmpSpecificDetails(void)
-{
-    string sAgency;
-    switch(mExtAgency)
-    {
-        case AVENGERS:
-        {
-            sAgency = "AVENGERS";
-            break;
-        }
-        case JUSTICE_LEAUGE:
-        {
-            sAgency = "JUSTICE_LEAUGE";
-            break;
-        }
-        case X_MEN:
-        {
-            sAgency = "X_MEN";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }    
-
+{ 
     XyzEmployeeImpl::printEmpSpecificDetails();
-    cout << "| " << setw(SpaceEnum::Agency) << sAgency
-         << "|" << endl;
+    EmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
 
-    cout << setfill(' ') << setw(160) << " " << endl;
+    EmsPrint.printAll();
 }

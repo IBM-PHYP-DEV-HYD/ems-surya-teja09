@@ -35,77 +35,9 @@ string XyzInternEmployee::getEmployeeLeavesLeft(void)
 
 void XyzInternEmployee::printParticularEmployeeSummary(void)
 {
-    string sHiringCollege;
-    switch(mHiringCollege)
-    {
-        case IIT_DELHI:
-        {
-            sHiringCollege = "IIT_DELHI";
-            break;
-        }
-        case IIT_MUMBAI:
-        {
-            sHiringCollege = "IIT_MUMBAI";
-            break;
-        }
-        case IIT_HYDERABAD:
-        {
-            sHiringCollege = "IIT_HYDERABAD";
-            break;
-        }
-        case IIT_KANPUR:
-        {
-            sHiringCollege = "IIT_KANPUR";
-            break;
-        }
-        case NIT_WARANGAL:
-        {
-            sHiringCollege = "NIT_WARANGAL";
-            break;
-        }
-        case NIT_TIRUCHI:
-        {
-            sHiringCollege = "NIT_TIRUCHI";
-            break;
-        }
-       case IIIT_HYDERABAD:
-        {
-            sHiringCollege = "IIIT_HYDERABAD";
-            break;
-        }     
-        default:
-        {
-            break;
-        }
-    }
-
-    string sHiringBranch;
-    switch(mHiringBranch)
-    {
-        case CSE:
-        {
-            sHiringBranch = "CSE";
-            break;
-        }
-        case CSIT:
-        {
-            sHiringBranch = "CSIT";
-            break;
-        }
-        case ECE:
-        {
-            sHiringBranch = "ECE";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
     XyzEmployeeImpl::printParticularEmployeeSummary();
-    cout <<  " Hiring College  : " << sHiringCollege << endl;  
-    cout <<  " Hiring Branch   : " << sHiringBranch << endl;     
+    cout <<  " Hiring College  : " << getHiringCollegeFromEnum(mHiringCollege) << endl;  
+    cout <<  " Hiring Branch   : " << getHiringBranchFromEnum(mHiringBranch) << endl;     
 }
 
 void XyzInternEmployee::printEmpSpecificHeader(void)
@@ -129,79 +61,9 @@ void XyzInternEmployee::printEmpSpecificHeader(void)
 
 void XyzInternEmployee::printEmpSpecificDetails(void)
 {
-    string sHiringCollege;
-    switch(mHiringCollege)
-    {
-        case IIT_DELHI:
-        {
-            sHiringCollege = "IIT_DELHI";
-            break;
-        }
-        case IIT_MUMBAI:
-        {
-            sHiringCollege = "IIT_MUMBAI";
-            break;
-        }
-        case IIT_HYDERABAD:
-        {
-            sHiringCollege = "IIT_HYDERABAD";
-            break;
-        }
-        case IIT_KANPUR:
-        {
-            sHiringCollege = "IIT_KANPUR";
-            break;
-        }
-        case NIT_WARANGAL:
-        {
-            sHiringCollege = "NIT_WARANGAL";
-            break;
-        }
-        case NIT_TIRUCHI:
-        {
-            sHiringCollege = "NIT_TIRUCHI";
-            break;
-        }
-       case IIIT_HYDERABAD:
-        {
-            sHiringCollege = "IIIT_HYDERABAD";
-            break;
-        }     
-        default:
-        {
-            break;
-        }
-    }
-
-    string sHiringBranch;
-    switch(mHiringBranch)
-    {
-        case CSE:
-        {
-            sHiringBranch = "CSE";
-            break;
-        }
-        case CSIT:
-        {
-            sHiringBranch = "CSIT";
-            break;
-        }
-        case ECE:
-        {
-            sHiringBranch = "ECE";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
     XyzEmployeeImpl::printEmpSpecificDetails();
-    cout << "| " << setw(SpaceEnum::Branch) << sHiringBranch
-        << "| " << setw(SpaceEnum::College) << sHiringCollege
-        << "|" << endl;
-
-    cout << setfill(' ') << setw(189) << " " << endl;
+    EmsPrint.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
+    EmsPrint.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
+    EmsPrint.printAll();
 }
 

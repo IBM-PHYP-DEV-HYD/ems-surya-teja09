@@ -72,69 +72,13 @@ void XyzEmployeeImpl::printEmpSpecificHeader(void)
 
 void XyzEmployeeImpl::printEmpSpecificDetails(void)
 {
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }    
-
-    string sEmpType;
-    switch(mEmployeeType)
-    {
-        case FULL_TIME:
-        {
-            sEmpType = "FULL_TIME";
-            break;
-        }
-        case CONTRACT:
-        {
-            sEmpType = "CONTRACT";
-            break;
-        }
-        case INTERN:
-        {
-            sEmpType = "INTERN";
-            break;
-        }
-    }
-
-    cout << left
-         << "| " << setw(SpaceEnum::EmployeeName) << mEmployeeName
-         << "| " << setw(SpaceEnum::EmployeeID) << mEmployeeId
-         << "| " << setw(SpaceEnum::Type) << sEmpType
-         << "| " << setw(SpaceEnum::Status) << sEmpStatus
-         << "| " << setw(SpaceEnum::Gender) << sGender
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth;
+    EmsPrint.mEmpName       = mEmployeeName;
+    EmsPrint.mEmpDob        = mDateOfBirth;
+    EmsPrint.mEmpDoj        = mDateOfJoining;
+    EmsPrint.mEmpGender     = getGenderFromEnum(mGender);
+    EmsPrint.mEmpid         = mEmployeeId;
+    EmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
+    EmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
 }
 
 string XyzEmployeeImpl::getEmployeeLeavesAvailed(void)
@@ -149,68 +93,13 @@ string XyzEmployeeImpl::getEmployeeLeavesLeft(void)
 
 void XyzEmployeeImpl::printParticularEmployeeSummary(void)
 {
-    cout << "Employee Details :" << endl;
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }    
-
-    string sEmpType;
-    switch(mEmployeeType)
-    {
-        case FULL_TIME:
-        {
-            sEmpType = "FULL_TIME";
-            break;
-        }
-        case CONTRACT:
-        {
-            sEmpType = "CONTRACT";
-            break;
-        }
-        case INTERN:
-        {
-            sEmpType = "INTERN";
-            break;
-        }
-    }
-
     cout <<  " Employee Name   : " << mEmployeeName << endl;
     cout <<  " Employee Id     : " << mEmployeeId << endl;
-    cout <<  " Employee Type   : " << sEmpType << endl;
-    cout <<  " Employee Status : " << sEmpStatus << endl;
-    cout <<  " Employee Gender : " << sGender << endl;
+    cout <<  " Employee Type   : " << getTypeFromEnum(mEmployeeType) << endl;
+    cout <<  " Employee Status : " << getEmpStatusFromEnum(mEmployeeStatus) << endl;
+    cout <<  " Employee Gender : " << getGenderFromEnum(mGender) << endl;
     cout <<  " Date of Birth   : " << mDateOfBirth << endl;
-    cout <<  " Date of Joining : " << mDateOfBirth << endl;   
+    cout <<  " Date of Joining : " << mDateOfJoining << endl;   
 
 }
 
@@ -237,21 +126,11 @@ void XyzEmployeeImpl::printResignedEmployeeSummaryHeader(void)
 
 void XyzEmployeeImpl::prinResignedEmployeeSummary(void)
 {
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
     cout << left
          << "| " << setw(18) << mEmployeeName
          << "| " << setw(10) << mEmployeeId
          << "| " << setw(15) << "RESIGNED"
-         << "| " << setw(12) << sGender
+         << "| " << setw(12) << getGenderFromEnum(mGender)
          << "| " << setw(20) << mDateOfBirth 
          << "| " << setw(19) << mDateOfBirth
          << "| " << setw(19) << mDateOfBirth
@@ -284,176 +163,26 @@ void XyzEmployeeImpl::printEmployeeSummaryHeader(void)
 
 void XyzEmployeeImpl::printEmployeeSummary(void)
 {
-    string sEmpStatus;
-    switch(mEmployeeStatus)
-    {
-        case ACTIVE:
-        {
-            sEmpStatus = "ACTIVE";
-            break;
-        }
-        case INACTIVE:
-        {
-            sEmpStatus = "INACTIVE";
-            break;
-        }
-        case RESIGNED:
-        {
-            sEmpStatus = "RESIGNED";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
-    string sGender;
-    if(mGender == 1)
-    {
-        sGender = "MALE";
-    }
-    else
-    {
-        sGender = "FEMALE";
-    }
-
+    EmsPrint.mEmpName       = mEmployeeName;
+    EmsPrint.mEmpDob        = mDateOfBirth;
+    EmsPrint.mEmpDoj        = mDateOfJoining;
+    EmsPrint.mEmpGender     = getGenderFromEnum(mGender);
+    EmsPrint.mEmpid         = mEmployeeId;
+    EmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
+    EmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
 
     ExternalAgency mExtAgency = getExtAgency();
-    string sAgency;
-    switch(mExtAgency)
-    {
-        case AVENGERS:
-        {
-            sAgency = "AVENGERS";
-            break;
-        }
-        case JUSTICE_LEAUGE:
-        {
-            sAgency = "JUSTICE_LEAUGE";
-            break;
-        }
-        case X_MEN:
-        {
-            sAgency = "X_MEN";
-            break;
-        }
-        default:
-        {
-            sAgency = "NA";
-            break;
-        }
-    }       
-
     InternDetails sInternDetails  = getInternSpecificDetails();
-    string sHiringCollege;
-    switch(sInternDetails.mHiringCollege)
-    {
-        case IIT_DELHI:
-        {
-            sHiringCollege = "IIT_DELHI";
-            break;
-        }
-        case IIT_MUMBAI:
-        {
-            sHiringCollege = "IIT_MUMBAI";
-            break;
-        }
-        case IIT_HYDERABAD:
-        {
-            sHiringCollege = "IIT_HYDERABAD";
-            break;
-        }
-        case IIT_KANPUR:
-        {
-            sHiringCollege = "IIT_KANPUR";
-            break;
-        }
-        case NIT_WARANGAL:
-        {
-            sHiringCollege = "NIT_WARANGAL";
-            break;
-        }
-        case NIT_TIRUCHI:
-        {
-            sHiringCollege = "NIT_TIRUCHI";
-            break;
-        }
-       case IIIT_HYDERABAD:
-        {
-            sHiringCollege = "IIIT_HYDERABAD";
-            break;
-        }     
-        default:
-        {
-            sHiringCollege = "NA";
-            break;
-        }
-    }
-
-
-    string sHiringBranch;
-    switch(sInternDetails.mHiringBranch)
-    {
-        case CSE:
-        {
-            sHiringBranch = "CSE";
-            break;
-        }
-        case CSIT:
-        {
-            sHiringBranch = "CSIT";
-            break;
-        }
-        case ECE:
-        {
-            sHiringBranch = "ECE";
-            break;
-        }
-        default:
-        {
-            sHiringBranch = "NA";
-            break;
-        }
-    }
-
-    string sEmpType;
-    switch(mEmployeeType)
-    {
-        case FULL_TIME:
-        {
-            sEmpType = "FULL_TIME";
-            break;
-        }
-        case CONTRACT:
-        {
-            sEmpType = "CONTRACT";
-            break;
-        }
-        case INTERN:
-        {
-            sEmpType = "INTERN";
-            break;
-        }
-    }
 
     string sLeavesAvailed = getEmployeeLeavesAvailed();
     string sLeavesLeft = getEmployeeLeavesLeft();
-    cout << left
-         << "| " << setw(SpaceEnum::EmployeeName) << mEmployeeName
-         << "| " << setw(SpaceEnum::EmployeeID) << mEmployeeId
-         << "| " << setw(SpaceEnum::Type) << sEmpType
-         << "| " << setw(SpaceEnum::Status) << sEmpStatus
-         << "| " << setw(SpaceEnum::Gender) << sGender
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
-         << "| " << setw(SpaceEnum::Date) << mDateOfBirth
-         << "| " << setw(SpaceEnum::LeavesAvailed) << sLeavesAvailed
-         << "| " << setw(SpaceEnum::LeavesAvailed) << sLeavesLeft
-         << "| " << setw(SpaceEnum::Agency) << sAgency
-         << "| " << setw(SpaceEnum::College) << sHiringCollege
-         << "| " << setw(SpaceEnum::Branch) << sHiringBranch
-         << "|" << endl;
-    
-    cout << setfill(' ') << setw(187) << " " << endl;    
+
+    EmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
+    EmsPrint.mEmpBranch = getHiringBranchFromEnum(sInternDetails.mHiringBranch);
+    EmsPrint.mEmpCollege = getHiringCollegeFromEnum(sInternDetails.mHiringCollege);
+    EmsPrint.mEmpNol =  sLeavesLeft;
+
+    EmsPrint.mPrintAllVar = true;
+    EmsPrint.printAll();
+    EmsPrint.mPrintAllVar = false;
 }

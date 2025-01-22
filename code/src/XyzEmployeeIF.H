@@ -2,11 +2,14 @@
 #define XYZEMPLOYEEIF_H
 
 #include "Utilis.H"
+#include "EmsPrintRecord.H"
 
 class XyzEmployeeIF
 {
 public:
     
+    EmsPrintRecord EmsPrint;
+
     virtual void setLeaveDetails(int LeavesAvailedParm) = 0;
     virtual InternDetails getInternSpecificDetails(void) = 0;
     virtual ExternalAgency getExtAgency(void) = 0;

@@ -16,16 +16,16 @@ class EmsPrintRecord
 public:
     string mEmpName;
     string mEmpid;
-    int mEmpGender;
+    string mEmpGender;
     string mEmpDob; /* Date of Birth */
-    int mEmpType;
-    int mEmpStatus;
+    string mEmpType;
+    string mEmpStatus;
     string mEmpDoj; /* Date of Joining */
     string mEmpDol; /* Date of Leaving */
     string mEmpNol; /* Number of Leaves */
-    int mEmpAgency;
-    HiringFromColleges mEmpCollege;
-    HiringFromBranches mEmpBranch;
+    string mEmpAgency;
+    string mEmpCollege;
+    string mEmpBranch;
     bool mPrintAllVar;
     void printAll();
 };

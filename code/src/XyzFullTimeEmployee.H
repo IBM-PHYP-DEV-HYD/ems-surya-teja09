@@ -4,6 +4,7 @@
 #include "iostream"
 #include <iomanip>
 #include "XyzEmployeeImpl.H"
+#include "EmsPrintRecord.H"
 
 using namespace std;
 
