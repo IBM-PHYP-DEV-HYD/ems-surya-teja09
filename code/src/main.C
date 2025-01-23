@@ -17,14 +17,33 @@ int main()
             {
                 printEmployeeOption();
                 int sInput = 0;
-
+                EmpDetails sEmpDetails;
                 while(!(cin >> sInput))
                 {
                     cout << "Enter valid choice: " << endl;
                     cin.clear();
                     cin.ignore(1000, '\n');        
-                }  
-                sXyzEmpMgr.addEmployee(sInput);
+                }
+                if(sInput == RANDOM)
+                {
+                    sEmpDetails.mEmpType = getRandomNumber(1,3);
+                }
+
+                getRandomizedEmpBasicDetails(&sEmpDetails, sXyzEmpMgr.mEmpCount);
+
+                if(sInput == USER_DEFINED)
+                {
+                    cout << "Enter Employee Type : 1. Full Time  2. Contract  3. Intern" << endl;
+                    cin >> sEmpDetails.mEmpType;
+
+                    cout << "Enter Emp Name: " << endl;
+                    cin >> sEmpDetails.mEmpName;
+
+                    cout << "Enter Emp Gender: 1. Male 2. Female " << endl;
+                    cin >> sEmpDetails.mGender; 
+                } 
+
+                sXyzEmpMgr.addEmployee(sEmpDetails);
                 break;
             }
             case REMOVE_EMPLOYEE:
@@ -38,15 +57,36 @@ int main()
             case PRINT_EMPLOYEE:
             {
                 printEmployeedetailsMenu();
-                int sInput = 0;
+                int sInput = 0, sInput1;
 
                 while(!(cin >> sInput))
                 {
                     cout << "Enter valid choice: " << endl;
                     cin.clear();
                     cin.ignore(1000, '\n');        
-                }  
-                sXyzEmpMgr.printEmployeeDetails(sInput);
+                }
+                switch(sInput)
+                {
+                    case TYPE: 
+                    {
+                        cout << "Enter Employee type : " << endl << "1. FullTime \n" << "2. Contract \n" "3. Intern \n" << endl;
+                        cin >> sInput1;
+                        break;
+                    }
+                    case GENDER: 
+                    {
+                        cout << "Enter Employee type : " << endl << "1. Male \n" << "2. Female \n"<< endl;
+                        cin >> sInput1;
+                        break;
+                    }
+                    case STATUS: 
+                    {
+                        cout << "Enter Employee type : " << endl << "1. Active \n" << "2. Inactive \n"<< endl;
+                        cin >> sInput1;
+                        break;
+                    }  
+                }
+                sXyzEmpMgr.printEmployeeDetails(sInput, sInput1);
                 break;
             }
             case OTHERS:
@@ -54,8 +94,51 @@ int main()
                 printEmployeeOtherdetailsMenu(); 
                 int sInput = 0;
                 cout << "Enter Input :" << endl;
-                cin >> sInput;                
-                sXyzEmpMgr.otherDetails(sInput);     
+                cin >> sInput;       
+                switch(sInput)
+                {
+                    case ADD_LEAVES:
+                    {
+                        int sNoLeaves = 0;
+                        cout << "Enter Number of leaves to be added :" << endl;
+                        cin >> sNoLeaves;
+                        if(sNoLeaves <= 22)
+                        {
+                            sXyzEmpMgr.addLeaves(sNoLeaves);
+                        }
+                        else
+                        {
+                            cout << "Add leaves less than or equal to 22" << endl;
+                        }
+                        break;
+                    }
+                    case CONVERT_EMP:
+                    {
+                        sXyzEmpMgr.makeInternOrContractAsFullTimeEmployees();
+                        break;
+                    }
+                    case EMP_ID_SEARCH:
+                    {
+                        std::string sEmpId;
+                        cout << "Enter empid : " << endl;
+                        std::cin >> sEmpId;
+                        sXyzEmpMgr.searchEmployeeById(sEmpId);
+                        break;
+                    }
+                    case EMP_NAME_SEARCH:
+                    {
+                        std::string sEmpName;
+                        cout << "Enter Name : " << endl;
+                        std::cin >> sEmpName;
+                        sXyzEmpMgr.searchEmployeeByName(sEmpName);
+                        break;
+                    }
+                    default:
+                    {
+                        //Do Nothing
+                        break;
+                    }
+                }            
                 break; 
             }
             default: 

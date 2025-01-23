@@ -8,7 +8,7 @@ class XyzEmployeeIF
 {
 public:
     
-    EmsPrintRecord EmsPrint;
+    EmsPrintRecord mEmsPrint;
 
     virtual void setLeaveDetails(int LeavesAvailedParm) = 0;
     virtual InternDetails getInternSpecificDetails(void) = 0;

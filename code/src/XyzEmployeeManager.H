@@ -16,16 +16,15 @@ class XyzEmployeeManager
 protected:
     Edll<XyzEmployeeIF*> mActiveEmpQueue;
     Edll<XyzEmployeeIF*> mResignedEmpQueue;
-    uint32_t mEmpCount;
-
-protected:
-    void pAddFullTimeEmp(void);
-    void pAddContractEmp(void);
-    void pAddInternEmp(void);
+    void pAddFullTimeEmp(EmpDetails empDetailsParm);
+    void pAddContractEmp(EmpDetails empDetailsParm);
+    void pAddInternEmp(EmpDetails empDetailsParm);
 
 public:
-    
-    void addEmployee(int UserInputParm);
+    uint32_t mEmpCount;
+
+
+    void addEmployee(EmpDetails empDetailsParm);
     void removeEmployee(string EmpIdParm);
     void printResignedEmployees(void);
     void printEmployeesByType(int EmpTypeParm);
@@ -36,10 +35,9 @@ public:
     void addLeaves(int leavesParm);
     void searchEmployeeByName(string EmpNameParm);
     void searchEmployeeById(string EmpIdParm);
-    void printEmployeeDetails(int UserInputParm);
+    void printEmployeeDetails(int UserInputParm, int userInputParm1);
     //void printParticularEmployeeSummary(void);
     void addEmptoResignedQueue(Node<XyzEmployeeIF*>* ResignedEmpParm);
-    void otherDetails(int inputParm);
     XyzEmployeeManager();
 };
 

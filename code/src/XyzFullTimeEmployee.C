@@ -66,8 +66,8 @@ void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 void XyzFullTimeEmployee::printEmpSpecificDetails(void)
 {
     XyzEmployeeImpl::printEmpSpecificDetails();   
-    EmsPrint.mEmpNol = to_string(mLevesLeft);
-    EmsPrint.printAll();
+    mEmsPrint.mEmpNol = to_string(mLevesLeft);
+    mEmsPrint.printAll();
 }
 
 void XyzFullTimeEmployee::addLeavestoFullTimeEmp(int LeavesLeftParm)

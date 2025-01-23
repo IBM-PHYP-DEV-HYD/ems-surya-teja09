@@ -62,8 +62,8 @@ void XyzInternEmployee::printEmpSpecificHeader(void)
 void XyzInternEmployee::printEmpSpecificDetails(void)
 {
     XyzEmployeeImpl::printEmpSpecificDetails();
-    EmsPrint.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
-    EmsPrint.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
-    EmsPrint.printAll();
+    mEmsPrint.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
+    mEmsPrint.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
+    mEmsPrint.printAll();
 }
 

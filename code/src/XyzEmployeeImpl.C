@@ -72,13 +72,13 @@ void XyzEmployeeImpl::printEmpSpecificHeader(void)
 
 void XyzEmployeeImpl::printEmpSpecificDetails(void)
 {
-    EmsPrint.mEmpName       = mEmployeeName;
-    EmsPrint.mEmpDob        = mDateOfBirth;
-    EmsPrint.mEmpDoj        = mDateOfJoining;
-    EmsPrint.mEmpGender     = getGenderFromEnum(mGender);
-    EmsPrint.mEmpid         = mEmployeeId;
-    EmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
-    EmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
+    mEmsPrint.mEmpName       = mEmployeeName;
+    mEmsPrint.mEmpDob        = mDateOfBirth;
+    mEmsPrint.mEmpDoj        = mDateOfJoining;
+    mEmsPrint.mEmpGender     = getGenderFromEnum(mGender);
+    mEmsPrint.mEmpid         = mEmployeeId;
+    mEmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
+    mEmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
 }
 
 string XyzEmployeeImpl::getEmployeeLeavesAvailed(void)
@@ -163,13 +163,13 @@ void XyzEmployeeImpl::printEmployeeSummaryHeader(void)
 
 void XyzEmployeeImpl::printEmployeeSummary(void)
 {
-    EmsPrint.mEmpName       = mEmployeeName;
-    EmsPrint.mEmpDob        = mDateOfBirth;
-    EmsPrint.mEmpDoj        = mDateOfJoining;
-    EmsPrint.mEmpGender     = getGenderFromEnum(mGender);
-    EmsPrint.mEmpid         = mEmployeeId;
-    EmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
-    EmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
+    mEmsPrint.mEmpName       = mEmployeeName;
+    mEmsPrint.mEmpDob        = mDateOfBirth;
+    mEmsPrint.mEmpDoj        = mDateOfJoining;
+    mEmsPrint.mEmpGender     = getGenderFromEnum(mGender);
+    mEmsPrint.mEmpid         = mEmployeeId;
+    mEmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
+    mEmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
 
     ExternalAgency mExtAgency = getExtAgency();
     InternDetails sInternDetails  = getInternSpecificDetails();
@@ -177,12 +177,12 @@ void XyzEmployeeImpl::printEmployeeSummary(void)
     string sLeavesAvailed = getEmployeeLeavesAvailed();
     string sLeavesLeft = getEmployeeLeavesLeft();
 
-    EmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
-    EmsPrint.mEmpBranch = getHiringBranchFromEnum(sInternDetails.mHiringBranch);
-    EmsPrint.mEmpCollege = getHiringCollegeFromEnum(sInternDetails.mHiringCollege);
-    EmsPrint.mEmpNol =  sLeavesLeft;
+    mEmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
+    mEmsPrint.mEmpBranch = getHiringBranchFromEnum(sInternDetails.mHiringBranch);
+    mEmsPrint.mEmpCollege = getHiringCollegeFromEnum(sInternDetails.mHiringCollege);
+    mEmsPrint.mEmpNol =  sLeavesLeft;
 
-    EmsPrint.mPrintAllVar = true;
-    EmsPrint.printAll();
-    EmsPrint.mPrintAllVar = false;
+    mEmsPrint.mPrintAllVar = true;
+    mEmsPrint.printAll();
+    mEmsPrint.mPrintAllVar = false;
 }

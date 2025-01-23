@@ -57,7 +57,7 @@ void XyzContractEmployee::printEmpSpecificHeader(void)
 void XyzContractEmployee::printEmpSpecificDetails(void)
 { 
     XyzEmployeeImpl::printEmpSpecificDetails();
-    EmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
+    mEmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
 
-    EmsPrint.printAll();
+    mEmsPrint.printAll();
 }
