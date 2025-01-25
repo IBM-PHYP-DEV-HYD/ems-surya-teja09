@@ -57,36 +57,36 @@ int main()
             case PRINT_EMPLOYEE:
             {
                 printEmployeedetailsMenu();
-                int sInput = 0, sInput1;
+                int sEmpFilterType = 0, sEmpFilterValue;
 
-                while(!(cin >> sInput))
+                while(!(cin >> sEmpFilterType))
                 {
                     cout << "Enter valid choice: " << endl;
                     cin.clear();
                     cin.ignore(1000, '\n');        
                 }
-                switch(sInput)
+                switch(sEmpFilterType)
                 {
                     case TYPE: 
                     {
                         cout << "Enter Employee type : " << endl << "1. FullTime \n" << "2. Contract \n" "3. Intern \n" << endl;
-                        cin >> sInput1;
+                        cin >> sEmpFilterValue;
                         break;
                     }
                     case GENDER: 
                     {
                         cout << "Enter Employee type : " << endl << "1. Male \n" << "2. Female \n"<< endl;
-                        cin >> sInput1;
+                        cin >> sEmpFilterValue;
                         break;
                     }
                     case STATUS: 
                     {
                         cout << "Enter Employee type : " << endl << "1. Active \n" << "2. Inactive \n"<< endl;
-                        cin >> sInput1;
+                        cin >> sEmpFilterValue;
                         break;
                     }  
                 }
-                sXyzEmpMgr.printEmployeeDetails(sInput, sInput1);
+                sXyzEmpMgr.printEmployeeDetails(sEmpFilterType, sEmpFilterValue);
                 break;
             }
             case OTHERS:

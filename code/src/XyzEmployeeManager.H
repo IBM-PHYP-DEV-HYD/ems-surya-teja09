@@ -35,7 +35,7 @@ public:
     void addLeaves(int leavesParm);
     void searchEmployeeByName(string EmpNameParm);
     void searchEmployeeById(string EmpIdParm);
-    void printEmployeeDetails(int UserInputParm, int userInputParm1);
+    void printEmployeeDetails(int empFilterTypeParm, int empFilterValueParm);
     //void printParticularEmployeeSummary(void);
     void addEmptoResignedQueue(Node<XyzEmployeeIF*>* ResignedEmpParm);
     XyzEmployeeManager();

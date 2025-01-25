@@ -244,23 +244,23 @@ void XyzEmployeeManager::searchEmployeeById(string empIdParm)
     } 
 }
 
-void XyzEmployeeManager::printEmployeeDetails(int userInputParm, int userInputParm1)
+void XyzEmployeeManager::printEmployeeDetails(int empFilterTypeParm, int empFilterValueParm)
 {
-    switch(userInputParm)
+    switch(empFilterTypeParm)
     {
         case TYPE: 
         {
-            printEmployeesByType(userInputParm1);
+            printEmployeesByType(empFilterValueParm);
             break;
         }
         case GENDER: 
         {
-            printEmployeesByGender(userInputParm1);
+            printEmployeesByGender(empFilterValueParm);
             break;
         }
         case STATUS: 
         {
-            printEmployeesByStatus(userInputParm1);
+            printEmployeesByStatus(empFilterValueParm);
             break;
         }
         case SUMMARY: 
