@@ -23,16 +23,16 @@ string XyzFullTimeEmployee::getEmployeeLeavesLeft(void)
     return to_string(mLevesLeft);
 }
 
-ExternalAgency XyzFullTimeEmployee::getExtAgency(void)
+Ems::ExternalAgency XyzFullTimeEmployee::getExtAgency(void)
 {
-    return (ExternalAgency)AGENCY_UNDEFINED;
+    return (Ems::ExternalAgency)Ems::ExternalAgency::AGENCY_UNDEFINED;
 }
 
 InternDetails XyzFullTimeEmployee::getInternSpecificDetails(void)
 {
     InternDetails sInternDetailsParm;
-    sInternDetailsParm.mHiringCollege = COLLEGE_UNDEFINED;
-    sInternDetailsParm.mHiringBranch = UNDEFINED_BRANCH;   
+    sInternDetailsParm.mHiringCollege = Ems::HiringFromColleges::COLLEGE_UNDEFINED;
+    sInternDetailsParm.mHiringBranch = Ems::HiringFromBranches::UNDEFINED_BRANCH;   
 
     return sInternDetailsParm;
 }

@@ -10,11 +10,14 @@ string EmpNames[50] = {
 
 string Months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-uint8_t ContractEmpExternalAgency[3] = {AVENGERS, JUSTICE_LEAUGE, X_MEN};
+uint8_t ContractEmpExternalAgency[3] = {Ems::ExternalAgency::AVENGERS, Ems::ExternalAgency::JUSTICE_LEAUGE, Ems::ExternalAgency::X_MEN};
 
-HiringFromBranches HiringBranch[3] = {CSE, CSIT, ECE};
+Ems::HiringFromBranches HiringBranch[3] = {Ems::HiringFromBranches::CSE, Ems::HiringFromBranches::CSIT, Ems::HiringFromBranches::ECE};
 
-HiringFromColleges HiringCollege[7] = {IIT_DELHI, IIT_MUMBAI, IIT_HYDERABAD, IIT_KANPUR, NIT_WARANGAL, NIT_TIRUCHI, IIIT_HYDERABAD};
+Ems::HiringFromColleges HiringCollege[7] = {Ems::HiringFromColleges::IIT_DELHI, Ems::HiringFromColleges::IIT_MUMBAI, 
+                                            Ems::HiringFromColleges::IIT_HYDERABAD, Ems::HiringFromColleges::IIT_KANPUR, 
+                                            Ems::HiringFromColleges::NIT_WARANGAL, Ems::HiringFromColleges::NIT_TIRUCHI, 
+                                            Ems::HiringFromColleges::IIIT_HYDERABAD};
 
 int getRandomNumber(int startNumParm, int endNumParm)
 {
@@ -35,15 +38,15 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
 
     EmpDetailsParm->mEmpStatus = getRandomNumber(1, 2);
 
-    if(EmpDetailsParm->mEmpType == FULL_TIME)
+    if(EmpDetailsParm->mEmpType == Ems::EmployeeType::FULL_TIME)
     {
         EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "F";
     }
-    else if(EmpDetailsParm->mEmpType == CONTRACT)
+    else if(EmpDetailsParm->mEmpType == Ems::EmployeeType::CONTRACT)
     {
         EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "C";
     } 
-    else if(EmpDetailsParm->mEmpType == INTERN)
+    else if(EmpDetailsParm->mEmpType == Ems::EmployeeType::INTERN)
     {
         EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "I";
     }
@@ -81,17 +84,17 @@ string getAgencyFromEnum(int extAgencyParm)
     string sAgency = "NA";
     switch(extAgencyParm)
     {
-        case AVENGERS:
+        case Ems::ExternalAgency::AVENGERS:
         {
             sAgency = "AVENGERS";
             break;
         }
-        case JUSTICE_LEAUGE:
+        case Ems::ExternalAgency::JUSTICE_LEAUGE:
         {
             sAgency = "JUSTICE_LEAUGE";
             break;
         }
-        case X_MEN:
+        case Ems::ExternalAgency::X_MEN:
         {
             sAgency = "X_MEN";
             break;
@@ -109,37 +112,37 @@ string getHiringCollegeFromEnum(int hiringCollegeParm)
     string sHiringCollege = "NA";
     switch(hiringCollegeParm)
     {
-        case IIT_DELHI:
+        case Ems::HiringFromColleges::IIT_DELHI:
         {
             sHiringCollege = "IIT_DELHI";
             break;
         }
-        case IIT_MUMBAI:
+        case Ems::HiringFromColleges::IIT_MUMBAI:
         {
             sHiringCollege = "IIT_MUMBAI";
             break;
         }
-        case IIT_HYDERABAD:
+        case Ems::HiringFromColleges::IIT_HYDERABAD:
         {
             sHiringCollege = "IIT_HYDERABAD";
             break;
         }
-        case IIT_KANPUR:
+        case Ems::HiringFromColleges::IIT_KANPUR:
         {
             sHiringCollege = "IIT_KANPUR";
             break;
         }
-        case NIT_WARANGAL:
+        case Ems::HiringFromColleges::NIT_WARANGAL:
         {
             sHiringCollege = "NIT_WARANGAL";
             break;
         }
-        case NIT_TIRUCHI:
+        case Ems::HiringFromColleges::NIT_TIRUCHI:
         {
             sHiringCollege = "NIT_TIRUCHI";
             break;
         }
-       case IIIT_HYDERABAD:
+       case Ems::HiringFromColleges::IIIT_HYDERABAD:
         {
             sHiringCollege = "IIIT_HYDERABAD";
             break;
@@ -157,17 +160,17 @@ string getHiringBranchFromEnum(int hiringBranchParm)
     string sHiringBranch = "NA";
     switch(hiringBranchParm)
     {
-        case CSE:
+        case Ems::HiringFromBranches::CSE:
         {
             sHiringBranch = "CSE";
             break;
         }
-        case CSIT:
+        case Ems::HiringFromBranches::CSIT:
         {
             sHiringBranch = "CSIT";
             break;
         }
-        case ECE:
+        case Ems::HiringFromBranches::ECE:
         {
             sHiringBranch = "ECE";
             break;
@@ -185,17 +188,17 @@ string getEmpStatusFromEnum(int empStatusParm)
     string sEmpStatus = "NA";
     switch(empStatusParm)
     {
-        case ACTIVE:
+        case Ems::EmployeeStatus::ACTIVE:
         {
             sEmpStatus = "ACTIVE";
             break;
         }
-        case INACTIVE:
+        case Ems::EmployeeStatus::INACTIVE:
         {
             sEmpStatus = "INACTIVE";
             break;
         }
-        case RESIGNED:
+        case Ems::EmployeeStatus::RESIGNED:
         {
             sEmpStatus = "RESIGNED";
             break;
@@ -227,17 +230,17 @@ string getTypeFromEnum(int employeeTypeParm)
     string sEmpType = "NA";
     switch(employeeTypeParm)
     {
-        case FULL_TIME:
+        case Ems::EmployeeType::FULL_TIME:
         {
             sEmpType = "FULL_TIME";
             break;
         }
-        case CONTRACT:
+        case Ems::EmployeeType::CONTRACT:
         {
             sEmpType = "CONTRACT";
             break;
         }
-        case INTERN:
+        case Ems::EmployeeType::INTERN:
         {
             sEmpType = "INTERN";
             break;

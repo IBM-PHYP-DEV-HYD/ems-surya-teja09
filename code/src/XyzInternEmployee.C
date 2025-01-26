@@ -18,9 +18,9 @@ InternDetails XyzInternEmployee::getInternSpecificDetails(void)
     return sInternDetailsParm;
 }
 
-ExternalAgency XyzInternEmployee::getExtAgency(void)
+Ems::ExternalAgency XyzInternEmployee::getExtAgency(void)
 {
-    return (ExternalAgency)AGENCY_UNDEFINED;
+    return (Ems::ExternalAgency)Ems::ExternalAgency::AGENCY_UNDEFINED;
 }
 
 string XyzInternEmployee::getEmployeeLeavesAvailed(void)

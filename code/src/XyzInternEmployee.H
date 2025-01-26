@@ -8,13 +8,13 @@
 class XyzInternEmployee : public XyzEmployeeImpl
 {
 protected:
-    HiringFromColleges mHiringCollege;
-    HiringFromBranches mHiringBranch; 
+    Ems::HiringFromColleges mHiringCollege;
+    Ems::HiringFromBranches mHiringBranch; 
 
 public:
     XyzInternEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
     InternDetails getInternSpecificDetails(void);
-    ExternalAgency getExtAgency(void);
+    Ems::ExternalAgency getExtAgency(void);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);

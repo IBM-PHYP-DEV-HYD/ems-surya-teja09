@@ -12,7 +12,7 @@ public:
 
     virtual void setLeaveDetails(int LeavesAvailedParm) = 0;
     virtual InternDetails getInternSpecificDetails(void) = 0;
-    virtual ExternalAgency getExtAgency(void) = 0;
+    virtual Ems::ExternalAgency getExtAgency(void) = 0;
     virtual string getEmployeeId(void) = 0;
     virtual void setEmployeeBasicDetails(EmpDetails* EmpDetailsParm) = 0;
     virtual char getEmployeeGender(void) = 0;

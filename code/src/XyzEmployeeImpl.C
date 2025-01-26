@@ -29,9 +29,9 @@ InternDetails XyzEmployeeImpl::getInternSpecificDetails(void)
     return sDetails;
 }
 
-ExternalAgency XyzEmployeeImpl::getExtAgency(void)
+Ems::ExternalAgency XyzEmployeeImpl::getExtAgency(void)
 {
-    ExternalAgency sAgency = AGENCY_UNDEFINED;
+    Ems::ExternalAgency sAgency = Ems::ExternalAgency::AGENCY_UNDEFINED;
     return sAgency;
 }
 
@@ -171,7 +171,7 @@ void XyzEmployeeImpl::printEmployeeSummary(void)
     mEmsPrint.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
     mEmsPrint.mEmpType       = getTypeFromEnum(mEmployeeType);
 
-    ExternalAgency mExtAgency = getExtAgency();
+    Ems::ExternalAgency mExtAgency = getExtAgency();
     InternDetails sInternDetails  = getInternSpecificDetails();
 
     string sLeavesAvailed = getEmployeeLeavesAvailed();

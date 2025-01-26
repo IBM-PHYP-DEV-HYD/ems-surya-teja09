@@ -13,7 +13,7 @@ int main()
 
         switch(sMainchoice)
         {
-            case ADD_EMPLOYEE: 
+            case Ems::MainMenu::ADD_EMPLOYEE: 
             {
                 printEmployeeOption();
                 int sInput = 0;
@@ -24,14 +24,14 @@ int main()
                     cin.clear();
                     cin.ignore(1000, '\n');        
                 }
-                if(sInput == RANDOM)
+                if(sInput == Ems::AddEmployee::RANDOM)
                 {
                     sEmpDetails.mEmpType = getRandomNumber(1,3);
                 }
 
                 getRandomizedEmpBasicDetails(&sEmpDetails, sXyzEmpMgr.mEmpCount);
 
-                if(sInput == USER_DEFINED)
+                if(sInput == Ems::AddEmployee::USER_DEFINED)
                 {
                     cout << "Enter Employee Type : 1. Full Time  2. Contract  3. Intern" << endl;
                     cin >> sEmpDetails.mEmpType;
@@ -46,7 +46,7 @@ int main()
                 sXyzEmpMgr.addEmployee(sEmpDetails);
                 break;
             }
-            case REMOVE_EMPLOYEE:
+            case Ems::MainMenu::REMOVE_EMPLOYEE:
             {
                 std::string sEmpId;
                 cout << "Enter empid : " << endl;
@@ -54,7 +54,7 @@ int main()
                 sXyzEmpMgr.removeEmployee(sEmpId);
                 break;
             }
-            case PRINT_EMPLOYEE:
+            case Ems::MainMenu::PRINT_EMPLOYEE:
             {
                 printEmployeedetailsMenu();
                 int sEmpFilterType = 0, sEmpFilterValue;
@@ -67,19 +67,19 @@ int main()
                 }
                 switch(sEmpFilterType)
                 {
-                    case TYPE: 
+                    case Ems::PrintMenu::TYPE: 
                     {
                         cout << "Enter Employee type : " << endl << "1. FullTime \n" << "2. Contract \n" "3. Intern \n" << endl;
                         cin >> sEmpFilterValue;
                         break;
                     }
-                    case GENDER: 
+                    case Ems::PrintMenu::GENDER: 
                     {
                         cout << "Enter Employee type : " << endl << "1. Male \n" << "2. Female \n"<< endl;
                         cin >> sEmpFilterValue;
                         break;
                     }
-                    case STATUS: 
+                    case Ems::PrintMenu::STATUS: 
                     {
                         cout << "Enter Employee type : " << endl << "1. Active \n" << "2. Inactive \n"<< endl;
                         cin >> sEmpFilterValue;
@@ -89,7 +89,7 @@ int main()
                 sXyzEmpMgr.printEmployeeDetails(sEmpFilterType, sEmpFilterValue);
                 break;
             }
-            case OTHERS:
+            case Ems::MainMenu::OTHERS:
             {
                 printEmployeeOtherdetailsMenu(); 
                 int sInput = 0;
@@ -97,7 +97,7 @@ int main()
                 cin >> sInput;       
                 switch(sInput)
                 {
-                    case ADD_LEAVES:
+                    case Ems::Misc::ADD_LEAVES:
                     {
                         int sNoLeaves = 0;
                         cout << "Enter Number of leaves to be added :" << endl;
@@ -112,12 +112,12 @@ int main()
                         }
                         break;
                     }
-                    case CONVERT_EMP:
+                    case Ems::Misc::CONVERT_EMP:
                     {
                         sXyzEmpMgr.makeInternOrContractAsFullTimeEmployees();
                         break;
                     }
-                    case EMP_ID_SEARCH:
+                    case Ems::Misc::EMP_ID_SEARCH:
                     {
                         std::string sEmpId;
                         cout << "Enter empid : " << endl;
@@ -125,7 +125,7 @@ int main()
                         sXyzEmpMgr.searchEmployeeById(sEmpId);
                         break;
                     }
-                    case EMP_NAME_SEARCH:
+                    case Ems::Misc::EMP_NAME_SEARCH:
                     {
                         std::string sEmpName;
                         cout << "Enter Name : " << endl;
@@ -140,6 +140,10 @@ int main()
                     }
                 }            
                 break; 
+            }
+            case Ems::MainMenu::EXIT:
+            {
+                exit(EXIT_SUCCESS);
             }
             default: 
             {

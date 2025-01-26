@@ -26,7 +26,7 @@ public:
     void setLeaveDetails(int LeavesAvailedParm); 
     InternDetails getInternSpecificDetails(void);
     void setEmployeeStatus(int EmployeeStatusParm);
-    ExternalAgency getExtAgency(void);
+    Ems::ExternalAgency getExtAgency(void);
     string getEmployeeId(void);
     void setEmployeeBasicDetails(EmpDetails* EmpDetailsParm);
     char getEmployeeGender(void);

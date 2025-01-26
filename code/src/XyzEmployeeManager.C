@@ -48,17 +48,17 @@ void XyzEmployeeManager::addEmployee(EmpDetails empDetailsParm)
 {
     switch(empDetailsParm.mEmpType)
     {
-        case FULL_TIME:
+        case Ems::EmployeeType::FULL_TIME:
         {
             pAddFullTimeEmp(empDetailsParm);
             break;
         }
-        case CONTRACT:
+        case Ems::EmployeeType::CONTRACT:
         {     
             pAddContractEmp(empDetailsParm);      
             break;
         }
-        case INTERN:
+        case Ems::EmployeeType::INTERN:
         {        
             pAddInternEmp(empDetailsParm);  
             break;
@@ -68,7 +68,7 @@ void XyzEmployeeManager::addEmployee(EmpDetails empDetailsParm)
 
 void XyzEmployeeManager::addEmptoResignedQueue(Node<XyzEmployeeIF*>* resignedEmpParm)
 {
-    resignedEmpParm->mdata->setEmployeeStatus(RESIGNED);
+    resignedEmpParm->mdata->setEmployeeStatus(Ems::EmployeeStatus::RESIGNED);
     mResignedEmpQueue.pushFront(resignedEmpParm->mdata);
 }
 
@@ -196,6 +196,42 @@ void XyzEmployeeManager::printEmployeeSummary(void)
 
 void XyzEmployeeManager::makeInternOrContractAsFullTimeEmployees(void)
 {
+    #if 0
+    string employeeId;
+    // Iterate through the queue to find the matching employee
+    for (int i = 0; i < mActiveEmpQueue.getSize(); ++i) {
+        auto emp = mActiveEmpQueue.getNodeAtPosition(i + 1); // Get node at position
+
+        // Check if the ID matches
+        if (emp->mdata->getEmployeeId() == employeeId) {
+            // Determine employee type
+            if (emp->mdata->getEmployeeType() == CONTRACT || emp->mdata->getEmployeeType() == INTERN) {
+                // Extract common details
+                string name = emp->mdata->getEmployeeName();
+                string id = emp->mdata->getEmployeeId();
+                int gender = emp->mdata->getGender();
+                string dob = emp->mdata->getDateOfBirth();
+                string doj = emp->mdata->getDateOfJoining();
+                string dol = emp->mdata->getDateOfLeaving();
+                int status = emp->mdata->getEmployeeStatus();
+
+                // Create a new FullTimeEmployee object
+                int defaultLeavesAvailed = 0; // Default value for new full-time employees
+                int defaultLeavesLeft = 22;   // Assume maximum leaves for full-time employees
+                auto fullTimeEmp = new XyzFullTimeEmployee(name, id, gender, dob, status, doj, dol, defaultLeavesAvailed, defaultLeavesLeft);
+
+                // Replace the existing pointer in the queue
+                delete emp->mdata; // Clean up the old object
+                emp->mdata = fullTimeEmp;
+
+                //cout << "Employee with ID " << employeeId << " converted to Full-Time successfully.\n";
+                return;
+            } else {
+                //cout << "Employee with ID " << employeeId << " is already a Full-Time Employee.\n";
+            }
+        }
+    }
+#endif
     //Needs to be implemented
 }
 
@@ -206,7 +242,7 @@ void XyzEmployeeManager::addLeaves(int leavesParm)
 
     while(sCurrNode != NULL)
     {
-        if((sCurrNode->mdata->getEmployeeType() == FULL_TIME))
+        if((sCurrNode->mdata->getEmployeeType() == Ems::EmployeeType::FULL_TIME))
         {
             sCurrNode->mdata->addLeavestoFullTimeEmp(leavesParm);
         }  
@@ -248,27 +284,27 @@ void XyzEmployeeManager::printEmployeeDetails(int empFilterTypeParm, int empFilt
 {
     switch(empFilterTypeParm)
     {
-        case TYPE: 
+        case Ems::PrintMenu::TYPE: 
         {
             printEmployeesByType(empFilterValueParm);
             break;
         }
-        case GENDER: 
+        case Ems::PrintMenu::GENDER: 
         {
             printEmployeesByGender(empFilterValueParm);
             break;
         }
-        case STATUS: 
+        case Ems::PrintMenu::STATUS: 
         {
             printEmployeesByStatus(empFilterValueParm);
             break;
         }
-        case SUMMARY: 
+        case Ems::PrintMenu::SUMMARY: 
         {
             printEmployeeSummary();           
             break;
         }  
-        case RESIGNED_EMP:
+        case Ems::PrintMenu::RESIGNED_EMP:
         {
             printResignedEmployees();
             break;

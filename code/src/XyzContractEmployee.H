@@ -11,7 +11,7 @@ protected:
     int mExtAgency;
 public:
     XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
-    ExternalAgency getExtAgency(void);
+    Ems::ExternalAgency getExtAgency(void);
     InternDetails getInternSpecificDetails(void);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);

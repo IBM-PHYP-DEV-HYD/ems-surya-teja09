@@ -6,16 +6,16 @@ XyzContractEmployee::XyzContractEmployee(string EmpNameParm, string EmpIdParm, i
     mExtAgency = getRandomizedEmployeeAgency();   
 }
 
-ExternalAgency XyzContractEmployee::getExtAgency(void)
+Ems::ExternalAgency XyzContractEmployee::getExtAgency(void)
 {
-    return (ExternalAgency)mExtAgency;
+    return (Ems::ExternalAgency)mExtAgency;
 }
 
 InternDetails XyzContractEmployee::getInternSpecificDetails(void)
 {
     InternDetails sInternDetailsParm;
-    sInternDetailsParm.mHiringCollege = COLLEGE_UNDEFINED;
-    sInternDetailsParm.mHiringBranch = UNDEFINED_BRANCH;   
+    sInternDetailsParm.mHiringCollege = Ems::HiringFromColleges::COLLEGE_UNDEFINED;
+    sInternDetailsParm.mHiringBranch = Ems::HiringFromBranches::UNDEFINED_BRANCH;   
 
     return sInternDetailsParm;
 }
