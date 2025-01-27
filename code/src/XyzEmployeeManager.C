@@ -194,45 +194,50 @@ void XyzEmployeeManager::printEmployeeSummary(void)
     }    
 }
 
-void XyzEmployeeManager::makeInternOrContractAsFullTimeEmployees(void)
+void XyzEmployeeManager::convertEmptoFullTime(string empIdParm)
 {
     #if 0
-    string employeeId;
-    // Iterate through the queue to find the matching employee
-    for (int i = 0; i < mActiveEmpQueue.getSize(); ++i) {
-        auto emp = mActiveEmpQueue.getNodeAtPosition(i + 1); // Get node at position
+    Node<XyzEmployeeIF*>* sCurrNode = nullptr;
+    sCurrNode = mActiveEmpQueue.mHead;
 
-        // Check if the ID matches
-        if (emp->mdata->getEmployeeId() == employeeId) {
-            // Determine employee type
-            if (emp->mdata->getEmployeeType() == CONTRACT || emp->mdata->getEmployeeType() == INTERN) {
-                // Extract common details
-                string name = emp->mdata->getEmployeeName();
-                string id = emp->mdata->getEmployeeId();
-                int gender = emp->mdata->getGender();
-                string dob = emp->mdata->getDateOfBirth();
-                string doj = emp->mdata->getDateOfJoining();
-                string dol = emp->mdata->getDateOfLeaving();
-                int status = emp->mdata->getEmployeeStatus();
+    while(sCurrNode != NULL)
+    {
+        if (sCurrNode->mdata->getEmployeeId() == empIdParm) 
+        {
+            if (sCurrNode->mdata->getEmployeeType() == Ems::EmployeeType::CONTRACT || sCurrNode->mdata->getEmployeeType() == Ems::EmployeeType::INTERN) 
+            {
+                cout << "Found Employee" << endl;
+                EmpDetails sEmpDetails = {0};
+                sEmpDetails.mEmpName        = sCurrNode->mdata->getEmployeeName();
+                sEmpDetails.mEmpId          = sCurrNode->mdata->getEmployeeId();
+                sEmpDetails.mGender         = sCurrNode->mdata->getGender();
+                sEmpDetails.mDob            = sCurrNode->mdata->getDateOfBirth();
+                sEmpDetails.mDoj            = sCurrNode->mdata->getDateOfJoining();
+                sEmpDetails.mDol            = sCurrNode->mdata->getDateOfLeaving();
+                sEmpDetails.mEmpStatus      = sCurrNode->mdata->getEmployeeStatus();
+                sEmpDetails.mEmpType        = Ems::EmployeeType::FULL_TIME;
 
-                // Create a new FullTimeEmployee object
-                int defaultLeavesAvailed = 0; // Default value for new full-time employees
-                int defaultLeavesLeft = 22;   // Assume maximum leaves for full-time employees
-                auto fullTimeEmp = new XyzFullTimeEmployee(name, id, gender, dob, status, doj, dol, defaultLeavesAvailed, defaultLeavesLeft);
-
-                // Replace the existing pointer in the queue
-                delete emp->mdata; // Clean up the old object
-                emp->mdata = fullTimeEmp;
-
-                //cout << "Employee with ID " << employeeId << " converted to Full-Time successfully.\n";
-                return;
-            } else {
-                //cout << "Employee with ID " << employeeId << " is already a Full-Time Employee.\n";
+                XyzEmployeeIF* sFullTimeEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, 
+                                                            sEmpDetails.mEmpId, 
+                                                            sEmpDetails.mEmpStatus, 
+                                                            sEmpDetails.mEmpType, 
+                                                            sEmpDetails.mGender, 
+                                                            sEmpDetails.mDob, 
+                                                            sEmpDetails.mDoj);
+                cout << "Created Fulltime emp" << endl;
+                
+                if (sCurrNode->mdata) 
+                {
+                    cout << "Deleting data" << endl;
+                    delete sCurrNode->mdata;
+                }
+                cout << "Adding fulltime Employee" << endl;
+                sCurrNode->mdata = sFullTimeEmp;
             }
         }
+        sCurrNode = sCurrNode->mNext;
     }
-#endif
-    //Needs to be implemented
+    #endif
 }
 
 void XyzEmployeeManager::addLeaves(int leavesParm)

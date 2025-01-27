@@ -114,7 +114,10 @@ int main()
                     }
                     case Ems::Misc::CONVERT_EMP:
                     {
-                        sXyzEmpMgr.makeInternOrContractAsFullTimeEmployees();
+                        std::string sEmpId; 
+                        cout << "Enter empid : " << endl;
+                        std::cin >> sEmpId;                        
+                        sXyzEmpMgr.convertEmptoFullTime(sEmpId);
                         break;
                     }
                     case Ems::Misc::EMP_ID_SEARCH:

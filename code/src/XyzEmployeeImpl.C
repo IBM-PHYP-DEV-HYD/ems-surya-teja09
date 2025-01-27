@@ -65,6 +65,26 @@ uint8_t XyzEmployeeImpl::getEmployeeType(void)
     return mEmployeeType;
 }
 
+int XyzEmployeeImpl::getGender()
+{
+    return mGender;
+}
+
+string XyzEmployeeImpl::getDateOfBirth()
+{
+    return mDateOfBirth;
+}
+
+string XyzEmployeeImpl::getDateOfJoining()
+{
+    return mDateOfJoining;
+}
+
+string XyzEmployeeImpl::getDateOfLeaving()
+{
+    return mDateOfLeaving;
+}
+
 void XyzEmployeeImpl::printEmpSpecificHeader(void)
 {
 

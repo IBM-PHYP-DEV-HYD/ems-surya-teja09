@@ -31,7 +31,7 @@ public:
     void printEmployeesByStatus(int EmpStatusParm);
     void printEmployeesByGender(int EmpGenderParm);
     void printEmployeeSummary(void);
-    void makeInternOrContractAsFullTimeEmployees(void);
+    void convertEmptoFullTime(string empIdParm);
     void addLeaves(int leavesParm);
     void searchEmployeeByName(string EmpNameParm);
     void searchEmployeeById(string EmpIdParm);

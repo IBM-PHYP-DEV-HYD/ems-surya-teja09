@@ -30,6 +30,10 @@ public:
     virtual void prinResignedEmployeeSummary(void) = 0;
     virtual string getEmployeeName(void) = 0; 
     virtual void setEmployeeStatus(int EmployeeStatusParm) = 0;
+    virtual string getDateOfBirth() = 0;
+    virtual int getGender() = 0;
+    virtual string getDateOfJoining() = 0;
+    virtual string getDateOfLeaving() = 0;
     ~XyzEmployeeIF();
 };
 

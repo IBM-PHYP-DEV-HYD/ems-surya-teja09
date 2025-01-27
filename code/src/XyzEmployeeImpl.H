@@ -43,6 +43,10 @@ public:
     void printResignedEmployeeSummaryHeader(void);
     void prinResignedEmployeeSummary(void);
     string getEmployeeName(void);
+    string getDateOfBirth();
+    int getGender();
+    string getDateOfJoining();
+    string getDateOfLeaving();
 };
 
 #endif
