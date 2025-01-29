@@ -22,24 +22,24 @@ protected:
     string mDateOfLeaving; 
 
 public:
-    XyzEmployeeImpl(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
-    void setLeaveDetails(int LeavesAvailedParm); 
+    XyzEmployeeImpl(string empNameParm, string empIdParm, int empStatusParm, int empTypeParm, int empGenderParm, string dobParm, string dojParm, string dolParm);
+    void setLeaveDetails(int leavesAvailedParm); 
     InternDetails getInternSpecificDetails(void);
-    void setEmployeeStatus(int EmployeeStatusParm);
+    void setEmployeeStatus(int employeeStatusParm);
     Ems::ExternalAgency getExtAgency(void);
     string getEmployeeId(void);
-    void setEmployeeBasicDetails(EmpDetails* EmpDetailsParm);
+    void setEmployeeBasicDetails(EmpDetails* empDetailsParm);
     char getEmployeeGender(void);
-    uint8_t getEmployeeStatus(void);
-    uint8_t getEmployeeType(void);
+    int getEmployeeStatus(void);
+    int getEmployeeType(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(void);
-    void printEmployeeSummary(void);
+    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
+    void printEmployeeSummary(EmsPrintRecord &emsPrintParm);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmployeeSummaryHeader(void);
     void printParticularEmployeeSummary(void);
-    void addLeavestoFullTimeEmp(int LeavesLeftParm);
+    void addLeavestoFullTimeEmp(int leavesLeftParm);
     void printResignedEmployeeSummaryHeader(void);
     void prinResignedEmployeeSummary(void);
     string getEmployeeName(void);

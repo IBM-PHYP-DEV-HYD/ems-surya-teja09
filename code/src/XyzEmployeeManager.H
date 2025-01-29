@@ -20,10 +20,8 @@ protected:
     void pAddContractEmp(EmpDetails empDetailsParm);
     void pAddInternEmp(EmpDetails empDetailsParm);
 
+
 public:
-    uint32_t mEmpCount;
-
-
     void addEmployee(EmpDetails empDetailsParm);
     void removeEmployee(string EmpIdParm);
     void printResignedEmployees(void);

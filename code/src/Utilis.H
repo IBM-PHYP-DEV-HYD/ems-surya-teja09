@@ -115,9 +115,14 @@ struct EmpDetails
     string mDoj;
     string mDol;
     int mGender;
-    uint8_t mEmpStatus;
+    int mEmpStatus;
     string mEmpId;
     int mEmpType;
+    int mLeavesAvailed;
+    int mLevesLeft;
+    int mExtAgency;
+    Ems::HiringFromColleges mHiringCollege;
+    Ems::HiringFromBranches mHiringBranch;
 };
 
 #pragma once
@@ -128,9 +133,10 @@ struct InternDetails
 };
 
 int getRandomNumber(int startNumParm, int endNumParm);
-void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm);
+void getRandomizedEmpBasicDetails(EmpDetails* empDetailsParm);
 int getRandomizedEmployeeAgency(void);
-void getRandomizedInternDetails(InternDetails *InternDetailsParm);
+string getFullTimeEmpId(void);
+void getRandomizedInternDetails(InternDetails *internDetailsParm);
 void printmainmenu(void);
 void printEmployeeOption(void);
 void printemployeetypemenu(void);

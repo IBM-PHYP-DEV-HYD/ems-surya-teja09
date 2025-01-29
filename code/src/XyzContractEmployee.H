@@ -10,13 +10,21 @@ class XyzContractEmployee : public XyzEmployeeImpl
 protected:
     int mExtAgency;
 public:
-    XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
+    XyzContractEmployee(string empNameParm, 
+                        string empIdParm, 
+                        int empStatusParm, 
+                        int empTypeParm, 
+                        int empGenderParm, 
+                        string dobParm, 
+                        string dojParm, 
+                        string dolParm,
+                        int extAgencyParm);
     Ems::ExternalAgency getExtAgency(void);
     InternDetails getInternSpecificDetails(void);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(void);
+    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
     void printParticularEmployeeSummary(void);
 };
 

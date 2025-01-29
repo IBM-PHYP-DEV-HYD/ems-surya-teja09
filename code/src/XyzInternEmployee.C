@@ -1,12 +1,30 @@
 #include "XyzInternEmployee.H"
 
-XyzInternEmployee::XyzInternEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
-                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm) 
+XyzInternEmployee::XyzInternEmployee(string empNameParm, 
+                                     string empIdParm, 
+                                     int empStatusParm, 
+                                     int empTypeParm, 
+                                     int empGenderParm, 
+                                     string dobParm, 
+                                     string dojParm,
+                                     string dolParm,
+                                     Ems::HiringFromColleges hiringCollegeParm,
+                                     Ems::HiringFromBranches hiringBranchParm):
+XyzEmployeeImpl(empNameParm, 
+                empIdParm, 
+                empStatusParm, 
+                empTypeParm, 
+                empGenderParm, 
+                dobParm, 
+                dojParm,
+                dolParm),
+                mHiringCollege(hiringCollegeParm),
+                mHiringBranch(hiringBranchParm)
 {
-    InternDetails sInternDetails;
-    getRandomizedInternDetails(&sInternDetails);
-    mHiringCollege = sInternDetails.mHiringCollege;
-    mHiringBranch = sInternDetails.mHiringBranch;   
+    //InternDetails sInternDetails;
+    //getRandomizedInternDetails(&sInternDetails);
+    //mHiringCollege = sInternDetails.mHiringCollege;
+    //mHiringBranch = sInternDetails.mHiringBranch;   
 }
 
 InternDetails XyzInternEmployee::getInternSpecificDetails(void)
@@ -44,26 +62,26 @@ void XyzInternEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(189) << "-" << endl;
     cout << left
-         << "| Employee Name     "
-         << "| ID        "
+         << "| Employee Name      "
+         << "| ID       "
          << "| Type             "
-         << "| Status         "
-         << "| Gender      "
-         << "| Date of Birth       "
-         << "| Date of Joining    "
-         << "| Date of Leaving    "
-         << "| Hiring Branch      "
-         << "| Hiring College     |" << endl;
+         << "| Status           "
+         << "| Gender           "
+         << "| Date of Birth    "
+         << "| Date of Joining  "
+         << "| Date of Leaving  "
+         << "| Hiring Branch    "
+         << "| Hiring College  |" << endl;
     cout << setfill('-') << setw(189) << "-" << endl;
     cout << setfill(' ') << setw(189) << " " << endl;
 }
 
 
-void XyzInternEmployee::printEmpSpecificDetails(void)
+void XyzInternEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
-    XyzEmployeeImpl::printEmpSpecificDetails();
-    mEmsPrint.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
-    mEmsPrint.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
-    mEmsPrint.printAll();
+    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);
+    emsPrintParm.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
+    emsPrintParm.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
+    //mEmsPrint.printAll();
 }
 

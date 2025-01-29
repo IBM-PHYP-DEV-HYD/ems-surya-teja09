@@ -1,15 +1,33 @@
 #include "XyzFullTimeEmployee.H"
 
-XyzFullTimeEmployee::XyzFullTimeEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
-                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm)   
+XyzFullTimeEmployee::XyzFullTimeEmployee(string empNameParm, 
+                                         string empIdParm, 
+                                         int empStatusParm, 
+                                         int empTypeParm, 
+                                         int empGenderParm, 
+                                         string dobParm, 
+                                         string dojParm,
+                                         string dolParm,
+                                         int leavesAvailedParm,
+                                         int leavesLeftParm):
+XyzEmployeeImpl(empNameParm, 
+                empIdParm, 
+                empStatusParm, 
+                empTypeParm, 
+                empGenderParm, 
+                dobParm, 
+                dojParm,
+                dolParm), 
+                mLeavesAvailed(leavesAvailedParm),
+                mLevesLeft(leavesLeftParm) 
 {
-    mLeavesAvailed = getRandomNumber(1, 22);   
-    mLevesLeft = 22 - mLeavesAvailed;
+    //mLeavesAvailed = getRandomNumber(1, 22);   
+    //mLevesLeft = 22 - mLeavesAvailed;
 }
 
-void XyzFullTimeEmployee::setLeaveDetails(int LeavesAvailedParm)
+void XyzFullTimeEmployee::setLeaveDetails(int leavesAvailedParm)
 {
-    mLeavesAvailed = LeavesAvailedParm;
+    mLeavesAvailed = leavesAvailedParm;
     mLevesLeft = 22 - mLeavesAvailed;
 }
 
@@ -48,29 +66,29 @@ void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(187) << "-" << endl;
     cout << left
-         << "| Employee Name     "
-         << "| ID        "
+         << "| Employee Name      "
+         << "| ID       "
          << "| Type             "
-         << "| Status         "
-         << "| Gender      "
-         << "| Date of Birth       "
-         << "| Date of Joining    "
-         << "| Date of Leaving    "
-         << "| Leaves Availed      "
+         << "| Status           "
+         << "| Gender           "
+         << "| Date of Birth    "
+         << "| Date of Joining  "
+         << "| Date of Leaving  "
+         << "| Leaves Availed   "
          << "| Leaves Left     |" << endl;
     cout << setfill('-') << setw(187) << "-" << endl;
     cout << setfill(' ') << setw(187) << " " << endl;
 }
 
 
-void XyzFullTimeEmployee::printEmpSpecificDetails(void)
+void XyzFullTimeEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
-    XyzEmployeeImpl::printEmpSpecificDetails();   
-    mEmsPrint.mEmpNol = to_string(mLevesLeft);
-    mEmsPrint.printAll();
+    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);   
+    emsPrintParm.mEmpNol = to_string(mLevesLeft);
+    //mEmsPrint.printAll();
 }
 
-void XyzFullTimeEmployee::addLeavestoFullTimeEmp(int LeavesLeftParm)
+void XyzFullTimeEmployee::addLeavestoFullTimeEmp(int leavesLeftParm)
 {
-    mLevesLeft = LeavesLeftParm;
+    mLevesLeft = leavesLeftParm;
 }

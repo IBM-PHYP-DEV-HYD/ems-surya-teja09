@@ -12,13 +12,22 @@ protected:
     Ems::HiringFromBranches mHiringBranch; 
 
 public:
-    XyzInternEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm);
+    XyzInternEmployee(string empNameParm, 
+                      string empIdParm, 
+                      int empStatusParm, 
+                      int empTypeParm, 
+                      int empGenderParm, 
+                      string dobParm, 
+                      string dojParm, 
+                      string dolParm,
+                      Ems::HiringFromColleges hiringCollegeParm,
+                      Ems::HiringFromBranches hiringBranchParm);
     InternDetails getInternSpecificDetails(void);
     Ems::ExternalAgency getExtAgency(void);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(void);
+    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
     void printParticularEmployeeSummary(void);
 };
 

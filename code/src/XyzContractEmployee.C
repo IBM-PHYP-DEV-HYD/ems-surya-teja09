@@ -1,9 +1,25 @@
 #include "XyzContractEmployee.H"
 
-XyzContractEmployee::XyzContractEmployee(string EmpNameParm, string EmpIdParm, int EmpStatusParm, int EmpTypeParm, int EmpGenderParm, string DobParm, string DojParm):
-                     XyzEmployeeImpl(EmpNameParm, EmpIdParm, EmpStatusParm, EmpTypeParm, EmpGenderParm, DobParm, DojParm) 
+XyzContractEmployee::XyzContractEmployee(string empNameParm, 
+                                         string empIdParm, 
+                                         int empStatusParm, 
+                                         int empTypeParm, 
+                                         int empGenderParm, 
+                                         string dobParm, 
+                                         string dojParm,
+                                         string dolParm,
+                                         int extAgencyParm):
+XyzEmployeeImpl(empNameParm, 
+                empIdParm, 
+                empStatusParm, 
+                empTypeParm, 
+                empGenderParm, 
+                dobParm, 
+                dojParm,
+                dolParm),
+                mExtAgency(extAgencyParm)
 {
-    mExtAgency = getRandomizedEmployeeAgency();   
+    //mExtAgency = getRandomizedEmployeeAgency();   
 }
 
 Ems::ExternalAgency XyzContractEmployee::getExtAgency(void)
@@ -40,24 +56,24 @@ void XyzContractEmployee::printEmpSpecificHeader(void)
 {
     cout << setfill('-') << setw(165) << "-" << endl;
     cout << left
-         << "| Employee Name     "
-         << "| ID        "
+         << "| Employee Name      "
+         << "| ID       "
          << "| Type             "
-         << "| Status         "
-         << "| Gender      "
-         << "| Date of Birth       "
-         << "| Date of Joining    "
-         << "| Date of Leaving    "
+         << "| Status           "
+         << "| Gender           "
+         << "| Date of Birth    "
+         << "| Date of Joining  "
+         << "| Date of Leaving  "
          << "| Agency          |" << endl;
     cout << setfill('-') << setw(165) << "-" << endl;
     cout << setfill(' ') << setw(165) << " " << endl;
 }
 
 
-void XyzContractEmployee::printEmpSpecificDetails(void)
+void XyzContractEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 { 
-    XyzEmployeeImpl::printEmpSpecificDetails();
-    mEmsPrint.mEmpAgency = getAgencyFromEnum(mExtAgency);
+    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);
+    emsPrintParm.mEmpAgency = getAgencyFromEnum(mExtAgency);
 
-    mEmsPrint.printAll();
+    //mEmsPrint.printAll();
 }

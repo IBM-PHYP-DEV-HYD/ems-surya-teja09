@@ -19,6 +19,11 @@ Ems::HiringFromColleges HiringCollege[7] = {Ems::HiringFromColleges::IIT_DELHI, 
                                             Ems::HiringFromColleges::NIT_WARANGAL, Ems::HiringFromColleges::NIT_TIRUCHI, 
                                             Ems::HiringFromColleges::IIIT_HYDERABAD};
 
+
+uint32_t fullTimeEmpCount = 0;
+uint32_t contractEmpCount = 0;
+uint32_t internEmpCount = 0;
+
 int getRandomNumber(int startNumParm, int endNumParm)
 {
     random_device sRandomDevice;
@@ -28,27 +33,31 @@ int getRandomNumber(int startNumParm, int endNumParm)
     return sRandomNumber;
 }
 
-void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSeriesNumParm)
+#if 0
+void getRandomizedEmpBasicDetails(EmpDetails* empDetailsParm)
 {
-    EmpDetailsParm->mEmpName = EmpNames[getRandomNumber(0, 50)];
+    empDetailsParm->mEmpName = EmpNames[getRandomNumber(0, 50)];
 
-    EmpDetailsParm->mDob = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(1960, 2000));
+    empDetailsParm->mDob = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(1960, 2000));
 
-    EmpDetailsParm->mDoj = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(2001, 2024));
+    empDetailsParm->mDoj = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(2001, 2024));
 
-    EmpDetailsParm->mEmpStatus = getRandomNumber(1, 2);
+    empDetailsParm->mEmpStatus = getRandomNumber(1, 2);
 
-    if(EmpDetailsParm->mEmpType == Ems::EmployeeType::FULL_TIME)
+    if(empDetailsParm->mEmpType == Ems::EmployeeType::FULL_TIME)
     {
-        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "F";
+        empDetailsParm->mEmpId = "XYZ" + to_string(fullTimeEmpCount * 0.000001).substr(4) + "F";
+        fullTimeEmpCount++;
     }
-    else if(EmpDetailsParm->mEmpType == Ems::EmployeeType::CONTRACT)
+    else if(empDetailsParm->mEmpType == Ems::EmployeeType::CONTRACT)
     {
-        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "C";
+        empDetailsParm->mEmpId = "XYZ" + to_string(contractEmpCount * 0.000001).substr(4) + "C";
+        contractEmpCount++;
     } 
-    else if(EmpDetailsParm->mEmpType == Ems::EmployeeType::INTERN)
+    else if(empDetailsParm->mEmpType == Ems::EmployeeType::INTERN)
     {
-        EmpDetailsParm->mEmpId = "XYZ" + to_string(mEmpIdSeriesNumParm * 0.000001).substr(4) + "I";
+        empDetailsParm->mEmpId = "XYZ" + to_string(internEmpCount * 0.000001).substr(4) + "I";
+        internEmpCount++;
     }
     else
     {
@@ -59,24 +68,97 @@ void getRandomizedEmpBasicDetails(EmpDetails* EmpDetailsParm, uint32_t mEmpIdSer
 
     if(sResult < 10)
     {
-        EmpDetailsParm->mGender = 1;            // Male employee
+        empDetailsParm->mGender = 1;            // Male employee
     }
     else
     {
-        EmpDetailsParm->mGender = 2;            // Female employee
+        empDetailsParm->mGender = 2;            // Female employee
     }    
 }
+#endif
+
+#include <iostream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+void getRandomizedEmpBasicDetails(EmpDetails* empDetailsParm)
+{
+    empDetailsParm->mEmpName = EmpNames[getRandomNumber(0, 50)];
+
+    empDetailsParm->mDob = to_string(getRandomNumber(1, 30)) + " " + Months[getRandomNumber(0,11)] + " " + to_string(getRandomNumber(1960, 2000));
+
+    int joiningDay = getRandomNumber(1, 30);
+    int joiningMonthIndex = getRandomNumber(0,11);
+    int joiningYear = getRandomNumber(2001, 2024);
+
+    empDetailsParm->mDoj = to_string(joiningDay) + " " + Months[joiningMonthIndex] + " " + to_string(joiningYear);
+
+    empDetailsParm->mDol = empDetailsParm->mDoj;
+
+    empDetailsParm->mEmpStatus = getRandomNumber(1, 2);
+
+    if(empDetailsParm->mEmpType == Ems::EmployeeType::FULL_TIME)
+    {
+        empDetailsParm->mEmpId = "XYZ" + to_string(fullTimeEmpCount * 0.000001).substr(4) + "F";
+        fullTimeEmpCount++;
+
+        empDetailsParm->mDol = "NA";
+        empDetailsParm->mLevesLeft = 22;
+        empDetailsParm->mLeavesAvailed = 0;
+    }
+    else if(empDetailsParm->mEmpType == Ems::EmployeeType::CONTRACT)
+    {
+        empDetailsParm->mEmpId = "XYZ" + to_string(contractEmpCount * 0.000001).substr(4) + "C";
+        contractEmpCount++;
+
+        int leavingYear = joiningYear + 1; 
+        empDetailsParm->mDol = to_string(joiningDay) + " " + Months[joiningMonthIndex] + " " + to_string(leavingYear);
+        empDetailsParm->mExtAgency = getRandomizedEmployeeAgency();
+    } 
+    else if(empDetailsParm->mEmpType == Ems::EmployeeType::INTERN)
+    {
+        empDetailsParm->mEmpId = "XYZ" + to_string(internEmpCount * 0.000001).substr(4) + "I";
+        internEmpCount++;
+
+        int leavingMonthIndex = joiningMonthIndex + 6; 
+
+        if (leavingMonthIndex >= 12) {
+            leavingMonthIndex -= 12;
+            joiningYear += 1;
+        }
+
+        empDetailsParm->mDol = to_string(joiningDay) + " " + Months[leavingMonthIndex] + " " + to_string(joiningYear);
+
+        empDetailsParm->mHiringBranch  = HiringBranch[getRandomNumber(0,2)];
+        empDetailsParm->mHiringCollege = HiringCollege[getRandomNumber(0,6)];
+    }
+
+    int sResult = getRandomNumber(1, 20);
+    empDetailsParm->mGender = (sResult < 10) ? 1 : 2;
+}
+
+
+string getFullTimeEmpId(void)
+{
+    string sEmpId;
+    sEmpId = "XYZ" + to_string(fullTimeEmpCount * 0.000001).substr(4) + "F";
+    fullTimeEmpCount++;
+    return sEmpId;
+}
+
 
 int getRandomizedEmployeeAgency(void)
 {
     return getRandomNumber(0,2);
 }
 
-void getRandomizedInternDetails(InternDetails *InternDetailsParm)
+void getRandomizedInternDetails(InternDetails *internDetailsParm)
 {
-    InternDetailsParm->mHiringBranch = HiringBranch[getRandomNumber(0,2)];
+    internDetailsParm->mHiringBranch = HiringBranch[getRandomNumber(0,2)];
 
-    InternDetailsParm->mHiringCollege = HiringCollege[getRandomNumber(0,6)];
+    internDetailsParm->mHiringCollege = HiringCollege[getRandomNumber(0,6)];
 }
 
 string getAgencyFromEnum(int extAgencyParm)

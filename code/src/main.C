@@ -29,7 +29,7 @@ int main()
                     sEmpDetails.mEmpType = getRandomNumber(1,3);
                 }
 
-                getRandomizedEmpBasicDetails(&sEmpDetails, sXyzEmpMgr.mEmpCount);
+                getRandomizedEmpBasicDetails(&sEmpDetails);
 
                 if(sInput == Ems::AddEmployee::USER_DEFINED)
                 {
