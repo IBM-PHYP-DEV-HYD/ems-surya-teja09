@@ -19,7 +19,7 @@ XyzEmployeeImpl(empNameParm,
                 dolParm),
                 mExtAgency(extAgencyParm)
 {
-    //mExtAgency = getRandomizedEmployeeAgency();   
+ 
 }
 
 Ems::ExternalAgency XyzContractEmployee::getExtAgency(void)

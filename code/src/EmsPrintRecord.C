@@ -12,7 +12,8 @@ void EmsPrintRecord::printAll()
     cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpDol;
     if(mPrintAllVar == true)
     {
-        cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNol;
+        cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNola;
+        cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNol;    
         cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpAgency;
         cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpCollege;
         cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpBranch;
@@ -21,6 +22,7 @@ void EmsPrintRecord::printAll()
     {
         if(mEmpType == "FULL_TIME")
         {
+            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNola;
             cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpNol;
         }
         else if(mEmpType == "CONTRACT")

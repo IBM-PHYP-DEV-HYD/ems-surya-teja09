@@ -21,10 +21,7 @@ XyzEmployeeImpl(empNameParm,
                 mHiringCollege(hiringCollegeParm),
                 mHiringBranch(hiringBranchParm)
 {
-    //InternDetails sInternDetails;
-    //getRandomizedInternDetails(&sInternDetails);
-    //mHiringCollege = sInternDetails.mHiringCollege;
-    //mHiringBranch = sInternDetails.mHiringBranch;   
+ 
 }
 
 InternDetails XyzInternEmployee::getInternSpecificDetails(void)

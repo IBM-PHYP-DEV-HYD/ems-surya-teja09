@@ -217,4 +217,5 @@ void XyzEmployeeImpl::printEmployeeSummary(EmsPrintRecord &emsPrintParm)
     emsPrintParm.mEmpBranch = getHiringBranchFromEnum(sInternDetails.mHiringBranch);
     emsPrintParm.mEmpCollege = getHiringCollegeFromEnum(sInternDetails.mHiringCollege);
     emsPrintParm.mEmpNol =  sLeavesLeft;
+    emsPrintParm.mEmpNola = sLeavesAvailed;
 }

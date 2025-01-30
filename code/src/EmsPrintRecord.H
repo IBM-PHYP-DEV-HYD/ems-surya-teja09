@@ -23,6 +23,7 @@ public:
     string mEmpDoj; /* Date of Joining */
     string mEmpDol; /* Date of Leaving */
     string mEmpNol; /* Number of Leaves */
+    string mEmpNola; /* Number of Leaves availed */
     string mEmpAgency;
     string mEmpCollege;
     string mEmpBranch;

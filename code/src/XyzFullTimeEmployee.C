@@ -21,8 +21,7 @@ XyzEmployeeImpl(empNameParm,
                 mLeavesAvailed(leavesAvailedParm),
                 mLevesLeft(leavesLeftParm) 
 {
-    //mLeavesAvailed = getRandomNumber(1, 22);   
-    //mLevesLeft = 22 - mLeavesAvailed;
+
 }
 
 void XyzFullTimeEmployee::setLeaveDetails(int leavesAvailedParm)
@@ -85,6 +84,8 @@ void XyzFullTimeEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
     XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);   
     emsPrintParm.mEmpNol = to_string(mLevesLeft);
+    emsPrintParm.mEmpNola = to_string(mLeavesAvailed);
+    
     //mEmsPrint.printAll();
 }
 
