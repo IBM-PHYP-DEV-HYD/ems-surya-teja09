@@ -34,7 +34,6 @@ public:
     void searchEmployeeByName(string EmpNameParm);
     void searchEmployeeById(string EmpIdParm);
     void printEmployeeDetails(int empFilterTypeParm, int empFilterValueParm);
-    //void printParticularEmployeeSummary(void);
     void addEmptoResignedQueue(Node<XyzEmployeeIF*>* ResignedEmpParm);
     XyzEmployeeManager();
 };

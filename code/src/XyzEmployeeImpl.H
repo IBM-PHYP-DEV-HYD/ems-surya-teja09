@@ -33,15 +33,15 @@ public:
     int getEmployeeStatus(void);
     int getEmployeeType(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
-    void printEmployeeSummary(EmsPrintRecord &emsPrintParm);
+    void fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
+    void fillEmployeeSummary(EmsPrintRecord &emsPrintParm);
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmployeeSummaryHeader(void);
     void printParticularEmployeeSummary(void);
     void addLeavestoFullTimeEmp(int leavesLeftParm);
     void printResignedEmployeeSummaryHeader(void);
-    void prinResignedEmployeeSummary(void);
+    void prinResignedEmployeeSummary(EmsPrintRecord &emsPrintParm);
     string getEmployeeName(void);
     string getDateOfBirth();
     int getGender();

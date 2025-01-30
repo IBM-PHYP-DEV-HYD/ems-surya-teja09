@@ -27,8 +27,9 @@ public:
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
+    void fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
     void printParticularEmployeeSummary(void);
+    void setDateOfLeaving(string dolParm);
 };
 
 #endif

@@ -22,18 +22,19 @@ public:
     virtual string getEmployeeLeavesLeft(void) = 0;
     virtual void addLeavestoFullTimeEmp(int leavesLeftParm) = 0;
     virtual void printEmpSpecificHeader(void) = 0;
-    virtual void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm) = 0;
-    virtual void printEmployeeSummary(EmsPrintRecord &emsPrintParm) = 0;
+    virtual void fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm) = 0;
+    virtual void fillEmployeeSummary(EmsPrintRecord &emsPrintParm) = 0;
     virtual void printEmployeeSummaryHeader(void) = 0;
     virtual void printResignedEmployeeSummaryHeader(void) = 0;
     virtual void printParticularEmployeeSummary(void) = 0;
-    virtual void prinResignedEmployeeSummary(void) = 0;
+    virtual void prinResignedEmployeeSummary(EmsPrintRecord &emsPrintParm) = 0;
     virtual string getEmployeeName(void) = 0; 
     virtual void setEmployeeStatus(int employeeStatusParm) = 0;
     virtual string getDateOfBirth() = 0;
     virtual int getGender() = 0;
     virtual string getDateOfJoining() = 0;
     virtual string getDateOfLeaving() = 0;
+    virtual void setDateOfLeaving(string dolParm) = 0;
     ~XyzEmployeeIF();
 };
 

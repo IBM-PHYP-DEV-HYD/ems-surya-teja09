@@ -9,17 +9,17 @@ XyzInternEmployee::XyzInternEmployee(string empNameParm,
                                      string dojParm,
                                      string dolParm,
                                      Ems::HiringFromColleges hiringCollegeParm,
-                                     Ems::HiringFromBranches hiringBranchParm):
-XyzEmployeeImpl(empNameParm, 
-                empIdParm, 
-                empStatusParm, 
-                empTypeParm, 
-                empGenderParm, 
-                dobParm, 
-                dojParm,
-                dolParm),
-                mHiringCollege(hiringCollegeParm),
-                mHiringBranch(hiringBranchParm)
+                                     Ems::HiringFromBranches hiringBranchParm)
+:XyzEmployeeImpl(empNameParm 
+                ,empIdParm 
+                ,empStatusParm
+                ,empTypeParm 
+                ,empGenderParm 
+                ,dobParm 
+                ,dojParm
+                ,dolParm)
+,mHiringCollege(hiringCollegeParm)
+,mHiringBranch(hiringBranchParm)
 {
  
 }
@@ -57,28 +57,32 @@ void XyzInternEmployee::printParticularEmployeeSummary(void)
 
 void XyzInternEmployee::printEmpSpecificHeader(void)
 {
-    cout << setfill('-') << setw(189) << "-" << endl;
-    cout << left
-         << "| Employee Name      "
-         << "| ID       "
-         << "| Type             "
-         << "| Status           "
-         << "| Gender           "
-         << "| Date of Birth    "
-         << "| Date of Joining  "
-         << "| Date of Leaving  "
-         << "| Hiring Branch    "
-         << "| Hiring College  |" << endl;
-    cout << setfill('-') << setw(189) << "-" << endl;
-    cout << setfill(' ') << setw(189) << " " << endl;
+    cout << setfill('-') << setw(190) << "-" << endl;
+    cout << "| "<< left << setw(20) << setfill(' ') <<"Employee Name";
+    cout << "| "<< left << setw(10) << setfill(' ') <<"ID";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Type";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Status";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Gender";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Birth";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Joining";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Leaving";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Hiring Branch";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Hiring College";
+    cout << endl;
+    cout << setfill('-') << setw(190) << "-" << endl;
+    cout << setfill(' ') << setw(190) << " " << endl;
 }
 
 
-void XyzInternEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
+void XyzInternEmployee::fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
-    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);
+    XyzEmployeeImpl::fillEmpSpecificDetails(emsPrintParm);
     emsPrintParm.mEmpCollege = getHiringCollegeFromEnum(mHiringCollege) ;  
     emsPrintParm.mEmpBranch  = getHiringBranchFromEnum(mHiringBranch); 
-    //mEmsPrint.printAll();
+}
+
+void XyzInternEmployee::setDateOfLeaving(string dolParm)
+{
+
 }
 

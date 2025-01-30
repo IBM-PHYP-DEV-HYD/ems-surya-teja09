@@ -8,15 +8,15 @@ XyzEmployeeImpl::XyzEmployeeImpl(string empNameParm,
                                  int empGenderParm, 
                                  string dobParm, 
                                  string dojParm,
-                                 string dolParm): 
-mEmployeeName(empNameParm), 
-mEmployeeId(empIdParm), 
-mEmployeeStatus(empStatusParm), 
-mEmployeeType(empTypeParm), 
-mGender(empGenderParm), 
-mDateOfBirth(dobParm), 
-mDateOfJoining(dojParm),  
-mDateOfLeaving(dolParm)      
+                                 string dolParm)
+:mEmployeeName(empNameParm) 
+,mEmployeeId(empIdParm) 
+,mEmployeeStatus(empStatusParm)
+,mEmployeeType(empTypeParm) 
+,mGender(empGenderParm) 
+,mDateOfBirth(dobParm) 
+,mDateOfJoining(dojParm)  
+,mDateOfLeaving(dolParm)      
 {
 
 }
@@ -104,7 +104,7 @@ void XyzEmployeeImpl::printEmpSpecificHeader(void)
 
 }
 
-void XyzEmployeeImpl::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
+void XyzEmployeeImpl::fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
     emsPrintParm.mEmpName       = mEmployeeName;
     emsPrintParm.mEmpDob        = mDateOfBirth;
@@ -145,58 +145,55 @@ void XyzEmployeeImpl::addLeavestoFullTimeEmp(int LeavesLeftParm)
 
 void XyzEmployeeImpl::printResignedEmployeeSummaryHeader(void)
 {
-    cout << setfill('-') << setw(242) << "-" << endl;
-    cout << left
-         << "| Employee Name      "
-         << "| ID       "
-         << "| Type             "
-         << "| Status           "
-         << "| Gender           "
-         << "| Date of Birth    "
-         << "| Date of Joining  "
-         << "| Date of Leaving |" << endl;
-    cout << setfill('-') << setw(242) << "-" << endl;
-    cout << setfill(' ') << setw(242) << " " << endl;          
+    cout << setfill('-') << setw(152) << "-" << endl;
+    cout << "| "<< left << setw(20) << setfill(' ') <<"Employee Name";
+    cout << "| "<< left << setw(10) << setfill(' ') <<"ID";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Type";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Status";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Gender";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Birth";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Joining";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Leaving";
+    cout << endl;     
+    cout << setfill('-') << setw(152) << "-" << endl;
+    cout << setfill(' ') << setw(152) << " " << endl;    
 }
 
-void XyzEmployeeImpl::prinResignedEmployeeSummary(void)
+void XyzEmployeeImpl::prinResignedEmployeeSummary(EmsPrintRecord &emsPrintParm)
 {
-    cout << left
-         << "| " << setw(18) << mEmployeeName
-         << "| " << setw(10) << mEmployeeId
-         << "| " << setw(15) << "RESIGNED"
-         << "| " << setw(12) << getGenderFromEnum(mGender)
-         << "| " << setw(20) << mDateOfBirth 
-         << "| " << setw(19) << mDateOfBirth
-         << "| " << setw(19) << mDateOfBirth
-         << "|" << endl;
-
-    cout << setfill(' ') << setw(187) << " " << endl;
+    emsPrintParm.mEmpName       = mEmployeeName;
+    emsPrintParm.mEmpDob        = mDateOfBirth;
+    emsPrintParm.mEmpDoj        = mDateOfJoining;
+    emsPrintParm.mEmpDol        = mDateOfLeaving;
+    emsPrintParm.mEmpGender     = getGenderFromEnum(mGender);
+    emsPrintParm.mEmpid         = mEmployeeId;
+    emsPrintParm.mEmpStatus     = getEmpStatusFromEnum(mEmployeeStatus);
+    emsPrintParm.mEmpType       = getTypeFromEnum(mEmployeeType);
 }
 
 void XyzEmployeeImpl::printEmployeeSummaryHeader(void)
 {
-    cout << setfill('-') << setw(242) << "-" << endl;
-    cout << left
-         << "| Employee Name      "
-         << "| ID       "
-         << "| Type             "
-         << "| Status           "
-         << "| Gender           "
-         << "| Date of Birth    "
-         << "| Date of Joining  "
-         << "| Date of Leaving  "
-         << "| Leaves Availed   "
-         << "| Leaves Left      " 
-         << "| Agency           " 
-         << "| Hiring College   "
-         << "| Hiring Branch   |"<< endl;
-    cout << setfill('-') << setw(242) << "-" << endl;
-    cout << setfill(' ') << setw(242) << " " << endl;   
+    cout << setfill('-') << setw(252) << "-" << endl;
+    cout << "| "<< left << setw(20) << setfill(' ') <<"Employee Name";
+    cout << "| "<< left << setw(10) << setfill(' ') <<"ID";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Type";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Status";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Gender";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Birth";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Joining";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Leaving";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Leaves Availed";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Leaves Left";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Agency";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Hiring Branch";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Hiring College";
+    cout << endl;
+    cout << setfill('-') << setw(252) << "-" << endl;
+    cout << setfill(' ') << setw(252) << " " << endl;
 }
 
 
-void XyzEmployeeImpl::printEmployeeSummary(EmsPrintRecord &emsPrintParm)
+void XyzEmployeeImpl::fillEmployeeSummary(EmsPrintRecord &emsPrintParm)
 {
     emsPrintParm.mEmpName       = mEmployeeName;
     emsPrintParm.mEmpDob        = mDateOfBirth;

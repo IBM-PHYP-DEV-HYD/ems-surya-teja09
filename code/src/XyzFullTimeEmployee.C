@@ -9,17 +9,17 @@ XyzFullTimeEmployee::XyzFullTimeEmployee(string empNameParm,
                                          string dojParm,
                                          string dolParm,
                                          int leavesAvailedParm,
-                                         int leavesLeftParm):
-XyzEmployeeImpl(empNameParm, 
-                empIdParm, 
-                empStatusParm, 
-                empTypeParm, 
-                empGenderParm, 
-                dobParm, 
-                dojParm,
-                dolParm), 
-                mLeavesAvailed(leavesAvailedParm),
-                mLevesLeft(leavesLeftParm) 
+                                         int leavesLeftParm)
+:XyzEmployeeImpl(empNameParm 
+                ,empIdParm 
+                ,empStatusParm 
+                ,empTypeParm 
+                ,empGenderParm 
+                ,dobParm 
+                ,dojParm
+                ,dolParm) 
+,mLeavesAvailed(leavesAvailedParm)
+,mLeavesLeft(leavesLeftParm) 
 {
 
 }
@@ -27,7 +27,7 @@ XyzEmployeeImpl(empNameParm,
 void XyzFullTimeEmployee::setLeaveDetails(int leavesAvailedParm)
 {
     mLeavesAvailed = leavesAvailedParm;
-    mLevesLeft = 22 - mLeavesAvailed;
+    mLeavesLeft = 22 - mLeavesAvailed;
 }
 
 string XyzFullTimeEmployee::getEmployeeLeavesAvailed(void)
@@ -37,7 +37,7 @@ string XyzFullTimeEmployee::getEmployeeLeavesAvailed(void)
 
 string XyzFullTimeEmployee::getEmployeeLeavesLeft(void)
 {
-    return to_string(mLevesLeft);
+    return to_string(mLeavesLeft);
 }
 
 Ems::ExternalAgency XyzFullTimeEmployee::getExtAgency(void)
@@ -58,38 +58,41 @@ void XyzFullTimeEmployee::printParticularEmployeeSummary(void)
 {
     XyzEmployeeImpl::printParticularEmployeeSummary();
     cout <<  " Leaves Availed  : " << mLeavesAvailed << endl;  
-    cout <<  " Leaves Left     : " << mLevesLeft << endl;  
+    cout <<  " Leaves Left     : " << mLeavesLeft << endl;  
 }
 
 void XyzFullTimeEmployee::printEmpSpecificHeader(void)
 {
-    cout << setfill('-') << setw(187) << "-" << endl;
-    cout << left
-         << "| Employee Name      "
-         << "| ID       "
-         << "| Type             "
-         << "| Status           "
-         << "| Gender           "
-         << "| Date of Birth    "
-         << "| Date of Joining  "
-         << "| Date of Leaving  "
-         << "| Leaves Availed   "
-         << "| Leaves Left     |" << endl;
-    cout << setfill('-') << setw(187) << "-" << endl;
-    cout << setfill(' ') << setw(187) << " " << endl;
+    cout << setfill('-') << setw(188) << "-" << endl;
+    cout << "| "<< left << setw(20) << setfill(' ') <<"Employee Name";
+    cout << "| "<< left << setw(10) << setfill(' ') <<"ID";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Type";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Status";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Gender";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Birth";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Joining";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Leaving";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Leaves Availed";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Leaves Left";
+    cout << endl;
+    cout << setfill('-') << setw(188) << "-" << endl;
+    cout << setfill(' ') << setw(188) << " " << endl;
 }
 
 
-void XyzFullTimeEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
+void XyzFullTimeEmployee::fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 {
-    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);   
-    emsPrintParm.mEmpNol = to_string(mLevesLeft);
+    XyzEmployeeImpl::fillEmpSpecificDetails(emsPrintParm);   
+    emsPrintParm.mEmpNol = to_string(mLeavesLeft);
     emsPrintParm.mEmpNola = to_string(mLeavesAvailed);
-    
-    //mEmsPrint.printAll();
 }
 
 void XyzFullTimeEmployee::addLeavestoFullTimeEmp(int leavesLeftParm)
 {
-    mLevesLeft = leavesLeftParm;
+    mLeavesLeft = leavesLeftParm;
+}
+
+void XyzFullTimeEmployee::setDateOfLeaving(string dolParm)
+{
+    mDateOfLeaving = dolParm;
 }

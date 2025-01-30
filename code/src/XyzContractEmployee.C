@@ -8,16 +8,16 @@ XyzContractEmployee::XyzContractEmployee(string empNameParm,
                                          string dobParm, 
                                          string dojParm,
                                          string dolParm,
-                                         int extAgencyParm):
-XyzEmployeeImpl(empNameParm, 
-                empIdParm, 
-                empStatusParm, 
-                empTypeParm, 
-                empGenderParm, 
-                dobParm, 
-                dojParm,
-                dolParm),
-                mExtAgency(extAgencyParm)
+                                         int extAgencyParm)
+:XyzEmployeeImpl(empNameParm 
+                ,empIdParm 
+                ,empStatusParm 
+                ,empTypeParm 
+                ,empGenderParm 
+                ,dobParm
+                ,dojParm
+                ,dolParm)
+,mExtAgency(extAgencyParm)
 {
  
 }
@@ -54,26 +54,28 @@ void XyzContractEmployee::printParticularEmployeeSummary(void)
 
 void XyzContractEmployee::printEmpSpecificHeader(void)
 {
-    cout << setfill('-') << setw(165) << "-" << endl;
-    cout << left
-         << "| Employee Name      "
-         << "| ID       "
-         << "| Type             "
-         << "| Status           "
-         << "| Gender           "
-         << "| Date of Birth    "
-         << "| Date of Joining  "
-         << "| Date of Leaving  "
-         << "| Agency          |" << endl;
-    cout << setfill('-') << setw(165) << "-" << endl;
-    cout << setfill(' ') << setw(165) << " " << endl;
+    cout << setfill('-') << setw(172) << "-" << endl;
+    cout << "| "<< left << setw(20) << setfill(' ') <<"Employee Name";
+    cout << "| "<< left << setw(10) << setfill(' ') <<"ID";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Type";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Status";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Gender";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Birth";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Joining";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Date of Leaving";
+    cout << "| "<< left << setw(18) << setfill(' ') <<"Agency";
+    cout << endl;
+    cout << setfill('-') << setw(172) << "-" << endl;
+    cout << setfill(' ') << setw(172) << " " << endl;
 }
 
-
-void XyzContractEmployee::printEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
+void XyzContractEmployee::fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm)
 { 
-    XyzEmployeeImpl::printEmpSpecificDetails(emsPrintParm);
+    XyzEmployeeImpl::fillEmpSpecificDetails(emsPrintParm);
     emsPrintParm.mEmpAgency = getAgencyFromEnum(mExtAgency);
+}
 
-    //mEmsPrint.printAll();
+void XyzContractEmployee::setDateOfLeaving(string dolParm)
+{
+
 }

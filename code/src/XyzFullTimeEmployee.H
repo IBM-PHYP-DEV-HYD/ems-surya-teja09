@@ -12,7 +12,7 @@ class XyzFullTimeEmployee : public XyzEmployeeImpl
 {
 protected:
     int mLeavesAvailed;
-    int mLevesLeft;
+    int mLeavesLeft;
 
 public:
     XyzFullTimeEmployee(string empNameParm, 
@@ -31,9 +31,10 @@ public:
     string getEmployeeLeavesAvailed(void);
     string getEmployeeLeavesLeft(void);
     void printEmpSpecificHeader(void);
-    void printEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
+    void fillEmpSpecificDetails(EmsPrintRecord &emsPrintParm);
     void printParticularEmployeeSummary(void);
     void addLeavestoFullTimeEmp(int leavesLeftParm);
+    void setDateOfLeaving(string dolParm);
 };
 
 #endif

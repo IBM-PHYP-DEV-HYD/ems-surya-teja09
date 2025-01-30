@@ -16,7 +16,7 @@ void XyzEmployeeManager::pAddFullTimeEmp(EmpDetails empDetailsParm)
                                                      empDetailsParm.mDoj,
                                                      empDetailsParm.mDol,
                                                      empDetailsParm.mLeavesAvailed,
-                                                     empDetailsParm.mLevesLeft);
+                                                     empDetailsParm.mLeavesLeft);
     mActiveEmpQueue.pushFront(sXyzEmp);
 }
 
@@ -74,6 +74,7 @@ void XyzEmployeeManager::addEmployee(EmpDetails empDetailsParm)
 void XyzEmployeeManager::addEmptoResignedQueue(Node<XyzEmployeeIF*>* resignedEmpParm)
 {
     resignedEmpParm->mdata->setEmployeeStatus(Ems::EmployeeStatus::RESIGNED);
+
     mResignedEmpQueue.pushFront(resignedEmpParm->mdata);
 }
 
@@ -87,6 +88,12 @@ void XyzEmployeeManager::removeEmployee(string empIdParm)
     {
         if(sCurrNode->mdata->getEmployeeId() == empIdParm)
         {
+            if(sCurrNode->mdata->getEmployeeType() == Ems::EmployeeType::FULL_TIME)
+            {
+                string sDateOfLeaving;
+                sDateOfLeaving = getRandomizedDol();
+                sCurrNode->mdata->setDateOfLeaving(sDateOfLeaving);
+            }
             addEmptoResignedQueue(sCurrNode);
             mActiveEmpQueue.removeNodeAtParticularPosition(sNodePos);
         }  
@@ -111,13 +118,13 @@ void XyzEmployeeManager::printEmployeesByType(int empTypeParm)
             if(sFlag == 0)
             {
                 sCurrNode->mdata->printEmpSpecificHeader();
-                sCurrNode->mdata->printEmpSpecificDetails(sEmsPrint);
+                sCurrNode->mdata->fillEmpSpecificDetails(sEmsPrint);
                 sEmsPrint.printAll();
                 sFlag = 1;
             }
             else
             {
-                sCurrNode->mdata->printEmpSpecificDetails(sEmsPrint);
+                sCurrNode->mdata->fillEmpSpecificDetails(sEmsPrint);
                 sEmsPrint.printAll();
             }
         }
@@ -138,14 +145,14 @@ void XyzEmployeeManager::printEmployeesByStatus(int empStatusParm)
             if(sFlag == 0)
             {
                 sCurrNode->mdata->printEmployeeSummaryHeader();
-                sCurrNode->mdata->printEmployeeSummary(sEmsPrint);
+                sCurrNode->mdata->fillEmployeeSummary(sEmsPrint);
                 sEmsPrint.mPrintAllVar = true;
                 sEmsPrint.printAll();
                 sFlag = 1;
             }
             else
             {
-                sCurrNode->mdata->printEmployeeSummary(sEmsPrint);
+                sCurrNode->mdata->fillEmployeeSummary(sEmsPrint);
                 sEmsPrint.mPrintAllVar = true;
                 sEmsPrint.printAll();
             }
@@ -167,14 +174,14 @@ void XyzEmployeeManager::printEmployeesByGender(int empGenderParm)
             if(sFlag == 0)
             {
                 sCurrNode->mdata->printEmployeeSummaryHeader();
-                sCurrNode->mdata->printEmployeeSummary(sEmsPrint);
+                sCurrNode->mdata->fillEmployeeSummary(sEmsPrint);
                 sEmsPrint.mPrintAllVar = true;
                 sEmsPrint.printAll();
                 sFlag = 1;
             }
             else
             {
-                sCurrNode->mdata->printEmployeeSummary(sEmsPrint);
+                sCurrNode->mdata->fillEmployeeSummary(sEmsPrint);
                 sEmsPrint.mPrintAllVar = true;
                 sEmsPrint.printAll();
             }
@@ -186,12 +193,13 @@ void XyzEmployeeManager::printEmployeesByGender(int empGenderParm)
 void XyzEmployeeManager::printResignedEmployees(void)
 {
     Node<XyzEmployeeIF*>* sCurrNode = mResignedEmpQueue.mHead;
-
+    EmsPrintRecord sEmsPrint;
     sCurrNode->mdata->printResignedEmployeeSummaryHeader();
 
     while(sCurrNode != NULL)
     {
-        sCurrNode->mdata->prinResignedEmployeeSummary();
+        sCurrNode->mdata->prinResignedEmployeeSummary(sEmsPrint);
+        sEmsPrint.printAll();
         sCurrNode = sCurrNode->mNext;
     }    
 }
@@ -204,7 +212,7 @@ void XyzEmployeeManager::printEmployeeSummary(void)
 
     while(sCurrNode != NULL)
     {
-        sCurrNode->mdata->printEmployeeSummary(sEmsPrint);
+        sCurrNode->mdata->fillEmployeeSummary(sEmsPrint);
         sEmsPrint.mPrintAllVar = true;
         sEmsPrint.printAll();
         sCurrNode = sCurrNode->mNext;
@@ -232,7 +240,7 @@ void XyzEmployeeManager::convertEmptoFullTime(string empIdParm)
                 sEmpDetails.mEmpType        = Ems::EmployeeType::FULL_TIME;
                 sEmpDetails.mDol            = "NA";
                 sEmpDetails.mLeavesAvailed  = 0;
-                sEmpDetails.mLevesLeft      = 22;
+                sEmpDetails.mLeavesLeft      = 22;
 
                 XyzFullTimeEmployee* sFullTimeEmp = new XyzFullTimeEmployee(sEmpDetails.mEmpName, 
                                                                             sEmpDetails.mEmpId, 
@@ -243,7 +251,8 @@ void XyzEmployeeManager::convertEmptoFullTime(string empIdParm)
                                                                             sEmpDetails.mDoj,
                                                                             sEmpDetails.mDol,
                                                                             sEmpDetails.mLeavesAvailed,
-                                                                            sEmpDetails.mLevesLeft);
+                                                                            sEmpDetails.mLeavesLeft);
+
                 sCurrNode->mdata = sFullTimeEmp;
             }
         }

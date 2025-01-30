@@ -20,19 +20,26 @@ void EmsPrintRecord::printAll()
     }
     else
     {
-        if(mEmpType == "FULL_TIME")
+        if(mEmpStatus != "RESIGNED")
         {
-            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNola;
-            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpNol;
+            if(mEmpType == "FULL_TIME")
+            {
+                cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')   << mEmpNola;
+                cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpNol;
+            }
+            else if(mEmpType == "CONTRACT")
+            {
+                cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpAgency;
+            }
+            else if(mEmpType == "INTERN")
+            {
+                cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpCollege;
+                cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpBranch;
+            }
         }
-        else if(mEmpType == "CONTRACT")
+        else
         {
-            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpAgency;
-        }
-        else if(mEmpType == "INTERN")
-        {
-            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpCollege;
-            cout << "| "<< left << setw(MAX_EQ_LEN) << setfill(' ')  << mEmpBranch;
+            //Do Nothing
         }
     }
     cout<<endl;

@@ -119,7 +119,7 @@ struct EmpDetails
     string mEmpId;
     int mEmpType;
     int mLeavesAvailed;
-    int mLevesLeft;
+    int mLeavesLeft;
     int mExtAgency;
     Ems::HiringFromColleges mHiringCollege;
     Ems::HiringFromBranches mHiringBranch;
@@ -149,5 +149,6 @@ string getHiringBranchFromEnum(int hiringBranchParm);
 string getEmpStatusFromEnum(int empStatusParm);
 string getGenderFromEnum(int genderParm);
 string getTypeFromEnum(int employeeTypeParm);
+string getRandomizedDol(void);
 
 #endif
